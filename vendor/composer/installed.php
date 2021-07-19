@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'v8.5.22',
-    'version' => '8.5.22.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '48d43a4c68eb72add85cd3ca3ec67b4e8fd9b7d4',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -420,6 +420,15 @@
         0 => '*',
       ),
     ),
+    'laravel/breeze' => 
+    array (
+      'pretty_version' => 'v1.3.1',
+      'version' => '1.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ad800763ace3dfa7658a44a8488d145e1f2f2a47',
+    ),
     'laravel/framework' => 
     array (
       'pretty_version' => 'v8.50.0',
@@ -431,12 +440,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'v8.5.22',
-      'version' => '8.5.22.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '48d43a4c68eb72add85cd3ca3ec67b4e8fd9b7d4',
     ),
     'laravel/sail' => 
     array (
@@ -767,8 +776,8 @@
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0',
       ),
     ),
     'psr/simple-cache' => 
