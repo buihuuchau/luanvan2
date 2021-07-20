@@ -11,7 +11,15 @@
 @section('dangxuat')
 	<ul class="navbar-nav ml-right">
       	<li class="nav-item d-none d-sm-inline-block">
-        	<a href="{{route('dangxuatquan')}}" class="nav-link">Đăng xuất</a>
+        	{{-- <a href="{{route('dangxuatquan')}}" class="nav-link">Đăng xuất</a> --}}
+			<form method="POST" action="{{ route('logout') }}">
+				@csrf
+				<x-dropdown-link :href="route('logout')"
+						onclick="event.preventDefault();
+									this.closest('form').submit();" class="nav-link">
+					{{-- {{ __('Đăng xuất') }} --}}<h5>Đăng xuất</h5>
+				</x-dropdown-link>
+			</form>
       	</li>
     </ul>
 @endsection

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use DB;
-// use App\Traits\StorageImageTrait;
 Use Alert;
 use Illuminate\Support\Facades\Redirect;
 use Session;
@@ -13,8 +12,8 @@ use Illuminate\Http\Request;
 class quanlythanhvienController extends Controller
 {
     public function quanlythanhvien(){
-        $ssidquan = Session::get('ssidquan');
-        $quan = DB::table('quan')
+        $ssidquan = auth()->user()->id;
+        $quan = DB::table('users')
                 ->where('id',$ssidquan)
                 ->first();
         $thanhvien = DB::table('thanhvien')
@@ -33,14 +32,14 @@ class quanlythanhvienController extends Controller
         return view('thanhvien.quanlythanhvien', compact('quan','thanhvien','lichlamviec','hoadon','sudung'));
     }
     public function addthanhvien(){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         $vaitro = DB::table('vaitro')
                 ->where('idquan',$ssidquan)
                 ->get();
         return view('thanhvien.addthanhvien', compact('vaitro'));
     }
     public function doaddthanhvien(Request $request){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         $thanhvien = array();
         $thanhvien['idquan'] = $ssidquan;
         $thanhvien['acc'] = $request->acc;
@@ -95,7 +94,7 @@ class quanlythanhvienController extends Controller
         }
     }
     public function editthongtinthanhvien($id){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$id)
                     ->where('thanhvien.idquan',$ssidquan)
@@ -109,7 +108,7 @@ class quanlythanhvienController extends Controller
         return view('thanhvien.editthanhvien', compact('thanhvien','vaitro'));
     }
     public function doeditthongtinthanhvien(Request $request){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         $id = $request->id;
         $thanhvien['hoten'] = $request->hoten;
         if($request->file('hinhtv')!=null){
@@ -146,7 +145,7 @@ class quanlythanhvienController extends Controller
         return back();
     }
     public function editmatkhau(Request $request){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         $thanhvien['pwd'] = md5($request->rnpwd);
         DB::table('thanhvien')
             ->where('idquan',$ssidquan)
@@ -155,7 +154,7 @@ class quanlythanhvienController extends Controller
         return back();
     }
     public function vohieuhoathanhvien($id){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         $thanhvien['hidden'] = 1;
 
         $thanhvien = DB::table('thanhvien')
@@ -166,7 +165,7 @@ class quanlythanhvienController extends Controller
         return back();
     }
     public function kichhoatthanhvien($id){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         $thanhvien['hidden'] = 0;
 
         $thanhvien = DB::table('thanhvien')
@@ -177,7 +176,7 @@ class quanlythanhvienController extends Controller
         return back();
     }
     public function deletethongtinthanhvien($id){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         DB::table('thanhvien')
             ->where('id',$id)
             ->where('idquan',$ssidquan)

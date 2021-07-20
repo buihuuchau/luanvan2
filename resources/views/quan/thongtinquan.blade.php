@@ -11,14 +11,22 @@
 @section('dangxuat')
 	<ul class="navbar-nav ml-right">
       	<li class="nav-item d-none d-sm-inline-block">
-        	<a href="{{route('dangxuatquan')}}" class="nav-link">Đăng xuất</a>
+        	{{-- <a href="{{route('logout')}}" class="nav-link">Đăng xuất</a> --}}
+			<form method="POST" action="{{ route('logout') }}">
+				@csrf
+				<x-dropdown-link :href="route('logout')"
+						onclick="event.preventDefault();
+									this.closest('form').submit();" class="nav-link">
+					{{-- {{ __('Đăng xuất') }} --}}<h5>Đăng xuất</h5>
+				</x-dropdown-link>
+			</form>
       	</li>
     </ul>
 @endsection
 @section('quan')
 	<a href="#" class="brand-link">
   		<img src="{{$quan->hinhquan}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      	<span class="brand-text font-weight-light">{{$quan->tenquan}}</span>
+      	<span class="brand-text font-weight-light">{{$quan->name}}</span>
 	</a>
 @endsection
 
@@ -35,7 +43,17 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{route('thongtinquan')}}">Thông tin quán</a></li>
-				<li class="breadcrumb-item"><a href="{{route('dangxuatquan')}}">Đăng xuất</a></li>
+				{{-- <li class="breadcrumb-item"><a href="{{route('dangxuatquan')}}">Đăng xuất</a></li> --}}
+				<li class="breadcrumb-item">
+					<form method="POST" action="{{ route('logout') }}">
+						@csrf
+						<x-dropdown-link :href="route('logout')"
+								onclick="event.preventDefault();
+											this.closest('form').submit();" class="nav-link">
+							{{ __('Đăng xuất') }}
+						</x-dropdown-link>
+					</form>
+				</li>
                 </ol>
             </div><!-- /.col -->
             </div><!-- /.row -->
@@ -75,7 +93,7 @@
 
 								<div class="form-group">
 								<label>Tên quán:</label>
-								<input required="true" type="text" class="form-control" name="tenquan" value="{{$quan->tenquan}}">
+								<input required="true" type="text" class="form-control" name="name" value="{{$quan->name}}">
 								</div>
 
 								<div class="form-group">
@@ -108,7 +126,7 @@
 							</form>		
 						</div>
 					</div>
-					<br><br><br><br><br>
+					{{-- <br><br><br><br><br>
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<h2 class="text-center">Đổi mật khẩu</h2>
@@ -139,7 +157,7 @@
 								</div>
 							</form>		
 						</div>
-					</div>
+					</div> --}}
 				</div>
 			</body>
 			</html>

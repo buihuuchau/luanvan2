@@ -52,5 +52,8 @@
                 </x-button>
             </div>
         </form>
+        <x-button class="ml-3">
+            <a href="{{route('register')}}">Đăng ký tài khoản</a>
+        </x-button>
     </x-auth-card>
 </x-guest-layout>

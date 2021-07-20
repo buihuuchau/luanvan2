@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 class quanlyvaitroController extends Controller
 {
     public function quanlyvaitro(){
-        $ssidquan = Session::get('ssidquan');
-        $quan = DB::table('quan')
+        $ssidquan = auth()->user()->id;
+        $quan = DB::table('users')
                 ->where('id', $ssidquan)
                 ->first();
 
@@ -32,8 +32,8 @@ class quanlyvaitroController extends Controller
     }
 
     public function addvaitro(){
-        $ssidquan = Session::get('ssidquan');
-        $quan = DB::table('quan')
+        $ssidquan = auth()->user()->id;
+        $quan = DB::table('users')
                 ->where('id', $ssidquan)
                 ->first();
 
@@ -44,8 +44,8 @@ class quanlyvaitroController extends Controller
     }
 
     public function doaddvaitro(Request $request){
-        $ssidquan = Session::get('ssidquan');
-        $quan = DB::table('quan')
+        $ssidquan = auth()->user()->id;
+        $quan = DB::table('users')
                 ->where('id', $ssidquan)
                 ->first();
 
@@ -182,8 +182,8 @@ class quanlyvaitroController extends Controller
         }
     }
     public function editvaitro($id){
-        $ssidquan = Session::get('ssidquan');
-        $quan = DB::table('quan')
+        $ssidquan = auth()->user()->id;
+        $quan = DB::table('users')
                 ->where('id', $ssidquan)
                 ->first();
 
@@ -205,7 +205,7 @@ class quanlyvaitroController extends Controller
     }
 
     public function doeditvaitro(Request $request){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         $quan = DB::table('quan')
                 ->where('id', $ssidquan)
                 ->first();
@@ -337,7 +337,7 @@ class quanlyvaitroController extends Controller
     }
 
     public function deletevaitro($id){
-        $ssidquan = Session::get('ssidquan');
+        $ssidquan = auth()->user()->id;
         $quan = DB::table('quan')
                 ->where('id', $ssidquan)
                 ->first();

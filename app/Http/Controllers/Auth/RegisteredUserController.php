@@ -39,11 +39,14 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $hinhquan = $request->file('hinhquan')->store('public/hinhanh');
+        $linkhinhquan = 'storage'.substr($hinhquan, 6);
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'hinhquan' => $request->hinhquan,
+            'hinhquan' => $linkhinhquan,
             'diachiquan' => $request->diachiquan,
             'website' => $request->website,
             'sdtquan' => $request->sdtquan,

@@ -15,9 +15,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -45,38 +45,44 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 // QUAN LY QUAN
 Route::prefix('/')->group(function () {
-    Route::get('/dangkyquan', [
-        'as' => 'dangkyquan',
-        'uses' => 'App\Http\Controllers\quanController@dangkyquan'
-    ]);
-    Route::post('/dodangkyquan', [
-        'as' => 'dodangkyquan',
-        'uses' => 'App\Http\Controllers\quanController@dodangkyquan'
-    ]);
-    Route::get('/dangnhapquan', [
-        'as' => 'dangnhapquan',
-        'uses' => 'App\Http\Controllers\quanController@dangnhapquan'
-    ]); 
-    Route::post('/dodangnhapquan', [
-        'as' => 'dodangnhapquan',
-        'uses' => 'App\Http\Controllers\quanController@dodangnhapquan'
-    ]);
+    Route::get('/', function () {
+        return view('auth.login');
+    });
+
+    // Route::get('/dangkyquan', [
+    //     'as' => 'dangkyquan',
+    //     'uses' => 'App\Http\Controllers\quanController@dangkyquan'
+    // ]);
+    // Route::post('/dodangkyquan', [
+    //     'as' => 'dodangkyquan',
+    //     'uses' => 'App\Http\Controllers\quanController@dodangkyquan'
+    // ]);
+    // Route::get('/dangnhapquan', [
+    //     'as' => 'dangnhapquan',
+    //     'uses' => 'App\Http\Controllers\quanController@dangnhapquan'
+    // ]); 
+    // Route::post('/dodangnhapquan', [
+    //     'as' => 'dodangnhapquan',
+    //     'uses' => 'App\Http\Controllers\quanController@dodangnhapquan'
+    // ]);
     Route::get('/thongtinquan', [
         'as' => 'thongtinquan',
-        'uses' => 'App\Http\Controllers\quanController@thongtinquan'
+        'uses' => 'App\Http\Controllers\quanController@thongtinquan',
+        'middleware' => (['auth','verified'])
     ]);
-    Route::get('/dangxuatquan', [
-        'as' => 'dangxuatquan',
-        'uses' => 'App\Http\Controllers\quanController@dangxuatquan'
-    ]);
+    // Route::get('/dangxuatquan', [
+    //     'as' => 'dangxuatquan',
+    //     'uses' => 'App\Http\Controllers\quanController@dangxuatquan'
+    // ]);
     Route::post('/suathongtinquan', [
         'as' => 'suathongtinquan',
-        'uses' => 'App\Http\Controllers\quanController@suathongtinquan'
+        'uses' => 'App\Http\Controllers\quanController@suathongtinquan',
+        'middleware' => (['auth','verified'])
     ]);
-    Route::post('/doimatkhauquan', [
-        'as' => 'doimatkhauquan',
-        'uses' => 'App\Http\Controllers\quanController@doimatkhauquan'
-    ]);
+    // Route::post('/doimatkhauquan', [
+    //     'as' => 'doimatkhauquan',
+    //     'uses' => 'App\Http\Controllers\quanController@doimatkhauquan'
+    // ]);
 });
 // QUAN LY QUAN
 
@@ -84,43 +90,52 @@ Route::prefix('/')->group(function () {
 Route::prefix('/')->group(function () {
     Route::get('/quanlythanhvien', [
         'as' => 'quanlythanhvien',
-        'uses' => 'App\Http\Controllers\quanlythanhvienController@quanlythanhvien'
+        'uses' => 'App\Http\Controllers\quanlythanhvienController@quanlythanhvien',
+        'middleware' => (['auth','verified'])
     ]);
     Route::get('/addthanhvien', [
         'as' => 'addthanhvien',
-        'uses' => 'App\Http\Controllers\quanlythanhvienController@addthanhvien'
+        'uses' => 'App\Http\Controllers\quanlythanhvienController@addthanhvien',
+        'middleware' => (['auth','verified'])
     ]);
     Route::post('/doaddthanhvien', [
         'as' => 'doaddthanhvien',
-        'uses' => 'App\Http\Controllers\quanlythanhvienController@doaddthanhvien'
+        'uses' => 'App\Http\Controllers\quanlythanhvienController@doaddthanhvien',
+        'middleware' => (['auth','verified'])
     ]);
     Route::get('/editthongtinthanhvien/{id}', [
         'as' => 'editthongtinthanhvien',
-        'uses' => 'App\Http\Controllers\quanlythanhvienController@editthongtinthanhvien'
+        'uses' => 'App\Http\Controllers\quanlythanhvienController@editthongtinthanhvien',
+        'middleware' => (['auth','verified'])
     ]);
     Route::post('/doeditthongtinthanhvien', [
         'as' => 'doeditthongtinthanhvien',
-        'uses' => 'App\Http\Controllers\quanlythanhvienController@doeditthongtinthanhvien'
+        'uses' => 'App\Http\Controllers\quanlythanhvienController@doeditthongtinthanhvien',
+        'middleware' => (['auth','verified'])
     ]);
     Route::post('/editmatkhau', [
         'as' => 'editmatkhau',
-        'uses' => 'App\Http\Controllers\quanlythanhvienController@editmatkhau'
+        'uses' => 'App\Http\Controllers\quanlythanhvienController@editmatkhau',
+        'middleware' => (['auth','verified'])
     ]);
     Route::get('/kichhoatthanhvien/{id}', [
         'as' => 'kichhoatthanhvien',
-        'uses' => 'App\Http\Controllers\quanlythanhvienController@kichhoatthanhvien'
+        'uses' => 'App\Http\Controllers\quanlythanhvienController@kichhoatthanhvien',
+        'middleware' => (['auth','verified'])
     ]);
     Route::get('/vohieuhoathanhvien/{id}', [
         'as' => 'vohieuhoathanhvien',
-        'uses' => 'App\Http\Controllers\quanlythanhvienController@vohieuhoathanhvien'
+        'uses' => 'App\Http\Controllers\quanlythanhvienController@vohieuhoathanhvien',
+        'middleware' => (['auth','verified'])
     ]);
     Route::get('/deletethongtinthanhvien/{id}', [
         'as' => 'deletethongtinthanhvien',
-        'uses' => 'App\Http\Controllers\quanlythanhvienController@deletethongtinthanhvien'
+        'uses' => 'App\Http\Controllers\quanlythanhvienController@deletethongtinthanhvien',
+        'middleware' => (['auth','verified'])
     ]);
 
 
-    Route::get('/', [
+    Route::get('/dangnhapthanhvien', [
         'as' => 'dangnhapthanhvien',
         'uses' => 'App\Http\Controllers\quanlythanhvienController@dangnhapthanhvien'
     ]);

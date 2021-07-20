@@ -12,7 +12,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                @if($ssidthanhvien = Session::get('ssidthanhvien') == null)
+                {{-- @if($ssidthanhvien = Session::get('ssidthanhvien') == null) --}}
+                @if(auth()->user()->id)
                     <li class="nav-item">
                         <a href="{{ route('quanlythanhvien') }}" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
@@ -31,12 +32,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('dangxuatquan') }}" class="nav-link">
+                        {{-- <a href="{{ route('dangxuatquan') }}" class="nav-link">
                             <i class="fas fa-sign-out-alt">&nbsp;&nbsp;&nbsp;</i>
                             <p>
                                 Đăng xuất
                             </p>
-                        </a>
+                        </a> --}}
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();" class="nav-link">
+                                <i class="fas fa-sign-out-alt">&nbsp;&nbsp;&nbsp;</i>
+                            <p>Đăng xuất</p>
+                            </x-dropdown-link>
+                        </form>
                     </li>
                 @endif
 
