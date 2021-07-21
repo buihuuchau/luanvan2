@@ -91,7 +91,7 @@
                                 <input type="hidden" name="idkhuvuc" value="{{ $idkhuvuc }}">
                                 <input type="hidden" name="idbancu" value="{{ $idbancu }}">
                                 <input type="hidden" name="idban" value="{{ $row->id }}">
-                                <input type="image" src="{{ asset('storage/hinhanh/banranh.jpg') }}" alt="Submit"
+                                <input type="image" src="{{ asset('storage/default/banranh.jpg') }}" alt="Submit"
                                     width="114px" height="100px">
                             </form>
                             <form action="{{ route('dodoibanhoadon') }}" method="get">

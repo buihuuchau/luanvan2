@@ -94,7 +94,7 @@
                                     {{ csrf_field() }}
                                     <input type="hidden" name="idkhuvuc" value="{{ $idkhuvuc }}">
                                     <input type="hidden" name="idban" value="{{ $row->id }}">
-                                    <input type="image" src="{{ asset('storage/hinhanh/banranh.jpg') }}" alt="Submit"
+                                    <input type="image" src="{{ asset('storage/default/banranh.jpg') }}" alt="Submit"
                                         width="114px" height="100px">
                                 </form>
                                 <form action="{{ route('taohoadon') }}" method="get">
@@ -109,7 +109,7 @@
                         @elseif($row->trangthai==1)
                             <div class="card" style="width: 114px; height: 285px;">
                                 <a href="{{ route('tamtinhhoadon', ['id' => $row->id]) }}">
-                                    <img class="card-img-top" src="{{ asset('storage/hinhanh/banban.jpg') }}"
+                                    <img class="card-img-top" src="{{ asset('storage/default/banban.jpg') }}"
                                         alt="Card image cap" width="100px" height="105px">
                                 </a>
                                 <a href="{{ route('tamtinhhoadon', ['id' => $row->id]) }}"

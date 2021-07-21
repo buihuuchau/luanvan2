@@ -1,45 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Đăng nhập</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+            <input type="image" src="{{ asset('storage/default/login.png') }}" width="200px" height="200px">
+        </x-slot>
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<div class="container">
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<h2 class="text-center">Đăng nhập</h2>
-			</div>
-			<div class="panel-body">
-				<form action="{{ route('dodangnhapthanhvien')}}" method="post" enctype="multipart/form-data">
-					{{csrf_field()}}
-					@if($errors->any())
-						<h3>{{$errors->first()}}</h3>
-					@endif
-					<div class="form-group">
-					<label>Tài khoản:</label>
-					<input required="true" type="text" class="form-control" name="acc">
-					</div>
-					<div class="form-group">
-					<label>Mật khẩu:</label>
-					<input required="true" type="password" class="form-control" name="pwd">
-					</div>
-					<div class="col text-center">
-					<button class="btn btn-success">Đăng nhập</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
+        <form method="POST" action="{{ route('dodangnhapthanhvien') }}">
+            @csrf
+			@if($errors->any())
+			<h3>{{$errors->first()}}</h3>
+			@endif
+            <!-- Email Address -->
+            <div>
+                <x-label for="email" :value="__('Tài khoản')" />
+
+                <x-input id="email" class="block mt-1 w-full" type="text" name="acc" :value="old('email')" required autofocus />
+            </div>
+
+            <!-- Password -->
+            <div class="mt-4">
+                <x-label for="password" :value="__('Mật khẩu')" />
+
+                <x-input id="password" class="block mt-1 w-full"
+                                type="password"
+                                name="pwd"
+                                required autocomplete="current-password" />
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <x-button class="ml-3">
+                    {{ __('Đăng nhập') }}
+                </x-button>
+            </div>
+        </form>
+    </x-auth-card>
+</x-guest-layout>

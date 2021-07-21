@@ -83,7 +83,7 @@
 								<img src="{{$thanhvien->hinhtv}}" alt="" width="300px" height="300px" style="margin-right: 100px">
 								<form action="{{route('chitietluong')}}" method="get">
 									<input type="hidden" name="id" value="{{$thanhvien->id}}">
-									<input type="image" src="{{asset('storage/hinhanh/lichcongtac.jpg')}}" alt="Submit" width="200px" height="200px">
+									<input type="image" src="{{asset('storage/default/lichcongtac.jpg')}}" alt="Submit" width="200px" height="200px">
 								</form>
 							</div>
 							<form action="{{route('suathongtinthanhvien')}}" method="post" enctype="multipart/form-data">
