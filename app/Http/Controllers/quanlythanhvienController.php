@@ -196,7 +196,7 @@ class quanlythanhvienController extends Controller
                 ->where('hidden',0)
                 ->first();
         if($check){
-            Auth::guard('web')->logout();
+            Auth::guard('web')->logout();// bo auth
             $ssidthanhvien = $check->id;
             Session::put('ssidthanhvien', $ssidthanhvien);
             return redirect()->route('thongtinthanhvien');

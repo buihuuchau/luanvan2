@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 
-class Quanlynhaphang
+class Login
 {
     /**
      * Handle an incoming request.
@@ -18,19 +18,11 @@ class Quanlynhaphang
      */
     public function handle(Request $request, Closure $next)
     {
-        $ssidthanhvien = Session::get('ssidthanhvien');
-        $thanhvien = DB::table('thanhvien')
-            ->where('id',$ssidthanhvien)
-            ->first();
-        $vaitro_quyen = DB::table('vaitro_quyen')
-            ->where('idvaitro',$thanhvien->idvaitro)
-            ->where('idquyen',50)
-            ->first();
-        if($vaitro_quyen){
+        if($ssidthanhvien = Session::get('ssidthanhvien')!=null){
             return $next($request);
         }
         else{
-            return back();
+            return redirect()->route('dangnhapthanhvien');
         }
     }
 }

@@ -16,7 +16,7 @@
     </ul>
 @endsection
 @section('quan')
-	<a href="{{route('dangnhapquan')}}" class="brand-link">
+	<a href="{{route('login')}}" class="brand-link">
   		<img src="{{$thanhvien->hinhquan}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       	<span class="brand-text font-weight-light">{{$thanhvien->tenquan}}</span>
 	</a>
@@ -163,7 +163,7 @@
 
 										@if($sudung!=$row->id)
 										<a href="{{route('deletethucdon',['id'=>$row->id])}}"
-											onclick="return confirm('Bạn có chắc chắn muốn xóa')";>Xóa thực đơn</a>
+											onclick="return confirm('Bạn có chắc chắn muốn xóa')">Xóa thực đơn</a>
 										@endif
 									</td>
 									@if ($row->loaimon==1)
