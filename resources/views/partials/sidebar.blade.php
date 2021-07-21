@@ -12,8 +12,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                {{-- @if($ssidthanhvien = Session::get('ssidthanhvien') == null) --}}
-                @if(auth()->user()->id)
+                @if($ssidthanhvien = Session::get('ssidthanhvien') == null)
                     <li class="nav-item">
                         <a href="{{ route('quanlythanhvien') }}" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>

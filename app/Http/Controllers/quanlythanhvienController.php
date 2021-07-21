@@ -8,6 +8,7 @@ use Session;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Auth;
 
 class quanlythanhvienController extends Controller
 {
@@ -195,7 +196,7 @@ class quanlythanhvienController extends Controller
                 ->where('hidden',0)
                 ->first();
         if($check){
-            Session::forget('ssidquan');
+            Auth::guard('web')->logout();
             $ssidthanhvien = $check->id;
             Session::put('ssidthanhvien', $ssidthanhvien);
             return redirect()->route('thongtinthanhvien');
