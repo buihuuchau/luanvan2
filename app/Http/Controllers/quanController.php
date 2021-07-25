@@ -28,14 +28,14 @@ class quanController extends Controller
     //     $quan['website'] = $request->website;
     //     $quan['sdtquan'] = $request->sdtquan;
     //     $quan['ngaythanhlap'] = $request->ngaythanhlap;
-    //     $check = DB::table('quan')
+    //     $check = DB::table('users')
     //             ->where('accquan',$request->accquan)
     //             ->first();
     //     if($check){
     //         return back()->withErrors(['Tài khoản đã tồn tại']);
     //     }
     //     else{
-    //         DB::table('quan')->insert($quan);
+    //         DB::table('users')->insert($quan);
     //         return redirect()->route('dangnhapquan');
     //     }
     // }
@@ -45,7 +45,7 @@ class quanController extends Controller
     // public function dodangnhapquan(Request $request){
     //     $accquan = $request->accquan;
     //     $pwdquan = md5($request->pwdquan);
-    //     $check = DB::table('quan')
+    //     $check = DB::table('users')
     //             ->where('accquan',$accquan)
     //             ->where('pwdquan',$pwdquan)
     //             ->first();
@@ -89,12 +89,12 @@ class quanController extends Controller
     }
     // public function doimatkhauquan(Request $request){
     //     $ssidquan = Session::get('ssidquan');
-    //     $check = DB::table('quan')
+    //     $check = DB::table('users')
     //             ->where('id',$ssidquan)
     //             ->first();
     //     if($check->pwdquan === md5($request->opwdquan)){
     //         $quan['pwdquan'] = md5($request->rnpwdquan);
-    //         DB::table('quan')
+    //         DB::table('users')
     //             ->where('id',$ssidquan)
     //             ->update($quan);
     //         return back();

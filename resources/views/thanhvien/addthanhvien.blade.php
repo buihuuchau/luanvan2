@@ -28,33 +28,33 @@
 					@endif
 					<div class="form-group">
 					<label>Tài khoản thành viên:</label>
-					<input required="true" type="text" class="form-control" name="acc">
+					<input required="true" type="text" class="form-control" name="acc" value="{{ old('acc') }}">
 					</div>
 
 					<div class="form-group">
 					<label>Mật khẩu thành viên:</label>
 					<input type="password" class="form-control" placeholder="mật khẩu phải chứa 8 ký tự trở lên có ít nhất một số và một chữ hoa và chữ thường"
-						id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="pwd" required>
+						id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="pwd" required >
 					</div>
 
 					<div class="form-group">
 					<label>Nhập lại mật khẩu thành viên:</label>
-					<input type="password" class="form-control" id="confirm_password" name="rpwd" required>
+					<input type="password" class="form-control" id="confirm_password" name="rpwd" required >
 					</div>
 
 					<div class="form-group">
 					<label>Họ tên thành viên:</label>
-					<input required="true" type="text" class="form-control" name="hoten">
+					<input required="true" type="text" class="form-control" name="hoten" value="{{ old('hoten') }}">
 					</div>
 
 					<div class="form-group">
 					<label>Hình ảnh thành viên:</label>
-					<input required="true" type="file" class="form-control" name="hinhtv">
+					<input required="true" type="file" class="form-control" name="hinhtv" value="{{ old('hinhtv') }}">
 					</div>
 
                     <div class="form-group">
                     <label>Năm sinh:</label>
-                    <input required="true" type="date" class="form-control" name="namsinh">
+                    <input required="true" type="date" class="form-control" name="namsinh" value="{{ old('namsinh') }}">
                     </div>
 
                     <div class="form-group">
@@ -73,22 +73,22 @@
 
 					<div class="form-group">
 					<label>Địa chỉ thành viên:</label>
-					<input required="true" type="text" class="form-control" name="diachi">
+					<input required="true" type="text" class="form-control" name="diachi" value="{{ old('diachi') }}">
 					</div>
 
 					<div class="form-group">
 					<label>Số điện thoại:</label>
-					<input required="true" type="tel" class="form-control" name="sdt" placeholder="0123456789" pattern="[0-9]{10}">
+					<input required="true" type="tel" class="form-control" name="sdt" placeholder="0123456789" pattern="[0-9]{10}" value="{{ old('sdt') }}">
 					</div>
 
 					<div class="form-group">
 					<label>Ngày vào làm:</label>
-					<input required="true" type="date" class="form-control" name="ngayvaolam">
+					<input required="true" type="date" class="form-control" name="ngayvaolam" value="{{ old('ngayvaolam') }}">
 					</div>
 
                     <div class="form-group">
 					<label>Lương/Buổi:</label>
-					<input required="true" type="number" class="form-control" name="luong">
+					<input required="true" type="number" class="form-control" name="luong" value="{{ old('luong') }}">
 					</div>
 
                     <div class="form-group">

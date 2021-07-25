@@ -17,8 +17,8 @@ class quanlycalamController extends Controller
         
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
         $calam = DB::table('calam')
                 ->where('idquan',$thanhvien->idquan)
@@ -36,8 +36,8 @@ class quanlycalamController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
         return view('calam.addcalam',compact('thanhvien'));
     }
@@ -47,8 +47,8 @@ class quanlycalamController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
         
         $check = DB::table('calam')
@@ -74,8 +74,8 @@ class quanlycalamController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         $calam = DB::table('calam')
@@ -90,8 +90,8 @@ class quanlycalamController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
         
         $check = DB::table('calam')
@@ -120,8 +120,8 @@ class quanlycalamController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('calam')
@@ -137,8 +137,8 @@ class quanlycalamController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('calam')
@@ -154,8 +154,8 @@ class quanlycalamController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('calam')

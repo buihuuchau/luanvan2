@@ -17,8 +17,8 @@ class quanlylichlamviecController extends Controller
         
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
         $khuvuc = DB::table('khuvuc')
             ->where('idquan',$thanhvien->idquan)
@@ -44,8 +44,8 @@ class quanlylichlamviecController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
         $khuvuc = DB::table('khuvuc')
             ->where('idquan',$thanhvien->idquan)
@@ -70,8 +70,8 @@ class quanlylichlamviecController extends Controller
         
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
         $lichlamviec['diemdanh'] = 1;
         DB::table('lichlamviec')
@@ -85,8 +85,8 @@ class quanlylichlamviecController extends Controller
         
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
         $lichlamviec['diemdanh'] = 0;
         DB::table('lichlamviec')
@@ -100,8 +100,8 @@ class quanlylichlamviecController extends Controller
         
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         $lichlamviec = DB::table('lichlamviec')
@@ -133,8 +133,8 @@ class quanlylichlamviecController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         
@@ -156,8 +156,8 @@ class quanlylichlamviecController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         $thanhvien2 = $request->input('idthanhvien');
@@ -188,8 +188,8 @@ class quanlylichlamviecController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
         $tungay = $request->tungay;
         $sangngay = $request->sangngay;

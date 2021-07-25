@@ -206,7 +206,7 @@ class quanlyvaitroController extends Controller
 
     public function doeditvaitro(Request $request){
         $ssidquan = auth()->user()->id;
-        $quan = DB::table('quan')
+        $quan = DB::table('users')
                 ->where('id', $ssidquan)
                 ->first();
 
@@ -338,7 +338,7 @@ class quanlyvaitroController extends Controller
 
     public function deletevaitro($id){
         $ssidquan = auth()->user()->id;
-        $quan = DB::table('quan')
+        $quan = DB::table('users')
                 ->where('id', $ssidquan)
                 ->first();
 

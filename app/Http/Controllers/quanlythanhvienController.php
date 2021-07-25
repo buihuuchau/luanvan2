@@ -57,10 +57,10 @@ class quanlythanhvienController extends Controller
         $ngayvaolam = $request->ngayvaolam;
         $today = date("Y-m-d");
         if (strtotime($today) < strtotime($namsinh3)){
-            return back()->withErrors('Chưa đủ 18 !');
+            return back()->withInput()->withErrors('Chưa đủ 18 !');
         }
         elseif(strtotime($namsinh3) > strtotime($ngayvaolam)){
-            return back()->withErrors('Ngày vào làm không hợp lệ');
+            return back()->withInput()->withErrors('Ngày vào làm không hợp lệ');
         }
         else{
             $thanhvien['namsinh'] = $request->namsinh;
@@ -87,7 +87,7 @@ class quanlythanhvienController extends Controller
                 ->where('acc',$request->acc)
                 ->first();
         if($check){
-            return back()->withErrors(['Tài khoản đã tồn tại']);
+            return back()->withInput()->withErrors(['Tài khoản đã tồn tại']);
         }
         else{
             DB::table('thanhvien')->insert($thanhvien);
@@ -100,8 +100,8 @@ class quanlythanhvienController extends Controller
                     ->where('thanhvien.id',$id)
                     ->where('thanhvien.idquan',$ssidquan)
                     ->join('vaitro', 'thanhvien.idvaitro', '=', 'vaitro.id')
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','vaitro.tenvaitro','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','vaitro.tenvaitro','users.hinhquan','users.name')
                     ->first();
         $vaitro = DB::table('vaitro')
                     ->where('vaitro.idquan',$thanhvien->idquan)
@@ -209,9 +209,9 @@ class quanlythanhvienController extends Controller
         $ssidthanhvien = Session::get('ssidthanhvien');
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id', $ssidthanhvien)
-                    ->join('quan','thanhvien.idquan', '=', 'quan.id')
+                    ->join('users','thanhvien.idquan', '=', 'users.id')
                     ->join('vaitro','thanhvien.idvaitro', '=', 'vaitro.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan','vaitro.tenvaitro')
+                    ->select('thanhvien.*','users.hinhquan','users.name','vaitro.tenvaitro')
                     ->first();
         return view('thanhvien.thongtinthanhvien',compact('thanhvien'));
     }

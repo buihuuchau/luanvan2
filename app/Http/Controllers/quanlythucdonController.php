@@ -17,8 +17,8 @@ class quanlythucdonController extends Controller
 
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
 
         $thucdon = DB::table('thucdon')
@@ -37,8 +37,8 @@ class quanlythucdonController extends Controller
 
     //     $thanhvien = DB::table('thanhvien')
     //                 ->where('thanhvien.id',$ssidthanhvien)
-    //                 ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-    //                 ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+    //                 ->join('users', 'thanhvien.idquan', '=', 'users.id')
+    //                 ->select('thanhvien.*','users.hinhquan','users.name')
     //                 ->first();
 
     //     return view('thucdon.addthucdon',compact('thanhvien'));
@@ -49,8 +49,8 @@ class quanlythucdonController extends Controller
 
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
 
         $check = DB::table('thucdon')
@@ -78,8 +78,8 @@ class quanlythucdonController extends Controller
 
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
 
         $thucdon = DB::table('thucdon')
@@ -94,8 +94,8 @@ class quanlythucdonController extends Controller
 
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
 
         
@@ -132,8 +132,8 @@ class quanlythucdonController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('thucdon')
@@ -149,8 +149,8 @@ class quanlythucdonController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('thucdon')
@@ -166,8 +166,8 @@ class quanlythucdonController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('thucdon')

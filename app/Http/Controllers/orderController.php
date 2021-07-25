@@ -17,8 +17,8 @@ class orderController extends Controller
 
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         
         $khuvuc = DB::table('khuvuc')
@@ -47,8 +47,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         
         $khuvuc = DB::table('khuvuc')
@@ -73,8 +73,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         $hoadon['idquan'] = $thanhvien->idquan;
         $hoadon['idkhuvuc'] = $request->idkhuvuc;
@@ -103,8 +103,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
 
         $hoadon = DB::table('hoadon')
@@ -141,8 +141,8 @@ class orderController extends Controller
 
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
 
         $hoadon = DB::table('hoadon')
@@ -176,8 +176,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         $id = $request->id;//idhoadon
         $idkhuvuc = $request->idkhuvuc;
@@ -204,8 +204,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         $id = $request->id;//idhoadon
         $idkhuvuc = $request->idkhuvuc;
@@ -237,8 +237,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
 
         $hoadon = DB::table('hoadon')
@@ -267,8 +267,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         
         $thucdon = DB::table('thucdon')
@@ -308,8 +308,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
                     
         $chitiet = DB::table('chitiet')
@@ -333,8 +333,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         
         $id = $request->id;//idchitiet
@@ -362,8 +362,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan','quan.diachiquan','quan.website','quan.sdtquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name','users.diachiquan','users.website','users.sdtquan')
                     ->first();
 
         $hoadon = DB::table('hoadon')
@@ -405,8 +405,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan','quan.diachiquan','quan.website','quan.sdtquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name','users.diachiquan','users.website','users.sdtquan')
                     ->first();
 
         $id = $request->id;//idhoadon
@@ -473,8 +473,8 @@ class orderController extends Controller
         
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         $id = $request->id;//idhoadon
         $idban = $request->idban;

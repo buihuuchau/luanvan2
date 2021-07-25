@@ -17,8 +17,8 @@ class quanlykhoController extends Controller
 
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
 
         $nguyenlieu = DB::table('nguyenlieu')
@@ -42,8 +42,8 @@ class quanlykhoController extends Controller
 
     //     $thanhvien = DB::table('thanhvien')
     //                 ->where('thanhvien.id',$ssidthanhvien)
-    //                 ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-    //                 ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+    //                 ->join('users', 'thanhvien.idquan', '=', 'users.id')
+    //                 ->select('thanhvien.*','users.hinhquan','users.name')
     //                 ->first();
 
     //     $nguyenlieu = DB::table('nguyenlieu')
@@ -61,8 +61,8 @@ class quanlykhoController extends Controller
 
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
-                    ->join('quan', 'thanhvien.idquan', '=', 'quan.id')
-                    ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         
         $kho['idquan'] = $thanhvien->idquan;
@@ -82,8 +82,8 @@ class quanlykhoController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('kho')
@@ -100,8 +100,8 @@ class quanlykhoController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('kho')
@@ -117,8 +117,8 @@ class quanlykhoController extends Controller
 
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
-            ->join('quan','thanhvien.idquan','=','quan.id')
-            ->select('thanhvien.*','quan.hinhquan','quan.tenquan')
+            ->join('users','thanhvien.idquan','=','users.id')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('kho')
