@@ -49,7 +49,7 @@ class quanlybanController extends Controller
     //     $thanhvien = DB::table('thanhvien')
     //                 ->where('thanhvien.id',$ssidthanhvien)
     //                 ->join('users', 'thanhvien.idquan', '=', 'users.id')
-    //                 ->select('thanhvien.*','users.hinhquan','users.tenquan')
+    //                 ->select('thanhvien.*','users.hinhquan','users.name')
     //                 ->first();
 
     //     $khuvuc = DB::table('khuvuc')
@@ -67,7 +67,7 @@ class quanlybanController extends Controller
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
                     ->join('users', 'thanhvien.idquan', '=', 'users.id')
-                    ->select('thanhvien.*','users.hinhquan','users.tenquan')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         
         $check = DB::table('ban')
@@ -114,7 +114,7 @@ class quanlybanController extends Controller
         $thanhvien = DB::table('thanhvien')
                     ->where('thanhvien.id',$ssidthanhvien)
                     ->join('users', 'thanhvien.idquan', '=', 'users.id')
-                    ->select('thanhvien.*','users.hinhquan','users.tenquan')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
                     ->first();
         
         $check = DB::table('ban')
@@ -142,7 +142,7 @@ class quanlybanController extends Controller
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
             ->join('users','thanhvien.idquan','=','users.id')
-            ->select('thanhvien.*','users.hinhquan','users.tenquan')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('ban')
@@ -159,7 +159,7 @@ class quanlybanController extends Controller
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
             ->join('users','thanhvien.idquan','=','users.id')
-            ->select('thanhvien.*','users.hinhquan','users.tenquan')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('ban')
@@ -176,7 +176,7 @@ class quanlybanController extends Controller
         $thanhvien = DB::table('thanhvien')
             ->where('thanhvien.id',$ssidthanhvien)
             ->join('users','thanhvien.idquan','=','users.id')
-            ->select('thanhvien.*','users.hinhquan','users.tenquan')
+            ->select('thanhvien.*','users.hinhquan','users.name')
             ->first();
 
         DB::table('ban')
