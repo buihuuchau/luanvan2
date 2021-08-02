@@ -146,22 +146,22 @@ Route::prefix('/')->group(function () {
     Route::get('/thongtinthanhvien', [
         'as' => 'thongtinthanhvien',
         'uses' => 'App\Http\Controllers\quanlythanhvienController@thongtinthanhvien',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login'])
     ]);
     Route::get('/dangxuatthanhvien', [
         'as' => 'dangxuatthanhvien',
         'uses' => 'App\Http\Controllers\quanlythanhvienController@dangxuatthanhvien',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login'])
     ]);       
     Route::post('/suathongtinthanhvien', [
         'as' => 'suathongtinthanhvien',
         'uses' => 'App\Http\Controllers\quanlythanhvienController@suathongtinthanhvien',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login'])
     ]);
     Route::post('/doimatkhau', [
         'as' => 'doimatkhau',
         'uses' => 'App\Http\Controllers\quanlythanhvienController@doimatkhau',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login'])
     ]);
 });
 // QUAN LY THANH VIEN
@@ -171,8 +171,7 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlykhachhang', [
         'as' => 'quanlykhachhang',
         'uses' => 'App\Http\Controllers\quanlykhachhangController@quanlykhachhang',
-        'middleware' => 'XemKhachhang::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemKhachhang'])
     ]);
     // Route::get('/addkhachhang', [
     //     'as' => 'addkhachhang',
@@ -181,20 +180,17 @@ Route::prefix('/')->group(function () {
     Route::post('/doaddkhachhang', [
         'as' => 'doaddkhachhang',
         'uses' => 'App\Http\Controllers\quanlykhachhangController@doaddkhachhang',
-        'middleware' => 'ThemKhachhang::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemKhachhang'])
     ]);
     Route::get('/editkhachhang/{id}', [
         'as' => 'editkhachhang',
         'uses' => 'App\Http\Controllers\quanlykhachhangController@editkhachhang',
-        'middleware' => 'SuaKhachhang::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaKhachhang'])
     ]);
     Route::post('/doeditkhachhang', [
         'as' => 'doeditkhachhang',
         'uses' => 'App\Http\Controllers\quanlykhachhangController@doeditkhachhang',
-        'middleware' => 'SuaKhachhang::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaKhachhang'])
     ]);
 });
 // QUAN LY KHACH HANG
@@ -204,8 +200,7 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlykhuvuc', [
         'as' => 'quanlykhuvuc',
         'uses' => 'App\Http\Controllers\quanlykhuvucController@quanlykhuvuc',
-        'middleware' => 'XemKhuvuc::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemKhuvuc'])
     ]);
     // Route::get('/addkhuvuc', [
     //     'as' => 'addkhuvuc',
@@ -214,38 +209,32 @@ Route::prefix('/')->group(function () {
     Route::post('/doaddkhuvuc', [
         'as' => 'doaddkhuvuc',
         'uses' => 'App\Http\Controllers\quanlykhuvucController@doaddkhuvuc',
-        'middleware' => 'ThemKhuvuc::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemKhuvuc'])
     ]);
     Route::get('/editkhuvuc/{id}', [
         'as' => 'editkhuvuc',
         'uses' => 'App\Http\Controllers\quanlykhuvucController@editkhuvuc',
-        'middleware' => 'SuaKhuvuc::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaKhuvuc'])
     ]);
     Route::post('/doeditkhuvuc', [
         'as' => 'doeditkhuvuc',
         'uses' => 'App\Http\Controllers\quanlykhuvucController@doeditkhuvuc',
-        'middleware' => 'SuaKhuvuc::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaKhuvuc'])
     ]);
     Route::get('/hiddenkhuvuc/{id}', [
         'as' => 'hiddenkhuvuc',
         'uses' => 'App\Http\Controllers\quanlykhuvucController@hiddenkhuvuc',
-        'middleware' => 'SuaKhuvuc::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaKhuvuc'])
     ]);
     Route::get('/showkhuvuc/{id}', [
         'as' => 'showkhuvuc',
         'uses' => 'App\Http\Controllers\quanlykhuvucController@showkhuvuc',
-        'middleware' => 'SuaKhuvuc::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaKhuvuc'])
     ]);
     Route::get('/deletekhuvuc/{id}', [
         'as' => 'deletekhuvuc',
         'uses' => 'App\Http\Controllers\quanlykhuvucController@deletekhuvuc',
-        'middleware' => 'XoaKhuvuc::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XoaKhuvuc'])
     ]);
 });
 // QUAN LY KHU VUC
@@ -255,8 +244,7 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlyban', [
         'as' => 'quanlyban',
         'uses' => 'App\Http\Controllers\quanlybanController@quanlyban',
-        'middleware' => 'XemBan::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemBan'])
     ]);
     // Route::get('/addban', [
     //     'as' => 'addban',
@@ -265,38 +253,32 @@ Route::prefix('/')->group(function () {
     Route::post('/doaddban', [
         'as' => 'doaddban',
         'uses' => 'App\Http\Controllers\quanlybanController@doaddban',
-        'middleware' => 'ThemBan::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemBan'])
     ]);
     Route::get('/editban/{id}', [
         'as' => 'editban',
         'uses' => 'App\Http\Controllers\quanlybanController@editban',
-        'middleware' => 'SuaBan::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaBan'])
     ]);
     Route::post('/doeditban', [
         'as' => 'doeditban',
         'uses' => 'App\Http\Controllers\quanlybanController@doeditban',
-        'middleware' => 'SuaBan::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaBan'])
     ]);
     Route::get('/hiddenban/{id}', [
         'as' => 'hiddenban',
         'uses' => 'App\Http\Controllers\quanlybanController@hiddenban',
-        'middleware' => 'SuaBan::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaBan'])
     ]);
     Route::get('/showban/{id}', [
         'as' => 'showban',
         'uses' => 'App\Http\Controllers\quanlybanController@showban',
-        'middleware' => 'SuaBan::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaBan'])
     ]);
     Route::get('/deleteban/{id}', [
         'as' => 'deleteban',
         'uses' => 'App\Http\Controllers\quanlybanController@deleteban',
-        'middleware' => 'XoaBan::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XoaBan'])
     ]);
 });
 // QUAN LY BAN
@@ -306,8 +288,7 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlynguyenlieu', [
         'as' => 'quanlynguyenlieu',
         'uses' => 'App\Http\Controllers\quanlynguyenlieuController@quanlynguyenlieu',
-        'middleware' => 'XemNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemNguyenlieu'])
     ]);
     // Route::get('/addnguyenlieu', [
     //     'as' => 'addnguyenlieu',
@@ -316,38 +297,32 @@ Route::prefix('/')->group(function () {
     Route::post('/doaddnguyenlieu', [
         'as' => 'doaddnguyenlieu',
         'uses' => 'App\Http\Controllers\quanlynguyenlieuController@doaddnguyenlieu',
-        'middleware' => 'ThemNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemNguyenlieu'])
     ]);
     Route::get('/editnguyenlieu/{id}', [
         'as' => 'editnguyenlieu',
         'uses' => 'App\Http\Controllers\quanlynguyenlieuController@editnguyenlieu',
-        'middleware' => 'SuaNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaNguyenlieu'])
     ]);
     Route::post('/doeditnguyenlieu', [
         'as' => 'doeditnguyenlieu',
         'uses' => 'App\Http\Controllers\quanlynguyenlieuController@doeditnguyenlieu',
-        'middleware' => 'SuaNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaNguyenlieu'])
     ]);
     Route::get('/hiddennguyenlieu/{id}', [
         'as' => 'hiddennguyenlieu',
         'uses' => 'App\Http\Controllers\quanlynguyenlieuController@hiddennguyenlieu',
-        'middleware' => 'SuaNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaNguyenlieu'])
     ]);
     Route::get('/shownguyenlieu/{id}', [
         'as' => 'shownguyenlieu',
         'uses' => 'App\Http\Controllers\quanlynguyenlieuController@shownguyenlieu',
-        'middleware' => 'SuaNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaNguyenlieu'])
     ]);
     Route::get('/deletenguyenlieu/{id}', [
         'as' => 'deletenguyenlieu',
         'uses' => 'App\Http\Controllers\quanlynguyenlieuController@deletenguyenlieu',
-        'middleware' => 'XoaNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XoaNguyenlieu'])
     ]);
 });   
 // QUAN LY NGUYEN LIEU
@@ -357,8 +332,7 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlykho', [
         'as' => 'quanlykho',
         'uses' => 'App\Http\Controllers\quanlykhoController@quanlykho',
-        'middleware' => 'XemKho::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemKho'])
     ]);
     // Route::get('/addkho', [
     //     'as' => 'addkho',
@@ -367,26 +341,22 @@ Route::prefix('/')->group(function () {
     Route::post('/doaddkho', [
         'as' => 'doaddkho',
         'uses' => 'App\Http\Controllers\quanlykhoController@doaddkho',
-        'middleware' => 'ThemKho::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemKho'])
     ]);
     Route::get('/hethangkho/{id}', [
         'as' => 'hethangkho',
         'uses' => 'App\Http\Controllers\quanlykhoController@hethangkho',
-        'middleware' => 'SuaKho::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaKho'])
     ]);
     Route::get('/conhangkho/{id}', [
         'as' => 'conhangkho',
         'uses' => 'App\Http\Controllers\quanlykhoController@conhangkho',
-        'middleware' => 'SuaKho::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaKho'])
     ]);
     Route::get('/deletekho/{id}', [
         'as' => 'deletekho',
         'uses' => 'App\Http\Controllers\quanlykhoController@deletekho',
-        'middleware' => 'XoaKho::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XoaKho'])
     ]);
 });
 // QUAN LY KHO
@@ -396,8 +366,7 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlycalam', [
         'as' => 'quanlycalam',
         'uses' => 'App\Http\Controllers\quanlycalamController@quanlycalam',
-        'middleware' => 'XemCalam::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemCalam'])
     ]);
     // Route::get('/addcalam', [
     //     'as' => 'addcalam',
@@ -406,38 +375,32 @@ Route::prefix('/')->group(function () {
     Route::post('/doaddcalam', [
         'as' => 'doaddcalam',
         'uses' => 'App\Http\Controllers\quanlycalamController@doaddcalam',
-        'middleware' => 'ThemCalam::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemCalam'])
     ]);
     Route::get('/editcalam/{id}', [
         'as' => 'editcalam',
         'uses' => 'App\Http\Controllers\quanlycalamController@editcalam',
-        'middleware' => 'SuaCalam::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaCalam'])
     ]);
     Route::post('/doeditcalam', [
         'as' => 'doeditcalam',
         'uses' => 'App\Http\Controllers\quanlycalamController@doeditcalam',
-        'middleware' => 'SuaCalam::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaCalam'])
     ]);
     Route::get('/hiddencalam/{id}', [
         'as' => 'hiddencalam',
         'uses' => 'App\Http\Controllers\quanlycalamController@hiddencalam',
-        'middleware' => 'SuaCalam::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaCalam'])
     ]);
     Route::get('/showcalam/{id}', [
         'as' => 'showcalam',
         'uses' => 'App\Http\Controllers\quanlycalamController@showcalam',
-        'middleware' => 'SuaCalam::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaCalam'])
     ]);
     Route::get('/deletecalam/{id}', [
         'as' => 'deletecalam',
         'uses' => 'App\Http\Controllers\quanlycalamController@deletecalam',
-        'middleware' => 'XoaCalam::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XoaCalam'])
     ]);
 });   
 // QUAN LY CA LAM
@@ -447,50 +410,43 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlylichlamviec', [
         'as' => 'quanlylichlamviec',
         'uses' => 'App\Http\Controllers\quanlylichlamviecController@quanlylichlamviec',
-        'middleware' => 'XemLichlamviec::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemLichlamviec'])
     ]);
     Route::get('/xemlichlamviec', [
         'as' => 'xemlichlamviec',
         'uses' => 'App\Http\Controllers\quanlylichlamviecController@xemlichlamviec',
-        'middleware' => 'XemLichlamviec::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemLichlamviec'])
     ]);
     Route::get('/diemdanhcomatlichlamviec/{id}', [
         'as' => 'diemdanhcomatlichlamviec',
         'uses' => 'App\Http\Controllers\quanlylichlamviecController@diemdanhcomatlichlamviec',
         'middleware' => 'SuaLichlamviec::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','Login'])
     ]);
     Route::get('/diemdanhvangmatlichlamviec/{id}', [
         'as' => 'diemdanhvangmatlichlamviec',
         'uses' => 'App\Http\Controllers\quanlylichlamviecController@diemdanhvangmatlichlamviec',
-        'middleware' => 'SuaLichlamviec::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaLichlamviec'])
     ]);
     Route::get('/editlichlamviec', [
         'as' => 'editlichlamviec',
         'uses' => 'App\Http\Controllers\quanlylichlamviecController@editlichlamviec',
-        'middleware' => 'ThemLichlamviec::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemLichlamviec'])
     ]);
     Route::get('/addlichlamviec', [
         'as' => 'addlichlamviec',
         'uses' => 'App\Http\Controllers\quanlylichlamviecController@addlichlamviec',
-        'middleware' => 'ThemLichlamviec::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemLichlamviec'])
     ]);
     Route::get('/changelichlamviec', [
         'as' => 'changelichlamviec',
         'uses' => 'App\Http\Controllers\quanlylichlamviecController@changelichlamviec',
-        'middleware' => 'XoaLichlamviec::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XoaLichlamviec'])
     ]);
     Route::get('/copylichlamviec', [
         'as' => 'copylichlamviec',
         'uses' => 'App\Http\Controllers\quanlylichlamviecController@copylichlamviec',
-        'middleware' => 'SuaLichlamviec::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaLichlamviec'])
     ]);
 });  
 // QUAN LY LICH LAM VIEC
@@ -535,8 +491,7 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlythucdon', [
         'as' => 'quanlythucdon',
         'uses' => 'App\Http\Controllers\quanlythucdonController@quanlythucdon',
-        'middleware' => 'XemThucdon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemThucdon'])
     ]);
     // Route::get('/addthucdon', [
     //     'as' => 'addthucdon',
@@ -545,38 +500,32 @@ Route::prefix('/')->group(function () {
     Route::post('/doaddthucdon', [
         'as' => 'doaddthucdon',
         'uses' => 'App\Http\Controllers\quanlythucdonController@doaddthucdon',
-        'middleware' => 'ThemThucdon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemThucdon'])
     ]);
     Route::get('/editthucdon/{id}', [
         'as' => 'editthucdon',
         'uses' => 'App\Http\Controllers\quanlythucdonController@editthucdon',
-        'middleware' => 'SuaThucdon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaThucdon'])
     ]);
     Route::post('/doeditthucdon', [
         'as' => 'doeditthucdon',
         'uses' => 'App\Http\Controllers\quanlythucdonController@doeditthucdon',
-        'middleware' => 'SuaThucdon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaThucdon'])
     ]);
     Route::get('/hiddenthucdon/{id}', [
         'as' => 'hiddenthucdon',
         'uses' => 'App\Http\Controllers\quanlythucdonController@hiddenthucdon',
-        'middleware' => 'SuaThucdon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaThucdon'])
     ]);
     Route::get('/showthucdon/{id}', [
         'as' => 'showthucdon',
         'uses' => 'App\Http\Controllers\quanlythucdonController@showthucdon',
-        'middleware' => 'SuaThucdon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaThucdon'])
     ]);
     Route::get('/deletethucdon/{id}', [
         'as' => 'deletethucdon',
         'uses' => 'App\Http\Controllers\quanlythucdonController@deletethucdon',
-        'middleware' => 'XoaThucdon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XoaThucdon'])
     ]);
 });
 // QUAN LY THUC DON
@@ -586,14 +535,12 @@ Route::prefix('/')->group(function () {
     Route::get('/hoadon', [
         'as' => 'hoadon',
         'uses' => 'App\Http\Controllers\orderController@hoadon',
-        'middleware' => 'XemHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemHoadon'])
     ]);
     Route::get('/xemban', [
         'as' => 'xemban',
         'uses' => 'App\Http\Controllers\orderController@xemban',
-        'middleware' => 'XemHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemHoadon'])
     ]);
 
 
@@ -601,14 +548,12 @@ Route::prefix('/')->group(function () {
     Route::get('/taohoadon', [
         'as' => 'taohoadon',
         'uses' => 'App\Http\Controllers\orderController@taohoadon',
-        'middleware' => 'ThemHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','ThemHoadon'])
     ]);
     Route::get('/deletehoadon/{id}', [
         'as' => 'deletehoadon',
         'uses' => 'App\Http\Controllers\orderController@deletehoadon',
-        'middleware' => 'XoaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XoaHoadon'])
     ]);
 
     
@@ -616,20 +561,17 @@ Route::prefix('/')->group(function () {
     Route::get('/doibanhoadon/{id}', [//idban
         'as' => 'doibanhoadon',
         'uses' => 'App\Http\Controllers\orderController@doibanhoadon',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
     Route::get('/doikhuvuchoadon', [
         'as' => 'doikhuvuchoadon',
         'uses' => 'App\Http\Controllers\orderController@doikhuvuchoadon',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
     Route::get('/dodoibanhoadon', [
         'as' => 'dodoibanhoadon',
         'uses' => 'App\Http\Controllers\orderController@dodoibanhoadon',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
 
 
@@ -637,26 +579,22 @@ Route::prefix('/')->group(function () {
     Route::get('/doimonhoadon/{id}', [//idban
         'as' => 'doimonhoadon',
         'uses' => 'App\Http\Controllers\orderController@doimonhoadon',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
     Route::get('/datmon', [
         'as' => 'datmon',
         'uses' => 'App\Http\Controllers\orderController@datmon',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
     Route::get('/xoamonhoadon', [//idchitiet
         'as' => 'xoamonhoadon',
         'uses' => 'App\Http\Controllers\orderController@xoamonhoadon',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
     Route::get('/doisoluongmonhoadon', [
         'as' => 'doisoluongmonhoadon',
         'uses' => 'App\Http\Controllers\orderController@doisoluongmonhoadon',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
 
 
@@ -664,20 +602,17 @@ Route::prefix('/')->group(function () {
     Route::get('/tamtinhhoadon/{id}', [//idban
         'as' => 'tamtinhhoadon',
         'uses' => 'App\Http\Controllers\orderController@tamtinhhoadon',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
     Route::get('/giamgia', [
         'as' => 'giamgia',
         'uses' => 'App\Http\Controllers\orderController@giamgia',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
     Route::post('/thanhtoanhoadon', [
         'as' => 'thanhtoanhoadon',
         'uses' => 'App\Http\Controllers\orderController@thanhtoanhoadon',
-        'middleware' => 'SuaHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','SuaHoadon'])
     ]);
 });
 // DAT BAN / DAT MON
@@ -687,32 +622,27 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlychebien', [
         'as' => 'quanlychebien',
         'uses' => 'App\Http\Controllers\quanlychebienController@quanlychebien',
-        'middleware' => 'XemNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemNguyenlieu'])
     ]);
     Route::get('/checkhoanthanh/{id}', [
         'as' => 'checkhoanthanh',
         'uses' => 'App\Http\Controllers\quanlychebienController@checkhoanthanh',
-        'middleware' => 'XemNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemNguyenlieu'])
     ]);
     Route::get('/baohuy/{id}', [
         'as' => 'baohuy',
         'uses' => 'App\Http\Controllers\quanlychebienController@baohuy',
-        'middleware' => 'XemNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemNguyenlieu'])
     ]);
     Route::get('/baohetnguyenlieu', [
         'as' => 'baohetnguyenlieu',
         'uses' => 'App\Http\Controllers\quanlychebienController@baohetnguyenlieu',
-        'middleware' => 'XemNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemNguyenlieu'])
     ]);
     Route::get('/dobaohetnguyenlieu/{id}', [
         'as' => 'dobaohetnguyenlieu',
         'uses' => 'App\Http\Controllers\quanlychebienController@dobaohetnguyenlieu',
-        'middleware' => 'XemNguyenlieu::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemNguyenlieu'])
     ]);
 });
 // QUAN LY CHE BIEN
@@ -722,14 +652,12 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlyhoadon', [
         'as' => 'quanlyhoadon',
         'uses' => 'App\Http\Controllers\quanlyhoadonController@quanlyhoadon',
-        'middleware' => 'XemHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemHoadon'])
     ]);
     Route::get('/xemhoadon/{id}', [
         'as' => 'xemhoadon',
         'uses' => 'App\Http\Controllers\quanlyhoadonController@xemhoadon',
-        'middleware' => 'XemHoadon::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','XemHoadon'])
     ]);
 });
 // QUAN LY HOA DON
@@ -739,36 +667,32 @@ Route::prefix('/')->group(function () {
     Route::get('/quanlyngansach', [
         'as' => 'quanlyngansach',
         'uses' => 'App\Http\Controllers\quanlyngansachController@quanlyngansach',
-        'middleware' => 'Quanlyngansach::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','Quanlyngansach'])
     ]);
     Route::post('/quanlynhaphang', [
         'as' => 'quanlynhaphang',
         'uses' => 'App\Http\Controllers\quanlyngansachController@quanlynhaphang',
-        'middleware' => 'Quanlynhaphang::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','Quanlynhaphang'])
     ]);
     Route::post('/quanlybanhang', [
         'as' => 'quanlybanhang',
         'uses' => 'App\Http\Controllers\quanlyngansachController@quanlybanhang',
-        'middleware' => 'Quanlybanhang::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','Quanlybanhang'])
     ]);
     Route::post('/quanlyluong', [
         'as' => 'quanlyluong',
         'uses' => 'App\Http\Controllers\quanlyngansachController@quanlyluong',
-        'middleware' => 'Quanlyluongnhanvien::class',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login','Quanlyluongnhanvien'])
     ]);
     Route::get('/chitietluong', [
         'as' => 'chitietluong',
         'uses' => 'App\Http\Controllers\quanlyngansachController@chitietluong',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login'])
     ]);
     Route::get('/xemchitietluong', [
         'as' => 'xemchitietluong',
         'uses' => 'App\Http\Controllers\quanlyngansachController@xemchitietluong',
-        'middleware' => 'Login::class'
+        'middleware' => (['Login'])
     ]);
 });
 // QUAN LY NGAN SACH
