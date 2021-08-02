@@ -110,7 +110,7 @@
                                         </tr>
                                         <tr style="border:none">
                                             <td colspan="2" style="border:none">
-                                                <h4 style="text-align:left">Tên quán: {{ $thanhvien->tenquan }}</h4>
+                                                <h4 style="text-align:left">Tên quán: {{ $thanhvien->name }}</h4>
                                             </td>
                                             <td style="border:none"></td>
                                             <td colspan="2" style="border:none">

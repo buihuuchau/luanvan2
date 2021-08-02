@@ -69,6 +69,15 @@ class quanlythucdonController extends Controller
             $linkhinhmon = 'storage'.substr($hinhmon, 6);
             $thucdon['hinhmon'] = $linkhinhmon;
             $thucdon['mota'] = $request->mota;
+
+            request()->validate([
+                'hinhmon' => 'image|mimes:jpeg,png,jpg|max:4096',
+            ],
+            [
+                'hinhmon.image' => 'Hình ảnh phải có dạng jpg,jpeg,png',
+                'hinhmon.max' => 'Hình ảnh phải có độ phân giải dưới 4 mb',
+            ]);
+
             DB::table('thucdon')->insert($thucdon);
             return back();
         }

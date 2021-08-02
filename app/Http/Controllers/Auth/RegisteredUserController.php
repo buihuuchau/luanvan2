@@ -42,6 +42,15 @@ class RegisteredUserController extends Controller
         $hinhquan = $request->file('hinhquan')->store('public/hinhanh');
         $linkhinhquan = 'storage'.substr($hinhquan, 6);
 
+        request()->validate([
+            'hinhquan' => 'image|mimes:jpeg,png,jpg|max:4096',
+        ],
+        [
+            'hinhquan.image' => 'Hình ảnh phải có dạng jpg,jpeg,png',
+            'hinhquan.mimes' => 'Hình ảnh phải có dạng jpg,jpeg,png',
+            'hinhquan.max' => 'Hình ảnh phải có độ phân giải dưới 4 mb',
+        ]);
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
