@@ -32,7 +32,7 @@ class quanlybanController extends Controller
                     ->orderBy('tenban')
                     ->where('ban.idquan', $thanhvien->idquan)
                     ->join('khuvuc','ban.idkhuvuc','=','khuvuc.id')
-                    ->select('ban.*','khuvuc.tenkhuvuc')
+                    ->select('ban.*','khuvuc.tenkhuvuc','ban.idkhuvuc')
                     ->get();
 
         $hoadon = DB::table('hoadon')

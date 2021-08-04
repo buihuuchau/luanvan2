@@ -213,7 +213,8 @@
                             <!--diemkhachhang -->
                             <input type="hidden" name="thanhtien" value="{{ $tong }}">
                             <!--thanhtien -->
-                            <button type="submit" class="btn btn-primary">Thanh toán</button>
+                            <button type="submit" class="btn btn-primary"
+                                onclick="return confirm('Bạn có chắc chắn muốn thanh toán')">Thanh toán</button>
                         </form>
 
                     </div>

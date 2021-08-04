@@ -211,11 +211,11 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlykhuvucController@doaddkhuvuc',
         'middleware' => (['Login','ThemKhuvuc'])
     ]);
-    Route::get('/editkhuvuc/{id}', [
-        'as' => 'editkhuvuc',
-        'uses' => 'App\Http\Controllers\quanlykhuvucController@editkhuvuc',
-        'middleware' => (['Login','SuaKhuvuc'])
-    ]);
+    // Route::get('/editkhuvuc/{id}', [
+    //     'as' => 'editkhuvuc',
+    //     'uses' => 'App\Http\Controllers\quanlykhuvucController@editkhuvuc',
+    //     'middleware' => (['Login','SuaKhuvuc'])
+    // ]);
     Route::post('/doeditkhuvuc', [
         'as' => 'doeditkhuvuc',
         'uses' => 'App\Http\Controllers\quanlykhuvucController@doeditkhuvuc',
@@ -255,11 +255,11 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlybanController@doaddban',
         'middleware' => (['Login','ThemBan'])
     ]);
-    Route::get('/editban/{id}', [
-        'as' => 'editban',
-        'uses' => 'App\Http\Controllers\quanlybanController@editban',
-        'middleware' => (['Login','SuaBan'])
-    ]);
+    // Route::get('/editban/{id}', [
+    //     'as' => 'editban',
+    //     'uses' => 'App\Http\Controllers\quanlybanController@editban',
+    //     'middleware' => (['Login','SuaBan'])
+    // ]);
     Route::post('/doeditban', [
         'as' => 'doeditban',
         'uses' => 'App\Http\Controllers\quanlybanController@doeditban',
@@ -299,11 +299,11 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlynguyenlieuController@doaddnguyenlieu',
         'middleware' => (['Login','ThemNguyenlieu'])
     ]);
-    Route::get('/editnguyenlieu/{id}', [
-        'as' => 'editnguyenlieu',
-        'uses' => 'App\Http\Controllers\quanlynguyenlieuController@editnguyenlieu',
-        'middleware' => (['Login','SuaNguyenlieu'])
-    ]);
+    // Route::get('/editnguyenlieu/{id}', [
+    //     'as' => 'editnguyenlieu',
+    //     'uses' => 'App\Http\Controllers\quanlynguyenlieuController@editnguyenlieu',
+    //     'middleware' => (['Login','SuaNguyenlieu'])
+    // ]);
     Route::post('/doeditnguyenlieu', [
         'as' => 'doeditnguyenlieu',
         'uses' => 'App\Http\Controllers\quanlynguyenlieuController@doeditnguyenlieu',
@@ -377,11 +377,11 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlycalamController@doaddcalam',
         'middleware' => (['Login','ThemCalam'])
     ]);
-    Route::get('/editcalam/{id}', [
-        'as' => 'editcalam',
-        'uses' => 'App\Http\Controllers\quanlycalamController@editcalam',
-        'middleware' => (['Login','SuaCalam'])
-    ]);
+    // Route::get('/editcalam/{id}', [
+    //     'as' => 'editcalam',
+    //     'uses' => 'App\Http\Controllers\quanlycalamController@editcalam',
+    //     'middleware' => (['Login','SuaCalam'])
+    // ]);
     Route::post('/doeditcalam', [
         'as' => 'doeditcalam',
         'uses' => 'App\Http\Controllers\quanlycalamController@doeditcalam',
@@ -502,11 +502,11 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlythucdonController@doaddthucdon',
         'middleware' => (['Login','ThemThucdon'])
     ]);
-    Route::get('/editthucdon/{id}', [
-        'as' => 'editthucdon',
-        'uses' => 'App\Http\Controllers\quanlythucdonController@editthucdon',
-        'middleware' => (['Login','SuaThucdon'])
-    ]);
+    // Route::get('/editthucdon/{id}', [
+    //     'as' => 'editthucdon',
+    //     'uses' => 'App\Http\Controllers\quanlythucdonController@editthucdon',
+    //     'middleware' => (['Login','SuaThucdon'])
+    // ]);
     Route::post('/doeditthucdon', [
         'as' => 'doeditthucdon',
         'uses' => 'App\Http\Controllers\quanlythucdonController@doeditthucdon',

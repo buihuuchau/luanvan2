@@ -45,7 +45,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('thongtinthanhvien') }}">Thông tin thành viên</a>
+                            <li class="breadcrumb-item"><a href="{{ route('thongtinthanhvien') }}">Thông tin thành
+                                    viên</a>
                             </li>
                         </ol>
                     </div><!-- /.col -->
@@ -60,7 +61,8 @@
 
                     <div class="col-sm-12">
                         <div class="col-md-12 mb-3 text-right">
-                            <a style="width:100px" class="btn btn-danger" href="{{ route('baohetnguyenlieu') }}">Báo hết nguyên liệu</a>
+                            <a style="width:100px" class="btn btn-danger" href="{{ route('baohetnguyenlieu') }}">Báo hết
+                                nguyên liệu</a>
                         </div>
                         <div class="card">
                             <div class="card-body">
@@ -101,11 +103,18 @@
                                                     <td bgcolor="red" style="color:white">Đã báo hủy</td>
                                                 @endif
 
-                                                <td>
+                                                <td class="row">
                                                     @if ($row->trangthai == 0)
-                                                        <a href="{{route('checkhoanthanh',['id'=>$row->id])}}">Check Hoàn Thành</a><br>
-                                                        <a href="{{route('baohuy',['id'=>$row->id])}}" onclick="return confirm('Bạn có chắc chắn')"
-                                                            >Báo hủy !</a>
+                                                        <button class="btn btn-success"><a
+                                                                href="{{ route('checkhoanthanh', ['id' => $row->id]) }}"
+                                                                style="color: black"
+                                                                onclick="return confirm('Bạn có chắc chắn')">Hoàn
+                                                                Thành</a></button>
+                                                        <button class="btn btn-warning"><a
+                                                                href="{{ route('baohuy', ['id' => $row->id]) }}"
+                                                                style="color: black"
+                                                                onclick="return confirm('Bạn có chắc chắn')">Báo hủy
+                                                                !</a></button>
                                                     @endif
                                                 </td>
                                             </tr>
@@ -125,6 +134,8 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
-<html>   
-   <body onload = "JavaScript:AutoRefresh(60000);"></body>
+<html>
+
+<body onload="JavaScript:AutoRefresh(60000);"></body>
+
 </html>

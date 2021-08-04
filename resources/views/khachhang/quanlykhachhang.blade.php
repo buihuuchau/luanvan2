@@ -45,7 +45,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('thongtinthanhvien') }}">Thông tin thành viên</a>
+                            <li class="breadcrumb-item"><a href="{{ route('thongtinthanhvien') }}">Thông tin thành
+                                    viên</a>
                             </li>
                             <li class="breadcrumb-item"><a href="">Quản lý khách hàng</a></li>
                         </ol>
@@ -81,40 +82,41 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-										<form action="{{route('doaddkhachhang')}}" method="post">
-											<div class="modal-body">
-												{{csrf_field()}}
-												{{-- @if($errors->any())
+                                        <form action="{{ route('doaddkhachhang') }}" method="post">
+                                            <div class="modal-body">
+                                                {{ csrf_field() }}
+                                                {{-- @if ($errors->any())
 													<h3>{{$errors->first()}}</h3>
 												@endif --}}
-												<div class="form-group">
-													<label class="col-form-label">Tên khách hàng</label>
-													<input type="text" class="form-control" name="hotenkh" required>
-												</div>
-												<div class="form-group">
-													<label>Số điện thoại</label>
-													<input required="true" type="tel" class="form-control" name="sdt" placeholder="0123456789" pattern="[0-9]{10}">
-												</div>
-												{{-- <div class="form-group">
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Tên khách hàng</label>
+                                                    <input type="text" class="form-control" name="hotenkh" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Số điện thoại</label>
+                                                    <input required="true" type="tel" class="form-control" name="sdt"
+                                                        placeholder="0123456789" pattern="[0-9]{10}">
+                                                </div>
+                                                {{-- <div class="form-group">
 													<button type="submit" class="btn btn-primary">Thêm</button>
 												</div> --}}
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-secondary"
-													data-dismiss="modal">Close</button>
-												{{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-												<button type="submit" class="btn btn-primary">Thêm</button>
-											</div>
-										</form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                                                <button type="submit" class="btn btn-primary">Thêm</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                             {{-- ////////////////////// --}}
                         </div>
 
-						@if($errors->any())
-							<h3>{{$errors->first()}}</h3>
-						@endif
+                        @if ($errors->any())
+                            <h3>{{ $errors->first() }}</h3>
+                        @endif
 
                         <div class="card">
                             <div class="card-body">
@@ -144,8 +146,59 @@
                                                 <td>{{ $row->sdt }}</td>
                                                 <td>{{ $row->diem }}</td>
                                                 <td>{{ $row->ngaydangky }}</td>
-                                                <td><a href="{{ route('editkhachhang', ['id' => $row->id]) }}">Sửa thông
-                                                        tin</a></td>
+                                                {{-- <td><a href="{{ route('editkhachhang', ['id' => $row->id]) }}">Sửa thông
+                                                        tin</a></td> --}}
+                                                <td class="row">
+
+                                                    <button type="button" class="btn btn-warning" data-toggle="modal"
+                                                        data-target="#exampleModalCenter{{ $row->id }}">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button><br>
+                                                    <div class="modal fade" id="exampleModalCenter{{ $row->id }}"
+                                                        tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Sửa
+                                                                        Thông tin khách hàng</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <form action="{{ route('doeditkhachhang') }}"
+                                                                    method="post">
+                                                                    <input type="hidden" name="id"
+                                                                        value="{{ $row->id }}">
+                                                                    <div class="modal-body">
+                                                                        {{ csrf_field() }}
+                                                                        <div class="form-group">
+                                                                            <label>Tên khách hàng</label>
+                                                                            <input type="text" class="form-control"
+                                                                                name="hotenkh" value="{{ $row->hotenkh }}"
+                                                                                required>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>Số điện thoại</label>
+                                                                            <input required="true" type="tel"
+                                                                                class="form-control" name="sdt"
+                                                                                value="{{ $row->sdt }}"
+                                                                                pattern="[0-9]{10}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Close</button>
+                                                                        <button type="submit" class="btn btn-primary">Lưu
+                                                                            chỉnh sửa</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
