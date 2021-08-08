@@ -104,27 +104,12 @@ class Kernel extends HttpKernel
         'ThemNguyenlieu' => \App\Http\Middleware\ThemNguyenlieu::class,
         'SuaNguyenlieu' => \App\Http\Middleware\SuaNguyenlieu::class,
         'XoaNguyenlieu' => \App\Http\Middleware\XoaNguyenlieu::class,
-        // 9 Quan
-        'XemQuan' => \App\Http\Middleware\XemQuan::class,
-        'ThemQuan' => \App\Http\Middleware\ThemQuan::class,
-        'SuaQuan' => \App\Http\Middleware\SuaQuan::class,
-        'XoaQuan' => \App\Http\Middleware\XoaQuan::class,
-        // 10 Thanhvien
-        'XemThanhvien' => \App\Http\Middleware\XemThanhvien::class,
-        'ThemThanhvien' => \App\Http\Middleware\ThemThanhvien::class,
-        'SuaThanhvien' => \App\Http\Middleware\SuaThanhvien::class,
-        'XoaThanhvien' => \App\Http\Middleware\XoaThanhvien::class,
-        // 11 Thucdon
+        // 9 Thucdon
         'XemThucdon' => \App\Http\Middleware\XemThucdon::class,
         'ThemThucdon' => \App\Http\Middleware\ThemThucdon::class,
         'SuaThucdon' => \App\Http\Middleware\SuaThucdon::class,
         'XoaThucdon' => \App\Http\Middleware\XoaThucdon::class,
-        // 12 Vaitro
-        'XemVaitro' => \App\Http\Middleware\XemVaitro::class,
-        'ThemVaitro' => \App\Http\Middleware\ThemVaitro::class,
-        'SuaVaitro' => \App\Http\Middleware\SuaVaitro::class,
-        'XoaVaitro' => \App\Http\Middleware\XoaVaitro::class,
-        // 13 Quanly
+        // 10 Quanly
         'Quanlyngansach' => \App\Http\Middleware\Quanlyngansach::class,
         'Quanlynhaphang' => \App\Http\Middleware\Quanlynhaphang::class,
         'Quanlybanhang' => \App\Http\Middleware\Quanlybanhang::class,

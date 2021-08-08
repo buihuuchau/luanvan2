@@ -13,13 +13,12 @@
         <li class="nav-item d-none d-sm-inline-block">
             {{-- <a href="{{ route('dangxuatquan') }}" class="nav-link">Đăng xuất</a> --}}
             <form method="POST" action="{{ route('logout') }}">
-				@csrf
-				<x-dropdown-link :href="route('logout')"
-						onclick="event.preventDefault();
-									this.closest('form').submit();" class="nav-link">
-					{{-- {{ __('Đăng xuất') }} --}}<h5>Đăng xuất</h5>
-				</x-dropdown-link>
-			</form>
+                @csrf
+                <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                 this.closest('form').submit();" class="nav-link">
+                    {{-- {{ __('Đăng xuất') }} --}}<h5>Đăng xuất</h5>
+                </x-dropdown-link>
+            </form>
         </li>
     </ul>
 @endsection
@@ -64,7 +63,8 @@
                         @endif
                         <div class="form-group col-md-12">
                             <label>Tên vai trò</label>
-                            <input type="text" class="form-control" name="tenvaitro" value="{{$vaitro->tenvaitro}}" disabled><br>
+                            <input type="text" class="form-control" name="tenvaitro" value="{{ $vaitro->tenvaitro }}"
+                                disabled><br>
                         </div>
                         {{-- ban --}}
                         <table class="table col-md-12">
@@ -73,9 +73,8 @@
                                     @if ($row->id <= 4)
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="{{ $row->id }}" name="idquyenban[]"
-                                                    value="{{ $row->id }}">
+                                                <input type="checkbox" class="custom-control-input" id="{{ $row->id }}"
+                                                    name="idquyenban[]" value="{{ $row->id }}">
                                                 <label class="custom-control-label"
                                                     for="{{ $row->id }}">{{ $row->tenquyen }}</label>
 
@@ -85,8 +84,7 @@
                                 @endforeach
                                 <td>
                                     <input class="btn btn-info btn-sm" type="button" id="btn1ban" value="Chọn bàn" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2ban"
-                                        value="Bỏ chọn bàn" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn2ban" value="Bỏ chọn bàn" />
                                 </td>
                             </tr>
 
@@ -252,50 +250,6 @@
                                         <td>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input"
-                                                    id="{{ $row->id }}" name="idquyenquan[]"
-                                                    value="{{ $row->id }}">
-                                                <label class="custom-control-label"
-                                                    for="{{ $row->id }}">{{ $row->tenquyen }}</label>
-
-                                            </div>
-                                        </td>
-                                    @endif
-                                @endforeach
-                                <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1quan" value="Chọn quán" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2quan" value="Bỏ chọn quán" />
-                                </td>
-                            </tr>
-
-                            <tr>
-                                @foreach ($quyen as $key => $row)
-                                    @if ($row->id > 36 && $row->id <= 40)
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="{{ $row->id }}" name="idquyenthanhvien[]"
-                                                    value="{{ $row->id }}">
-                                                <label class="custom-control-label"
-                                                    for="{{ $row->id }}">{{ $row->tenquyen }}</label>
-
-                                            </div>
-                                        </td>
-                                    @endif
-                                @endforeach
-                                <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1thanhvien"
-                                        value="Chọn thành viên" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2thanhvien"
-                                        value="Bỏ chọn thành viên" />
-                                </td>
-                            </tr>
-
-                            <tr>
-                                @foreach ($quyen as $key => $row)
-                                    @if ($row->id > 40 && $row->id <= 44)
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
                                                     id="{{ $row->id }}" name="idquyenthucdon[]"
                                                     value="{{ $row->id }}">
                                                 <label class="custom-control-label"
@@ -315,29 +269,7 @@
 
                             <tr>
                                 @foreach ($quyen as $key => $row)
-                                    @if ($row->id > 44 && $row->id <= 48)
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="{{ $row->id }}" name="idquyenvaitro[]"
-                                                    value="{{ $row->id }}">
-                                                <label class="custom-control-label"
-                                                    for="{{ $row->id }}">{{ $row->tenquyen }}</label>
-
-                                            </div>
-                                        </td>
-                                    @endif
-                                @endforeach
-                                <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1vaitro" value="Chọn vai trò" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2vaitro"
-                                        value="Bỏ chọn vai trò" />
-                                </td>
-                            </tr>
-
-                            <tr>
-                                @foreach ($quyen as $key => $row)
-                                    @if ($row->id > 48 && $row->id <= 52)
+                                    @if ($row->id > 36 && $row->id <= 40)
                                         <td>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input"
@@ -357,7 +289,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <input type="hidden" name="id" value="{{$vaitro->id}}">
+                        <input type="hidden" name="id" value="{{ $vaitro->id }}">
                         <button type="submit" class="btn btn-primary">Lưu chỉnh sửa</button>
                     </form>
 
@@ -577,52 +509,6 @@
 
     <script language="javascript">
         // Chức năng chọn hết
-        document.getElementById("btn1quan").onclick = function() {
-            // Lấy danh sách checkbox
-            var checkboxes = document.getElementsByName('idquyenquan[]');
-
-            // Lặp và thiết lập checked
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = true;
-            }
-        };
-        // Chức năng bỏ chọn hết
-        document.getElementById("btn2quan").onclick = function() {
-            // Lấy danh sách checkbox
-            var checkboxes = document.getElementsByName('idquyenquan[]');
-
-            // Lặp và thiết lập Uncheck
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = false;
-            }
-        };
-    </script>
-
-    <script language="javascript">
-        // Chức năng chọn hết
-        document.getElementById("btn1thanhvien").onclick = function() {
-            // Lấy danh sách checkbox
-            var checkboxes = document.getElementsByName('idquyenthanhvien[]');
-
-            // Lặp và thiết lập checked
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = true;
-            }
-        };
-        // Chức năng bỏ chọn hết
-        document.getElementById("btn2thanhvien").onclick = function() {
-            // Lấy danh sách checkbox
-            var checkboxes = document.getElementsByName('idquyenthanhvien[]');
-
-            // Lặp và thiết lập Uncheck
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = false;
-            }
-        };
-    </script>
-
-    <script language="javascript">
-        // Chức năng chọn hết
         document.getElementById("btn1thucdon").onclick = function() {
             // Lấy danh sách checkbox
             var checkboxes = document.getElementsByName('idquyenthucdon[]');
@@ -636,29 +522,6 @@
         document.getElementById("btn2thucdon").onclick = function() {
             // Lấy danh sách checkbox
             var checkboxes = document.getElementsByName('idquyenthucdon[]');
-
-            // Lặp và thiết lập Uncheck
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = false;
-            }
-        };
-    </script>
-
-    <script language="javascript">
-        // Chức năng chọn hết
-        document.getElementById("btn1vaitro").onclick = function() {
-            // Lấy danh sách checkbox
-            var checkboxes = document.getElementsByName('idquyenvaitro[]');
-
-            // Lặp và thiết lập checked
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = true;
-            }
-        };
-        // Chức năng bỏ chọn hết
-        document.getElementById("btn2vaitro").onclick = function() {
-            // Lấy danh sách checkbox
-            var checkboxes = document.getElementsByName('idquyenvaitro[]');
 
             // Lặp và thiết lập Uncheck
             for (var i = 0; i < checkboxes.length; i++) {

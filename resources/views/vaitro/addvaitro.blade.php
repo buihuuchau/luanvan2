@@ -13,13 +13,12 @@
         <li class="nav-item d-none d-sm-inline-block">
             {{-- <a href="{{ route('dangxuatquan') }}" class="nav-link">Đăng xuất</a> --}}
             <form method="POST" action="{{ route('logout') }}">
-				@csrf
-				<x-dropdown-link :href="route('logout')"
-						onclick="event.preventDefault();
-									this.closest('form').submit();" class="nav-link">
-					{{-- {{ __('Đăng xuất') }} --}}<h5>Đăng xuất</h5>
-				</x-dropdown-link>
-			</form>
+                @csrf
+                <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+             this.closest('form').submit();" class="nav-link">
+                    {{-- {{ __('Đăng xuất') }} --}}<h5>Đăng xuất</h5>
+                </x-dropdown-link>
+            </form>
         </li>
     </ul>
 @endsection
@@ -66,7 +65,7 @@
                             <label>Tên vai trò</label>
                             <input type="text" class="form-control" name="tenvaitro" required><br>
                         </div>
-						{{-- ban --}}
+                        {{-- ban --}}
                         <table class="table col-md-12">
                             <tr>
                                 @foreach ($quyen as $key => $row)
@@ -88,7 +87,7 @@
                                 </td>
                             </tr>
 
-							<tr>
+                            <tr>
                                 @foreach ($quyen as $key => $row)
                                     @if ($row->id > 4 && $row->id <= 8)
                                         <td>
@@ -105,11 +104,12 @@
                                 @endforeach
                                 <td>
                                     <input class="btn btn-info btn-sm" type="button" id="btn1calam" value="Chọn ca làm" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2calam" value="Bỏ chọn ca làm" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn2calam"
+                                        value="Bỏ chọn ca làm" />
                                 </td>
                             </tr>
 
-							<tr>
+                            <tr>
                                 @foreach ($quyen as $key => $row)
                                     @if ($row->id > 8 && $row->id <= 12)
                                         <td>
@@ -126,11 +126,12 @@
                                 @endforeach
                                 <td>
                                     <input class="btn btn-info btn-sm" type="button" id="btn1hoadon" value="Chọn hóa đơn" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2hoadon" value="Bỏ chọn hóa đơn" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn2hoadon"
+                                        value="Bỏ chọn hóa đơn" />
                                 </td>
                             </tr>
 
-							<tr>
+                            <tr>
                                 @foreach ($quyen as $key => $row)
                                     @if ($row->id > 12 && $row->id <= 16)
                                         <td>
@@ -146,12 +147,14 @@
                                     @endif
                                 @endforeach
                                 <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1khachhang" value="Chọn khách hàng" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2khachhang" value="Bỏ chọn khách hàng" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn1khachhang"
+                                        value="Chọn khách hàng" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn2khachhang"
+                                        value="Bỏ chọn khách hàng" />
                                 </td>
                             </tr>
 
-							<tr>
+                            <tr>
                                 @foreach ($quyen as $key => $row)
                                     @if ($row->id > 16 && $row->id <= 20)
                                         <td>
@@ -172,7 +175,7 @@
                                 </td>
                             </tr>
 
-							<tr>
+                            <tr>
                                 @foreach ($quyen as $key => $row)
                                     @if ($row->id > 20 && $row->id <= 24)
                                         <td>
@@ -189,11 +192,12 @@
                                 @endforeach
                                 <td>
                                     <input class="btn btn-info btn-sm" type="button" id="btn1khuvuc" value="Chọn khu vực" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2khuvuc" value="Bỏ chọn khu vực" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn2khuvuc"
+                                        value="Bỏ chọn khu vực" />
                                 </td>
                             </tr>
 
-							<tr>
+                            <tr>
                                 @foreach ($quyen as $key => $row)
                                     @if ($row->id > 24 && $row->id <= 28)
                                         <td>
@@ -209,12 +213,14 @@
                                     @endif
                                 @endforeach
                                 <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1lichlamviec" value="Chọn lịch làm việc" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2lichlamviec" value="Bỏ chọn lịch làm việc" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn1lichlamviec"
+                                        value="Chọn lịch làm việc" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn2lichlamviec"
+                                        value="Bỏ chọn lịch làm việc" />
                                 </td>
                             </tr>
 
-							<tr>
+                            <tr>
                                 @foreach ($quyen as $key => $row)
                                     @if ($row->id > 28 && $row->id <= 32)
                                         <td>
@@ -230,56 +236,16 @@
                                     @endif
                                 @endforeach
                                 <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1nguyenlieu" value="Chọn nguyên liệu" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2nguyenlieu" value="Bỏ chọn nguyên liệu" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn1nguyenlieu"
+                                        value="Chọn nguyên liệu" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn2nguyenlieu"
+                                        value="Bỏ chọn nguyên liệu" />
                                 </td>
                             </tr>
 
-							<tr>
+                            <tr>
                                 @foreach ($quyen as $key => $row)
                                     @if ($row->id > 32 && $row->id <= 36)
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="{{ $row->id }}" name="idquyenquan[]"
-                                                    value="{{ $row->id }}">
-                                                <label class="custom-control-label"
-                                                    for="{{ $row->id }}">{{ $row->tenquyen }}</label>
-
-                                            </div>
-                                        </td>
-                                    @endif
-                                @endforeach
-                                <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1quan" value="Chọn quán" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2quan" value="Bỏ chọn quán" />
-                                </td>
-                            </tr>
-
-							<tr>
-                                @foreach ($quyen as $key => $row)
-                                    @if ($row->id > 36 && $row->id <= 40)
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="{{ $row->id }}" name="idquyenthanhvien[]"
-                                                    value="{{ $row->id }}">
-                                                <label class="custom-control-label"
-                                                    for="{{ $row->id }}">{{ $row->tenquyen }}</label>
-
-                                            </div>
-                                        </td>
-                                    @endif
-                                @endforeach
-                                <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1thanhvien" value="Chọn thành viên" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2thanhvien" value="Bỏ chọn thành viên" />
-                                </td>
-                            </tr>
-
-							<tr>
-                                @foreach ($quyen as $key => $row)
-                                    @if ($row->id > 40 && $row->id <= 44)
                                         <td>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input"
@@ -293,35 +259,16 @@
                                     @endif
                                 @endforeach
                                 <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1thucdon" value="Chọn thực đơn" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2thucdon" value="Bỏ chọn thực đơn" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn1thucdon"
+                                        value="Chọn thực đơn" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn2thucdon"
+                                        value="Bỏ chọn thực đơn" />
                                 </td>
                             </tr>
 
-							<tr>
+                            <tr>
                                 @foreach ($quyen as $key => $row)
-                                    @if ($row->id > 44 && $row->id <= 48)
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="{{ $row->id }}" name="idquyenvaitro[]"
-                                                    value="{{ $row->id }}">
-                                                <label class="custom-control-label"
-                                                    for="{{ $row->id }}">{{ $row->tenquyen }}</label>
-
-                                            </div>
-                                        </td>
-                                    @endif
-                                @endforeach
-                                <td>
-                                    <input class="btn btn-info btn-sm" type="button" id="btn1vaitro" value="Chọn vai trò" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2vaitro" value="Bỏ chọn vai trò" />
-                                </td>
-                            </tr>
-
-							<tr>
-                                @foreach ($quyen as $key => $row)
-                                    @if ($row->id > 48 && $row->id <= 52)
+                                    @if ($row->id > 36 && $row->id <= 40)
                                         <td>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input"
@@ -336,10 +283,11 @@
                                 @endforeach
                                 <td>
                                     <input class="btn btn-info btn-sm" type="button" id="btn1quanly" value="Chọn quản lý" />
-                                    <input class="btn btn-info btn-sm" type="button" id="btn2quanly" value="Bỏ chọn quản lý" />
+                                    <input class="btn btn-info btn-sm" type="button" id="btn2quanly"
+                                        value="Bỏ chọn quản lý" />
                                 </td>
                             </tr>
-                        </table>						
+                        </table>
 
                         <button type="submit" class="btn btn-primary">Thêm</button>
                     </form>
@@ -422,28 +370,28 @@
         };
     </script>
 
-	<script language="javascript">
-		// Chức năng chọn hết
-		document.getElementById("btn1khachhang").onclick = function() {
-			// Lấy danh sách checkbox
-			var checkboxes = document.getElementsByName('idquyenkhachhang[]');
+    <script language="javascript">
+        // Chức năng chọn hết
+        document.getElementById("btn1khachhang").onclick = function() {
+            // Lấy danh sách checkbox
+            var checkboxes = document.getElementsByName('idquyenkhachhang[]');
 
-			// Lặp và thiết lập checked
-			for (var i = 0; i < checkboxes.length; i++) {
-				checkboxes[i].checked = true;
-			}
-		};
-		// Chức năng bỏ chọn hết
-		document.getElementById("btn2khachhang").onclick = function() {
-			// Lấy danh sách checkbox
-			var checkboxes = document.getElementsByName('idquyenkhachhang[]');
+            // Lặp và thiết lập checked
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = true;
+            }
+        };
+        // Chức năng bỏ chọn hết
+        document.getElementById("btn2khachhang").onclick = function() {
+            // Lấy danh sách checkbox
+            var checkboxes = document.getElementsByName('idquyenkhachhang[]');
 
-			// Lặp và thiết lập Uncheck
-			for (var i = 0; i < checkboxes.length; i++) {
-				checkboxes[i].checked = false;
-			}
-		};
-	</script>
+            // Lặp và thiết lập Uncheck
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+        };
+    </script>
 
     <script language="javascript">
         // Chức năng chọn hết

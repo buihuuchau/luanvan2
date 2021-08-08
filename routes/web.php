@@ -420,8 +420,7 @@ Route::prefix('/')->group(function () {
     Route::get('/diemdanhcomatlichlamviec/{id}', [
         'as' => 'diemdanhcomatlichlamviec',
         'uses' => 'App\Http\Controllers\quanlylichlamviecController@diemdanhcomatlichlamviec',
-        'middleware' => 'SuaLichlamviec::class',
-        'middleware' => (['Login','Login'])
+        'middleware' => (['Login','SuaLichlamviec'])
     ]);
     Route::get('/diemdanhvangmatlichlamviec/{id}', [
         'as' => 'diemdanhvangmatlichlamviec',

@@ -24,7 +24,7 @@ class XemThucdon
             ->first();
         $vaitro_quyen = DB::table('vaitro_quyen')
             ->where('idvaitro',$thanhvien->idvaitro)
-            ->where('idquyen',41)
+            ->where('idquyen',33)
             ->first();
         if($vaitro_quyen){
             return $next($request);

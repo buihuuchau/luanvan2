@@ -24,7 +24,7 @@ class Quanlybanhang
             ->first();
         $vaitro_quyen = DB::table('vaitro_quyen')
             ->where('idvaitro',$thanhvien->idvaitro)
-            ->where('idquyen',51)
+            ->where('idquyen',39)
             ->first();
         if($vaitro_quyen){
             return $next($request);
