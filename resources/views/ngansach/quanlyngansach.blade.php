@@ -59,7 +59,7 @@
             {{-- form nhap ngay --}}
             <div class="col-sm-4">
                 <div class="card">
-                    <form action="{{route('quanlynhaphang')}}" method="post">
+                    <form action="{{route('quanlynhaphang')}}" method="get">
                         {{csrf_field()}}
                         <label>Từ:</label>
                         <input type="date" name="tungay" class="form-control">
@@ -71,7 +71,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="card">
-                    <form action="{{route('quanlybanhang')}}" method="post">
+                    <form action="{{route('quanlybanhang')}}" method="get">
                         {{csrf_field()}}
                         <label>Từ:</label>
                         <input type="date" name="tungay" class="form-control">
@@ -83,7 +83,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="card">
-                    <form action="{{route('quanlyluong')}}" method="post">
+                    <form action="{{route('quanlyluong')}}" method="get">
                         {{csrf_field()}}
                         <label>Từ:</label>
                         <input type="date" name="tungay" class="form-control">
@@ -94,7 +94,10 @@
                 </div>
             </div>
             {{-- form nhap ngay --}}
-
+            
+            @if($errors->any())
+            <h3>{{$errors->first()}}</h3>
+            @endif
 
 
             {{-- xuly quanlynhaphang --}}
@@ -368,6 +371,7 @@
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" >CHỨC VỤ</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" >CÓ MẶT</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" >VẮNG</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" >THÙ LAO / BUỔI</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" >TỔNG SỐ BUỔI</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" >LƯƠNG</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" >THAO TÁC</th>
@@ -381,6 +385,7 @@
                                     <td>{{$row['chucvu']}}</td>
                                     <td>{{$row['comat']}}</td>
                                     <td>{{$row['vang']}}</td>
+                                    <td>{{number_format($row['thulao_buoi'],0,",",".")}}</td>
                                     <td>{{number_format($row['sobuoi'],0,",",".")}}</td>
                                     <td>{{number_format($row['thulao'],0,",",".")}}</td>
                                     <td>
@@ -394,6 +399,7 @@
                             @endforeach
                             <tr>
                                 <th>Tính lương:<br>{{$tungay}}->{{$denngay}}</th>
+                                <th></th>
                                 <th></th>
                                 <th></th>
                                 <th></th>

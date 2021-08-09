@@ -668,17 +668,17 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlyngansachController@quanlyngansach',
         'middleware' => (['Login','Quanlyngansach'])
     ]);
-    Route::post('/quanlynhaphang', [
+    Route::get('/quanlynhaphang', [
         'as' => 'quanlynhaphang',
         'uses' => 'App\Http\Controllers\quanlyngansachController@quanlynhaphang',
         'middleware' => (['Login','Quanlynhaphang'])
     ]);
-    Route::post('/quanlybanhang', [
+    Route::get('/quanlybanhang', [
         'as' => 'quanlybanhang',
         'uses' => 'App\Http\Controllers\quanlyngansachController@quanlybanhang',
         'middleware' => (['Login','Quanlybanhang'])
     ]);
-    Route::post('/quanlyluong', [
+    Route::get('/quanlyluong', [
         'as' => 'quanlyluong',
         'uses' => 'App\Http\Controllers\quanlyngansachController@quanlyluong',
         'middleware' => (['Login','Quanlyluongnhanvien'])

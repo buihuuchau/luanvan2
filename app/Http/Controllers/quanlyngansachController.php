@@ -257,11 +257,14 @@ class quanlyngansachController extends Controller
             $denngay = date('Y-m-t');
         }
 
+        $thang = substr($tungay, 5, 2);
 
         $luong = array();
         $i = 0;
+        $j = 0;
         $thanhvien2 = DB::table('thanhvien')
             ->where('thanhvien.idquan',$thanhvien->idquan)
+            ->where('ngayvaolam','<=',$tungay)
             ->join('vaitro', 'thanhvien.idvaitro', '=', 'vaitro.id')
             ->select('thanhvien.*','vaitro.tenvaitro')
             ->get();
@@ -278,14 +281,32 @@ class quanlyngansachController extends Controller
                 ->where('diemdanh',0)
                 ->whereBetween('thoigian',[$tungay,$denngay])
                 ->get();
+
+            if($request->tungay==null){
+                $mucluong = DB::table('luong')
+                ->orderBy('tu','desc')
+                ->where('idthanhvien',$row->id)
+                ->first();
+            }
+            else{
+                $mucluong = DB::table('luong')
+                    ->orderBy('tu','desc')
+                    ->where('idthanhvien',$row->id)
+                    ->where('tu','<=',$tungay)
+                    ->first();
+                    if($mucluong==null) return back()->withErrors('Ngày bạn truy vấn không có dữ liệu');               
+            }
+
             $luong[$i]['id'] = $row->id;
             $luong[$i]['hoten'] = $row->hoten;
             $luong[$i]['chucvu'] = $row->tenvaitro;
             $luong[$i]['comat'] = count($lichlamviec);
             $luong[$i]['vang'] = count($lichlamviec2);
+            $luong[$i]['thulao_buoi'] = $mucluong->mucluong;
             $luong[$i]['sobuoi'] = count($lichlamviec) + count($lichlamviec2);
-            $luong[$i]['thulao'] = $row->luong * count($lichlamviec);
+            $luong[$i]['thulao'] = $mucluong->mucluong * count($lichlamviec);
             $i++;
+            
         }
 
 

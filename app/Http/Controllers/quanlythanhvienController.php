@@ -59,7 +59,7 @@ class quanlythanhvienController extends Controller
         if (strtotime($today) < strtotime($namsinh3)){
             return back()->withInput()->withErrors('Chưa đủ 18 !');
         }
-        elseif(strtotime($namsinh3) > strtotime($ngayvaolam)){
+        elseif(strtotime($namsinh3) > strtotime($ngayvaolam) || strtotime($today) < strtotime($ngayvaolam)){
             return back()->withInput()->withErrors('Ngày vào làm không hợp lệ');
         }
         else{
@@ -90,7 +90,12 @@ class quanlythanhvienController extends Controller
             return back()->withInput()->withErrors(['Tài khoản đã tồn tại']);
         }
         else{
-            DB::table('thanhvien')->insert($thanhvien);
+            $idthanhvien = DB::table('thanhvien')->insertGetId($thanhvien);
+            $thanhvien2['idquan'] = $ssidquan;
+            $thanhvien2['idthanhvien'] = $idthanhvien;
+            $thanhvien2['mucluong'] = $request->luong;
+            $thanhvien2['tu'] = date('Y-m-d');
+            DB::table('luong')->insert($thanhvien2);
             return redirect()->route('dangnhapthanhvien');
         }
     }
@@ -126,7 +131,7 @@ class quanlythanhvienController extends Controller
         if (strtotime($today) < strtotime($namsinh3)){
             return back()->withErrors('Chưa đủ 18 !');
         }
-        elseif(strtotime($namsinh3) > strtotime($ngayvaolam)){
+        elseif(strtotime($namsinh3) > strtotime($ngayvaolam) || strtotime($today) < strtotime($ngayvaolam)){
             return back()->withErrors('Ngày vào làm không hợp lệ');
         }
         else{
@@ -143,6 +148,21 @@ class quanlythanhvienController extends Controller
             ->where('id',$id)
             ->where('idquan',$ssidquan)
             ->update($thanhvien);
+
+        $luong = DB::table('luong')
+            ->orderBy('id', 'desc')
+            ->where('idthanhvien', $id)
+            ->first();
+        $mucluong = $luong->mucluong;
+        $tu = $luong->tu;
+        if($mucluong!=$request->luong || $tu!=date('Y-m-d')){
+            $thanhvien2['idquan'] = $ssidquan;
+            $thanhvien2['idthanhvien'] = $id;
+            $thanhvien2['mucluong'] = $request->luong;
+            $thanhvien2['tu'] = date('Y-m-d');
+            DB::table('luong')->insert($thanhvien2);
+        }
+        
         return back();
     }
     public function editmatkhau(Request $request){
@@ -178,6 +198,10 @@ class quanlythanhvienController extends Controller
     }
     public function deletethongtinthanhvien($id){
         $ssidquan = auth()->user()->id;
+        DB::table('luong')
+            ->where('idthanhvien',$id)
+            ->where('idquan',$ssidquan)
+            ->delete();
         DB::table('thanhvien')
             ->where('id',$id)
             ->where('idquan',$ssidquan)

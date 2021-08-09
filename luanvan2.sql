@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th7 21, 2021 lúc 02:48 PM
+-- Thời gian đã tạo: Th8 09, 2021 lúc 03:28 AM
 -- Phiên bản máy phục vụ: 5.7.24
 -- Phiên bản PHP: 7.3.2
 
@@ -33,26 +33,24 @@ CREATE TABLE `ban` (
   `idkhuvuc` bigint(20) UNSIGNED NOT NULL,
   `tenban` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `trangthai` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Rãnh - 1: Bận',
-  `hidden` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `hidden` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `ban`
 --
 
-INSERT INTO `ban` (`id`, `idquan`, `idkhuvuc`, `tenban`, `trangthai`, `hidden`, `created_at`, `updated_at`) VALUES
-(10, 1, 3, 'Bàn 1', 1, 0, NULL, NULL),
-(11, 1, 3, 'Bàn 2', 0, 0, NULL, NULL),
-(12, 1, 3, 'Bàn 3', 0, 0, NULL, NULL),
-(13, 1, 2, 'Bàn 1 Sân thượng', 0, 0, NULL, NULL),
-(14, 1, 2, 'Bàn 2 Sân thượng', 0, 0, NULL, NULL),
-(15, 1, 2, 'Bàn 3 Sân thượng', 0, 0, NULL, NULL),
-(16, 1, 3, 'Bàn 4', 0, 0, NULL, NULL),
-(17, 1, 3, 'Bàn 5', 0, 1, NULL, NULL),
-(18, 1, 4, 'Bàn 1 Sân trước', 0, 0, NULL, NULL),
-(21, 1, 2, 'Bàn 4 Sân thượng', 0, 0, NULL, NULL);
+INSERT INTO `ban` (`id`, `idquan`, `idkhuvuc`, `tenban`, `trangthai`, `hidden`) VALUES
+(10, 1, 3, 'Bàn 1', 0, 0),
+(11, 1, 3, 'Bàn 2', 0, 0),
+(12, 1, 3, 'Bàn 3', 0, 0),
+(13, 1, 2, 'Bàn 1 Sân thượng', 0, 0),
+(14, 1, 2, 'Bàn 2 Sân thượng', 0, 0),
+(15, 1, 2, 'Bàn 3 Sân thượng', 0, 0),
+(16, 1, 3, 'Bàn 4', 0, 0),
+(17, 1, 3, 'Bàn 5', 0, 1),
+(18, 1, 4, 'Bàn 1 Sân trước', 0, 0),
+(21, 1, 2, 'Bàn 4 Sân thượng', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -66,22 +64,18 @@ CREATE TABLE `calam` (
   `tencalam` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tu` time NOT NULL,
   `den` time NOT NULL,
-  `hidden` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `hidden` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `calam`
 --
 
-INSERT INTO `calam` (`id`, `idquan`, `tencalam`, `tu`, `den`, `hidden`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Sáng', '05:00:00', '10:00:00', '0', NULL, NULL),
-(2, 1, 'Trưa', '10:00:00', '15:00:00', '0', NULL, NULL),
-(3, 1, 'Chiều', '15:00:00', '20:00:00', '0', NULL, NULL),
-(4, 1, 'Tối', '20:00:00', '12:00:00', '0', NULL, NULL),
-(5, 1, 'Khuya', '01:13:00', '02:13:00', '0', NULL, NULL),
-(6, 1, 'Giữa trưa', '15:19:00', '16:20:00', '0', NULL, NULL);
+INSERT INTO `calam` (`id`, `idquan`, `tencalam`, `tu`, `den`, `hidden`) VALUES
+(1, 1, 'Sáng', '05:00:00', '10:00:00', 0),
+(2, 1, 'Trưa', '10:00:00', '15:00:00', 0),
+(3, 1, 'Chiều', '15:00:00', '20:00:00', 0),
+(4, 1, 'Tối', '20:00:00', '12:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -96,25 +90,7 @@ CREATE TABLE `chitiet` (
   `soluong` bigint(20) UNSIGNED NOT NULL,
   `gia` bigint(20) NOT NULL,
   `ghichu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `trangthai` bigint(20) NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `failed_jobs`
---
-
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `trangthai` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -133,17 +109,8 @@ CREATE TABLE `hoadon` (
   `thoigian` datetime NOT NULL,
   `giamgia` bigint(20) NOT NULL DEFAULT '0',
   `thanhtien` bigint(20) NOT NULL DEFAULT '0',
-  `trangthai` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Chưa xong - 1: Đã thanh toán',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `trangthai` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Chưa xong - 1: Đã thanh toán'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `hoadon`
---
-
-INSERT INTO `hoadon` (`id`, `idquan`, `idkhuvuc`, `idban`, `idthanhvien`, `idkhachhang`, `thoigian`, `giamgia`, `thanhtien`, `trangthai`, `created_at`, `updated_at`) VALUES
-(3, 1, 3, 10, 1, NULL, '2021-07-21 10:31:36', 0, 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -191,7 +158,9 @@ INSERT INTO `hoadonluu` (`id`, `idquan`, `idhoadon`, `thoigian`, `tenkhuvuc`, `t
 (64, 1, 14, '2021-07-14 22:49:51', 'Phòng lạnh', 'Bàn 1', 'Bùi Hữu Châu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 18000),
 (65, 1, 21, '2021-07-18 01:06:07', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL),
 (66, 1, 21, '2021-07-18 01:06:07', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL),
-(67, 1, 21, '2021-07-18 01:06:07', 'Phòng lạnh', 'Bàn 2', 'Bùi Hữu Châu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 36000);
+(67, 1, 21, '2021-07-18 01:06:07', 'Phòng lạnh', 'Bàn 2', 'Bùi Hữu Châu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 36000),
+(68, 1, 2, '2021-08-08 22:08:41', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 5, 175000, NULL, NULL),
+(69, 1, 2, '2021-08-08 22:08:41', 'Phòng lạnh', 'Bàn 1', 'PHUCVUquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 100000, 75000);
 
 -- --------------------------------------------------------
 
@@ -205,19 +174,18 @@ CREATE TABLE `khachhang` (
   `hotenkh` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sdt` bigint(20) NOT NULL,
   `ngaydangky` date NOT NULL,
-  `diem` bigint(20) NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `diem` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `khachhang`
 --
 
-INSERT INTO `khachhang` (`id`, `idquan`, `hotenkh`, `sdt`, `ngaydangky`, `diem`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Bùi Hữu Chánh', 918624198, '2021-07-02', 807, NULL, NULL),
-(2, 1, 'Võ Thị Quý Mỹ', 899152095, '2021-07-01', 500, NULL, NULL),
-(3, 1, 'Bùi Thị Trà My', 763232505, '2021-07-11', 357, NULL, NULL);
+INSERT INTO `khachhang` (`id`, `idquan`, `hotenkh`, `sdt`, `ngaydangky`, `diem`) VALUES
+(1, 1, 'Bùi Hữu Chánh', 918624198, '2021-07-02', 782),
+(2, 1, 'Võ Thị Quý Mỹ', 899152095, '2021-07-01', 500),
+(3, 1, 'Bùi Thị Trà My', 763232505, '2021-07-11', 357),
+(4, 1, 'Bùi Hữu Châu', 898998271, '2021-08-02', 0);
 
 -- --------------------------------------------------------
 
@@ -234,26 +202,24 @@ CREATE TABLE `kho` (
   `thanhtien` bigint(20) NOT NULL,
   `ngaynhap` date NOT NULL,
   `ngayhet` date DEFAULT NULL,
-  `trangthai` bigint(20) NOT NULL DEFAULT '1' COMMENT '1: còn hàng, 0: hết hàng',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `trangthai` bigint(20) NOT NULL DEFAULT '1' COMMENT '1: còn hàng, 0: hết hàng'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `kho`
 --
 
-INSERT INTO `kho` (`id`, `idquan`, `idnguyenlieu`, `dongia`, `soluong`, `thanhtien`, `ngaynhap`, `ngayhet`, `trangthai`, `created_at`, `updated_at`) VALUES
-(12, 1, 2, 3000, 2000, 6000000, '2021-02-13', NULL, 1, NULL, NULL),
-(13, 1, 1, 18000, 250, 4500000, '2021-03-13', NULL, 1, NULL, NULL),
-(14, 1, 4, 50000, 110, 5500000, '2021-04-13', NULL, 1, NULL, NULL),
-(15, 1, 2, 5000, 1000, 5000000, '2021-05-13', NULL, 1, NULL, NULL),
-(16, 1, 1, 20000, 250, 5000000, '2021-06-13', NULL, 1, NULL, NULL),
-(17, 1, 4, 45000, 99, 4455000, '2021-07-13', NULL, 1, NULL, NULL),
-(18, 1, 2, 6000, 900, 5400000, '2021-08-13', '2021-07-18', 0, NULL, NULL),
-(19, 1, 1, 22000, 170, 3740000, '2021-09-13', '2021-07-18', 0, NULL, NULL),
-(20, 1, 4, 45000, 80, 3600000, '2021-10-13', '2021-07-18', 0, NULL, NULL),
-(21, 1, 2, 2000, 1500, 3000000, '2021-11-13', '2021-07-18', 0, NULL, NULL);
+INSERT INTO `kho` (`id`, `idquan`, `idnguyenlieu`, `dongia`, `soluong`, `thanhtien`, `ngaynhap`, `ngayhet`, `trangthai`) VALUES
+(12, 1, 2, 3000, 2000, 6000000, '2021-02-13', NULL, 2),
+(13, 1, 1, 18000, 250, 4500000, '2021-03-13', NULL, 1),
+(14, 1, 4, 50000, 110, 5500000, '2021-04-13', NULL, 1),
+(15, 1, 2, 5000, 1000, 5000000, '2021-05-13', NULL, 1),
+(16, 1, 1, 20000, 250, 5000000, '2021-06-13', NULL, 1),
+(17, 1, 4, 45000, 99, 4455000, '2021-07-13', NULL, 1),
+(18, 1, 2, 6000, 900, 5400000, '2021-08-13', '2021-07-18', 0),
+(19, 1, 1, 22000, 170, 3740000, '2021-09-13', '2021-07-18', 0),
+(20, 1, 4, 45000, 80, 3600000, '2021-10-13', '2021-08-02', 0),
+(21, 1, 2, 2000, 1500, 3000000, '2021-11-13', '2021-07-18', 0);
 
 -- --------------------------------------------------------
 
@@ -265,20 +231,18 @@ CREATE TABLE `khuvuc` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `idquan` bigint(20) UNSIGNED NOT NULL,
   `tenkhuvuc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hidden` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `hidden` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `khuvuc`
 --
 
-INSERT INTO `khuvuc` (`id`, `idquan`, `tenkhuvuc`, `hidden`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Vỉa hè', '0', NULL, NULL),
-(2, 1, 'Sân thượng', '0', NULL, NULL),
-(3, 1, 'Phòng lạnh', '0', NULL, NULL),
-(4, 1, 'Sân trước', '1', NULL, NULL);
+INSERT INTO `khuvuc` (`id`, `idquan`, `tenkhuvuc`, `hidden`) VALUES
+(1, 1, 'Vỉa hè', '0'),
+(2, 1, 'Sân thượng', '0'),
+(3, 1, 'Phòng lạnh', '0'),
+(4, 1, 'Sân trước', '1');
 
 -- --------------------------------------------------------
 
@@ -293,19 +257,83 @@ CREATE TABLE `lichlamviec` (
   `idkhuvuc` bigint(20) UNSIGNED NOT NULL,
   `idthanhvien` bigint(20) UNSIGNED NOT NULL,
   `thoigian` date NOT NULL,
-  `diemdanh` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Vắng - 1: Có mặt',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `diemdanh` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Vắng - 1: Có mặt'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `lichlamviec`
 --
 
-INSERT INTO `lichlamviec` (`id`, `idquan`, `idcalam`, `idkhuvuc`, `idthanhvien`, `thoigian`, `diemdanh`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 1, '2021-07-21', 1, NULL, NULL),
-(2, 1, 1, 1, 2, '2021-07-21', 0, NULL, NULL),
-(3, 1, 1, 1, 3, '2021-07-21', 0, NULL, NULL);
+INSERT INTO `lichlamviec` (`id`, `idquan`, `idcalam`, `idkhuvuc`, `idthanhvien`, `thoigian`, `diemdanh`) VALUES
+(76, 1, 1, 1, 1, '2021-07-01', 1),
+(77, 1, 1, 1, 3, '2021-07-01', 1),
+(78, 1, 1, 1, 4, '2021-07-01', 1),
+(79, 1, 1, 1, 2, '2021-07-01', 1),
+(80, 1, 1, 2, 1, '2021-08-01', 1),
+(81, 1, 1, 2, 3, '2021-08-01', 1),
+(82, 1, 1, 2, 4, '2021-08-01', 1),
+(83, 1, 1, 2, 2, '2021-08-01', 1),
+(84, 1, 1, 3, 1, '2021-08-01', 1),
+(85, 1, 1, 3, 3, '2021-08-01', 1),
+(86, 1, 1, 3, 4, '2021-08-01', 1),
+(87, 1, 1, 3, 2, '2021-08-01', 1),
+(96, 1, 1, 1, 1, '2021-08-01', 1),
+(97, 1, 1, 1, 3, '2021-08-01', 1),
+(98, 1, 1, 1, 4, '2021-08-01', 1),
+(99, 1, 1, 1, 2, '2021-08-01', 1),
+(100, 1, 1, 2, 1, '2021-08-09', 1),
+(101, 1, 1, 2, 3, '2021-08-09', 1),
+(102, 1, 1, 2, 4, '2021-08-09', 1),
+(103, 1, 1, 2, 2, '2021-08-09', 1),
+(104, 1, 1, 3, 1, '2021-08-09', 1),
+(105, 1, 1, 3, 3, '2021-08-09', 1),
+(106, 1, 1, 3, 4, '2021-08-09', 1),
+(107, 1, 1, 3, 2, '2021-08-09', 1),
+(108, 1, 1, 1, 1, '2021-08-09', 1),
+(109, 1, 1, 1, 3, '2021-08-09', 1),
+(110, 1, 1, 1, 4, '2021-08-09', 1),
+(111, 1, 1, 1, 2, '2021-08-09', 1),
+(112, 1, 1, 2, 1, '2021-05-02', 1),
+(113, 1, 1, 2, 3, '2021-05-02', 1),
+(114, 1, 1, 2, 4, '2021-05-02', 1),
+(115, 1, 1, 2, 2, '2021-05-02', 1),
+(116, 1, 1, 3, 1, '2021-05-02', 1),
+(117, 1, 1, 3, 3, '2021-05-02', 1),
+(118, 1, 1, 3, 4, '2021-05-02', 1),
+(119, 1, 1, 3, 2, '2021-05-02', 1),
+(120, 1, 1, 1, 1, '2021-05-02', 1),
+(121, 1, 1, 1, 3, '2021-05-02', 1),
+(122, 1, 1, 1, 4, '2021-05-02', 1),
+(123, 1, 1, 1, 2, '2021-05-02', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `luong`
+--
+
+CREATE TABLE `luong` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `idquan` bigint(20) UNSIGNED NOT NULL,
+  `idthanhvien` bigint(20) UNSIGNED NOT NULL,
+  `mucluong` bigint(20) NOT NULL,
+  `tu` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `luong`
+--
+
+INSERT INTO `luong` (`id`, `idquan`, `idthanhvien`, `mucluong`, `tu`) VALUES
+(1, 1, 1, 500001, '2021-05-01'),
+(2, 1, 2, 400001, '2021-05-01'),
+(3, 1, 3, 300001, '2021-05-01'),
+(4, 1, 4, 200001, '2021-05-01'),
+(5, 1, 1, 500000, '2021-07-09'),
+(6, 1, 2, 400000, '2021-07-09'),
+(7, 1, 3, 300000, '2021-07-09'),
+(8, 1, 4, 200000, '2021-07-09'),
+(15, 1, 3, 300000, '2021-08-09');
 
 -- --------------------------------------------------------
 
@@ -356,20 +384,18 @@ CREATE TABLE `nguyenlieu` (
   `tennguyenlieu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `xuatxu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `donvitinh` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hidden` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `hidden` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `nguyenlieu`
 --
 
-INSERT INTO `nguyenlieu` (`id`, `idquan`, `tennguyenlieu`, `xuatxu`, `donvitinh`, `hidden`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Đường hạt to', 'Việt Nam', 'Kg', 0, NULL, NULL),
-(2, 1, 'Đá xay', 'Việt Nam', 'Kg', 0, NULL, NULL),
-(3, 1, 'Mía', 'Việt Nam', 'Cây', 1, NULL, NULL),
-(4, 1, 'Bánh pía', 'Sóc Trăng, Việt Nam', 'Cây', 0, NULL, NULL);
+INSERT INTO `nguyenlieu` (`id`, `idquan`, `tennguyenlieu`, `xuatxu`, `donvitinh`, `hidden`) VALUES
+(1, 1, 'Đường hạt to', 'Việt Nam', 'Kg', 0),
+(2, 1, 'Đá xay', 'Việt Nam', 'Kg', 0),
+(3, 1, 'Mía', 'Việt Nam', 'Cây', 1),
+(4, 1, 'Bánh pía', 'Sóc Trăng, Việt Nam', 'Cây', 0);
 
 -- --------------------------------------------------------
 
@@ -386,116 +412,59 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `quan`
---
-
-CREATE TABLE `quan` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `accquan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pwdquan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tenquan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hinhquan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `diachiquan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `website` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sdtquan` bigint(20) NOT NULL,
-  `ngaythanhlap` date NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `quan`
---
-
-INSERT INTO `quan` (`id`, `accquan`, `pwdquan`, `tenquan`, `hinhquan`, `diachiquan`, `website`, `sdtquan`, `ngaythanhlap`, `created_at`, `updated_at`) VALUES
-(1, 'quan1', '68cdfa363160dfae3f255f470145a82a', 'quan1', 'storage/hinhanh/2RrLLzHYjeK7t9Lsr6dyt3q5X2jQW9ahs9Q6WlNc.jpg', 'Cần Thơ', 'http://quan1.com.vn', 1234567890, '2021-07-01', NULL, NULL),
-(2, 'quan2', '68cdfa363160dfae3f255f470145a82a', 'quan2', 'storage/hinhanh/cO2XcmkiFqZBvjTGMRiapjSTiLmSIkf9g7rLFyTs.jpg', 'Cần Thơ', 'http://quan1.com.vn', 1234567890, '1111-11-11', NULL, NULL);
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `quyen`
 --
 
 CREATE TABLE `quyen` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tenquyen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `tenquyen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `quyen`
 --
 
-INSERT INTO `quyen` (`id`, `tenquyen`, `created_at`, `updated_at`) VALUES
-(1, 'Xem bàn', NULL, NULL),
-(2, 'Thêm bàn', NULL, NULL),
-(3, 'Sửa bàn', NULL, NULL),
-(4, 'Xóa bàn', NULL, NULL),
-(5, 'Xem ca làm', NULL, NULL),
-(6, 'Thêm ca làm', NULL, NULL),
-(7, 'Sửa ca làm', NULL, NULL),
-(8, 'Xóa ca làm', NULL, NULL),
-(9, 'Xem hóa đơn', NULL, NULL),
-(10, 'Thêm hóa đơn', NULL, NULL),
-(11, 'Sửa hóa đơn', NULL, NULL),
-(12, 'Xóa hóa đơn', NULL, NULL),
-(13, 'Xem khách hàng', NULL, NULL),
-(14, 'Thêm khách hàng', NULL, NULL),
-(15, 'Sửa khách hàng', NULL, NULL),
-(16, 'Xóa khách hàng', NULL, NULL),
-(17, 'Xem kho', NULL, NULL),
-(18, 'Thêm kho', NULL, NULL),
-(19, 'Sửa kho', NULL, NULL),
-(20, 'Xóa kho', NULL, NULL),
-(21, 'Xem khu vực', NULL, NULL),
-(22, 'Thêm khu vực', NULL, NULL),
-(23, 'Sửa khu vực', NULL, NULL),
-(24, 'Xóa khu vực', NULL, NULL),
-(25, 'Xem lịch làm việc', NULL, NULL),
-(26, 'Thêm lịch làm việc', NULL, NULL),
-(27, 'Sửa lịch làm việc', NULL, NULL),
-(28, 'Xóa lịch làm việc', NULL, NULL),
-(29, 'Xem nguyên liệu', NULL, NULL),
-(30, 'Thêm nguyên liệu', NULL, NULL),
-(31, 'Sửa nguyên liệu', NULL, NULL),
-(32, 'Xóa nguyên liệu', NULL, NULL),
-(33, 'Xem quán', NULL, NULL),
-(34, 'Thêm quán', NULL, NULL),
-(35, 'Sửa quán', NULL, NULL),
-(36, 'Xóa quán', NULL, NULL),
-(37, 'Xem thành viên', NULL, NULL),
-(38, 'Thêm thành viên', NULL, NULL),
-(39, 'Sửa thành viên', NULL, NULL),
-(40, 'Xóa thành viên', NULL, NULL),
-(41, 'Xem thực đơn', NULL, NULL),
-(42, 'Thêm thực đơn', NULL, NULL),
-(43, 'Sửa thực đơn', NULL, NULL),
-(44, 'Xóa thực đơn', NULL, NULL),
-(45, 'Xem vai trò', NULL, NULL),
-(46, 'Thêm vai trò', NULL, NULL),
-(47, 'Sửa vai trò', NULL, NULL),
-(48, 'Xóa vai trò', NULL, NULL),
-(49, 'Quản lý ngân sách', NULL, NULL),
-(50, 'Quản lý nhập hàng', NULL, NULL),
-(51, 'Quản lý bán hàng', NULL, NULL),
-(52, 'Quản lý lương nhân viên', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `sessions`
---
-
-CREATE TABLE `sessions` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci,
-  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_activity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `quyen` (`id`, `tenquyen`) VALUES
+(1, 'Xem bàn'),
+(2, 'Thêm bàn'),
+(3, 'Sửa bàn'),
+(4, 'Xóa bàn'),
+(5, 'Xem ca làm'),
+(6, 'Thêm ca làm'),
+(7, 'Sửa ca làm'),
+(8, 'Xóa ca làm'),
+(9, 'Xem hóa đơn'),
+(10, 'Thêm hóa đơn'),
+(11, 'Sửa hóa đơn'),
+(12, 'Xóa hóa đơn'),
+(13, 'Xem khách hàng'),
+(14, 'Thêm khách hàng'),
+(15, 'Sửa khách hàng'),
+(16, 'Xóa khách hàng'),
+(17, 'Xem kho'),
+(18, 'Thêm kho'),
+(19, 'Sửa kho'),
+(20, 'Xóa kho'),
+(21, 'Xem khu vực'),
+(22, 'Thêm khu vực'),
+(23, 'Sửa khu vực'),
+(24, 'Xóa khu vực'),
+(25, 'Xem lịch làm việc'),
+(26, 'Thêm lịch làm việc'),
+(27, 'Sửa lịch làm việc'),
+(28, 'Xóa lịch làm việc'),
+(29, 'Xem nguyên liệu'),
+(30, 'Thêm nguyên liệu'),
+(31, 'Sửa nguyên liệu'),
+(32, 'Xóa nguyên liệu'),
+(33, 'Xem thực đơn'),
+(34, 'Thêm thực đơn'),
+(35, 'Sửa thực đơn'),
+(36, 'Xóa thực đơn'),
+(37, 'Quản lý ngân sách'),
+(38, 'Quản lý nhập hàng'),
+(39, 'Quản lý bán hàng'),
+(40, 'Quản lý lương nhân viên');
 
 -- --------------------------------------------------------
 
@@ -517,19 +486,18 @@ CREATE TABLE `thanhvien` (
   `ngayvaolam` date NOT NULL,
   `luong` bigint(20) NOT NULL,
   `idvaitro` bigint(20) UNSIGNED NOT NULL,
-  `hidden` bigint(20) NOT NULL DEFAULT '1' COMMENT '0: Hiện - 1: Ẩn',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `hidden` bigint(20) NOT NULL DEFAULT '1' COMMENT '0: Hiện - 1: Ẩn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `thanhvien`
 --
 
-INSERT INTO `thanhvien` (`id`, `idquan`, `acc`, `pwd`, `hoten`, `hinhtv`, `namsinh`, `sex`, `diachi`, `sdt`, `ngayvaolam`, `luong`, `idvaitro`, `hidden`, `created_at`, `updated_at`) VALUES
-(1, 1, 'quan1_chuquan', '68cdfa363160dfae3f255f470145a82a', 'Bùi Hữu Châu', 'storage/hinhanh/XCJO022YqgD5Ddcg5QeyN5N1FHkwFY3LiXGrIpdi.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-07-03', 200000, 1, 0, NULL, NULL),
-(2, 1, 'quan1_quanly', '68cdfa363160dfae3f255f470145a82a', 'Bùi Hữu Châu 2', 'storage/hinhanh/mK4hWv6loK8lm4YyBao1fFSXWY3GvO3pOJ0x8pq2.jpg', '1999-04-22', '1', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-07-03', 110000, 2, 0, NULL, NULL),
-(3, 1, 'quan1_phache', '68cdfa363160dfae3f255f470145a82a', 'Bùi Hữu Châu3', 'storage/hinhanh/XbxdxpQcQPqRptHlfuBi8XsNogbK8zDy8bjyNOvk.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-07-01', 30000, 8, 0, NULL, NULL);
+INSERT INTO `thanhvien` (`id`, `idquan`, `acc`, `pwd`, `hoten`, `hinhtv`, `namsinh`, `sex`, `diachi`, `sdt`, `ngayvaolam`, `luong`, `idvaitro`, `hidden`) VALUES
+(1, 1, 'quan1_chuquan', '68cdfa363160dfae3f255f470145a82a', 'CHUQUANquan1', 'storage/hinhanh/ZM11WMU9hU4qDKzzTJuWVTDlhBBTYmfZqi6BzHhM.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 500000, 1, 0),
+(2, 1, 'quan1_quanly', '68cdfa363160dfae3f255f470145a82a', 'QUANLYquan1', 'storage/hinhanh/52SQjvXPtMwof0axtZWMM63ZBGrGB1QwfkKuxN7n.jpg', '1999-04-22', '1', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 400000, 2, 0),
+(3, 1, 'quan1_phache', '68cdfa363160dfae3f255f470145a82a', 'PHACHEquan1', 'storage/hinhanh/U1wgX0kkdiESINzh5xJACyHxKSPx42Uugyc8lO9H.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 300000, 8, 0),
+(4, 1, 'quan1_phucvu', '68cdfa363160dfae3f255f470145a82a', 'PHUCVUquan1', 'storage/hinhanh/rVaLehVXNJEOef95tcm562Eg4lRD6PXykIe2q2SO.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 200000, 9, 0);
 
 -- --------------------------------------------------------
 
@@ -545,19 +513,18 @@ CREATE TABLE `thucdon` (
   `dongia` bigint(20) NOT NULL,
   `hinhmon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mota` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hidden` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `hidden` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `thucdon`
 --
 
-INSERT INTO `thucdon` (`id`, `idquan`, `loaimon`, `tenmon`, `dongia`, `hinhmon`, `mota`, `hidden`, `created_at`, `updated_at`) VALUES
-(2, 1, 2, 'Cơm sườn', 35000, 'storage/hinhanh/AjBIjfuwGQGFXK55YF0oZLPB4qxyrrqCQklspRN6.jpg', 'Cơm sườn', 0, NULL, NULL),
-(3, 1, 3, 'Cooktail', 25000, 'storage/hinhanh/TnyOKcPu51G3GF1ZnccXAzk28np5uWCaXRIhB1xP.jpg', 'Cooktail', 1, NULL, NULL),
-(4, 1, 1, 'Nước chanh', 18000, 'storage/hinhanh/yufv1USphjDW5YCmh3wKlZSWYmhpurehweb6X96O.jpg', 'Nước chanh', 0, NULL, NULL);
+INSERT INTO `thucdon` (`id`, `idquan`, `loaimon`, `tenmon`, `dongia`, `hinhmon`, `mota`, `hidden`) VALUES
+(2, 1, 2, 'Cơm sườn', 35000, 'storage/hinhanh/0pPRxnxneg8pNLaCU1EymJR1UD0geBdaRTqrf0i3.jpg', 'Cơm sườn', 0),
+(3, 1, 3, 'Cooktail', 25000, 'storage/hinhanh/mAndJcApaZA2QCbqpJ3RJY2Sju6RPBzZFbrPfeKy.jpg', 'Cooktail', 1),
+(4, 1, 1, 'Nước chanh', 18000, 'storage/hinhanh/y3MoSPhpRCjxMVok7cCIyrsSPZb9Zc8nky6zRnZH.jpg', 'Nước chanh', 0),
+(6, 1, 2, 'SODA', 28000, 'storage/hinhanh/M89ripZFqdCTY4lkOUWbpE6PLACltbbZEpHr8xPc.jpg', 'SODA', 0);
 
 -- --------------------------------------------------------
 
@@ -586,8 +553,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `hinhquan`, `diachiquan`, `website`, `sdtquan`, `ngaythanhlap`, `created_at`, `updated_at`) VALUES
-(1, 'buihuuchau', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$0YSn16LR0C3kBk.FDDKvUOfEkbmX5EfVaZzHR1BHmO1QxM5DOUddu', 'FxGZS20xJaX5Vc7yJIh4iVe4ErDJkdEbzJ8eK7UIUgzgNQGnnoHe2FFniHfo', 'storage/hinhanh/Y5chTdn5ij93riiP42tH90ikZ1iSTsKGt6FDvbIc.jpg', 'Sóc Trăng', 'http://quan1.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-07-20 09:52:28'),
-(2, 'buihuuchau', 'chaub1706789@student.ctu.edu.vn', '2021-07-21 13:59:17', '$2y$10$1YJ/9HjxjAzOb8mONmZdEu0l9iVh.XrJMrlMWC4SlStWlABSvyhKG', NULL, 'storage/hinhanh/zxFcaTpctJHUEC44tsKryoxvTTjdMpbVdrWZtNqA.jpg', 'Sóc Trăng', 'http://quan1.com', 123456789, '2021-07-21', '2021-07-21 13:59:01', '2021-07-21 13:59:17');
+(1, 'quan1', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$uihiGRnqdJTXrmXenGSwEOM3y5vdfWnlxXg6jnOdYTSzYdhCmIb4i', 'ELHg0Q94spIy1f6LbpBmARGnxITu2bWf2yG3pPCBkWgcxw2FY5Wiv97UYR2C', 'storage/hinhanh/uH0OjWdi9AwC1YdsvOmxtkexHHXD7b44DoGKh7o4.jpg', 'Sóc Trăng', 'http://quan1.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-08-02 14:39:32'),
+(2, 'quan2', 'chaub1706789@student.ctu.edu.vn', '2021-07-21 13:59:17', '$2y$10$1YJ/9HjxjAzOb8mONmZdEu0l9iVh.XrJMrlMWC4SlStWlABSvyhKG', NULL, 'storage/hinhanh/tuZVkVqCQuicinncTgWGpNhN166GSLF99lASLiKD.jpg', 'Sóc Trăng', 'http://quan1.com', 123456789, '2021-07-21', '2021-07-21 13:59:01', '2021-07-21 13:59:17');
 
 -- --------------------------------------------------------
 
@@ -598,19 +565,18 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 CREATE TABLE `vaitro` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `idquan` bigint(20) UNSIGNED NOT NULL,
-  `tenvaitro` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `tenvaitro` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `vaitro`
 --
 
-INSERT INTO `vaitro` (`id`, `idquan`, `tenvaitro`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Chủ quán', NULL, NULL),
-(2, 1, 'Quản lý', NULL, NULL),
-(8, 1, 'Pha chế', NULL, NULL);
+INSERT INTO `vaitro` (`id`, `idquan`, `tenvaitro`) VALUES
+(1, 1, 'Chủ quán'),
+(2, 1, 'Quản lý'),
+(8, 1, 'Pha chế'),
+(9, 1, 'Phục vụ');
 
 -- --------------------------------------------------------
 
@@ -621,95 +587,99 @@ INSERT INTO `vaitro` (`id`, `idquan`, `tenvaitro`, `created_at`, `updated_at`) V
 CREATE TABLE `vaitro_quyen` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `idvaitro` bigint(20) UNSIGNED NOT NULL,
-  `idquyen` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `idquyen` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `vaitro_quyen`
 --
 
-INSERT INTO `vaitro_quyen` (`id`, `idvaitro`, `idquyen`, `created_at`, `updated_at`) VALUES
-(77, 2, 5, NULL, NULL),
-(78, 2, 9, NULL, NULL),
-(79, 2, 13, NULL, NULL),
-(80, 2, 21, NULL, NULL),
-(81, 2, 25, NULL, NULL),
-(82, 2, 41, NULL, NULL),
-(83, 2, 6, NULL, NULL),
-(84, 2, 10, NULL, NULL),
-(85, 2, 14, NULL, NULL),
-(86, 2, 22, NULL, NULL),
-(87, 2, 26, NULL, NULL),
-(88, 2, 42, NULL, NULL),
-(89, 2, 7, NULL, NULL),
-(90, 2, 11, NULL, NULL),
-(91, 2, 15, NULL, NULL),
-(92, 2, 23, NULL, NULL),
-(93, 2, 27, NULL, NULL),
-(94, 2, 43, NULL, NULL),
-(95, 2, 8, NULL, NULL),
-(96, 2, 12, NULL, NULL),
-(97, 2, 16, NULL, NULL),
-(98, 2, 24, NULL, NULL),
-(99, 2, 28, NULL, NULL),
-(100, 2, 44, NULL, NULL),
-(340, 8, 1, NULL, NULL),
-(341, 8, 2, NULL, NULL),
-(342, 8, 4, NULL, NULL),
-(343, 1, 1, NULL, NULL),
-(344, 1, 2, NULL, NULL),
-(345, 1, 3, NULL, NULL),
-(346, 1, 4, NULL, NULL),
-(347, 1, 5, NULL, NULL),
-(348, 1, 6, NULL, NULL),
-(349, 1, 7, NULL, NULL),
-(350, 1, 8, NULL, NULL),
-(351, 1, 9, NULL, NULL),
-(352, 1, 10, NULL, NULL),
-(353, 1, 11, NULL, NULL),
-(354, 1, 12, NULL, NULL),
-(355, 1, 13, NULL, NULL),
-(356, 1, 14, NULL, NULL),
-(357, 1, 15, NULL, NULL),
-(358, 1, 16, NULL, NULL),
-(359, 1, 17, NULL, NULL),
-(360, 1, 18, NULL, NULL),
-(361, 1, 19, NULL, NULL),
-(362, 1, 20, NULL, NULL),
-(363, 1, 21, NULL, NULL),
-(364, 1, 22, NULL, NULL),
-(365, 1, 23, NULL, NULL),
-(366, 1, 24, NULL, NULL),
-(367, 1, 25, NULL, NULL),
-(368, 1, 26, NULL, NULL),
-(369, 1, 27, NULL, NULL),
-(370, 1, 28, NULL, NULL),
-(371, 1, 29, NULL, NULL),
-(372, 1, 30, NULL, NULL),
-(373, 1, 31, NULL, NULL),
-(374, 1, 32, NULL, NULL),
-(375, 1, 33, NULL, NULL),
-(376, 1, 34, NULL, NULL),
-(377, 1, 35, NULL, NULL),
-(378, 1, 36, NULL, NULL),
-(379, 1, 37, NULL, NULL),
-(380, 1, 38, NULL, NULL),
-(381, 1, 39, NULL, NULL),
-(382, 1, 40, NULL, NULL),
-(383, 1, 41, NULL, NULL),
-(384, 1, 42, NULL, NULL),
-(385, 1, 43, NULL, NULL),
-(386, 1, 44, NULL, NULL),
-(387, 1, 45, NULL, NULL),
-(388, 1, 46, NULL, NULL),
-(389, 1, 47, NULL, NULL),
-(390, 1, 48, NULL, NULL),
-(391, 1, 49, NULL, NULL),
-(392, 1, 50, NULL, NULL),
-(393, 1, 51, NULL, NULL),
-(394, 1, 52, NULL, NULL);
+INSERT INTO `vaitro_quyen` (`id`, `idvaitro`, `idquyen`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5),
+(6, 1, 6),
+(7, 1, 7),
+(8, 1, 8),
+(9, 1, 9),
+(10, 1, 10),
+(11, 1, 11),
+(12, 1, 12),
+(13, 1, 13),
+(14, 1, 14),
+(15, 1, 15),
+(16, 1, 16),
+(17, 1, 17),
+(18, 1, 18),
+(19, 1, 19),
+(20, 1, 20),
+(21, 1, 21),
+(22, 1, 22),
+(23, 1, 23),
+(24, 1, 24),
+(25, 1, 25),
+(26, 1, 26),
+(27, 1, 27),
+(28, 1, 28),
+(29, 1, 29),
+(30, 1, 30),
+(31, 1, 31),
+(32, 1, 32),
+(33, 1, 33),
+(34, 1, 34),
+(35, 1, 35),
+(36, 1, 36),
+(37, 1, 37),
+(38, 1, 38),
+(39, 1, 39),
+(40, 1, 40),
+(41, 8, 29),
+(42, 2, 1),
+(43, 2, 2),
+(44, 2, 3),
+(45, 2, 4),
+(46, 2, 5),
+(47, 2, 6),
+(48, 2, 7),
+(49, 2, 8),
+(50, 2, 9),
+(51, 2, 10),
+(52, 2, 11),
+(53, 2, 12),
+(54, 2, 13),
+(55, 2, 14),
+(56, 2, 15),
+(57, 2, 16),
+(58, 2, 17),
+(59, 2, 18),
+(60, 2, 19),
+(61, 2, 20),
+(62, 2, 21),
+(63, 2, 22),
+(64, 2, 23),
+(65, 2, 24),
+(66, 2, 25),
+(67, 2, 26),
+(68, 2, 27),
+(69, 2, 28),
+(70, 2, 29),
+(71, 2, 30),
+(72, 2, 31),
+(73, 2, 32),
+(74, 2, 33),
+(75, 2, 34),
+(76, 2, 35),
+(77, 2, 36),
+(78, 9, 9),
+(79, 9, 10),
+(80, 9, 11),
+(81, 9, 12),
+(82, 9, 13),
+(83, 9, 14),
+(84, 9, 15),
+(85, 9, 16);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -737,13 +707,6 @@ ALTER TABLE `chitiet`
   ADD PRIMARY KEY (`id`),
   ADD KEY `chitietfkhoadon` (`idhoadon`),
   ADD KEY `chitietfkmon` (`idthucdon`);
-
---
--- Chỉ mục cho bảng `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
 -- Chỉ mục cho bảng `hoadon`
@@ -795,6 +758,14 @@ ALTER TABLE `lichlamviec`
   ADD KEY `lichlamviecfkthanhvien` (`idthanhvien`);
 
 --
+-- Chỉ mục cho bảng `luong`
+--
+ALTER TABLE `luong`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `luongfkthanhvien` (`idthanhvien`),
+  ADD KEY `luongfkquan` (`idquan`);
+
+--
 -- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
@@ -814,24 +785,10 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Chỉ mục cho bảng `quan`
---
-ALTER TABLE `quan`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `quyen`
 --
 ALTER TABLE `quyen`
   ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `sessions`
---
-ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sessions_user_id_index` (`user_id`),
-  ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
 -- Chỉ mục cho bảng `thanhvien`
@@ -884,7 +841,7 @@ ALTER TABLE `ban`
 -- AUTO_INCREMENT cho bảng `calam`
 --
 ALTER TABLE `calam`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `chitiet`
@@ -893,28 +850,22 @@ ALTER TABLE `chitiet`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadonluu`
 --
 ALTER TABLE `hoadonluu`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `kho`
@@ -932,7 +883,13 @@ ALTER TABLE `khuvuc`
 -- AUTO_INCREMENT cho bảng `lichlamviec`
 --
 ALTER TABLE `lichlamviec`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+
+--
+-- AUTO_INCREMENT cho bảng `luong`
+--
+ALTER TABLE `luong`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -947,46 +904,40 @@ ALTER TABLE `nguyenlieu`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `quan`
---
-ALTER TABLE `quan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT cho bảng `quyen`
 --
 ALTER TABLE `quyen`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT cho bảng `thanhvien`
 --
 ALTER TABLE `thanhvien`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `thucdon`
 --
 ALTER TABLE `thucdon`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `vaitro`
 --
 ALTER TABLE `vaitro`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `vaitro_quyen`
 --
 ALTER TABLE `vaitro_quyen`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=395;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -1049,6 +1000,13 @@ ALTER TABLE `lichlamviec`
   ADD CONSTRAINT `lichlamviecfkkhuvuc` FOREIGN KEY (`idkhuvuc`) REFERENCES `khuvuc` (`id`),
   ADD CONSTRAINT `lichlamviecfkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `lichlamviecfkthanhvien` FOREIGN KEY (`idthanhvien`) REFERENCES `thanhvien` (`id`);
+
+--
+-- Các ràng buộc cho bảng `luong`
+--
+ALTER TABLE `luong`
+  ADD CONSTRAINT `luongfkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `luongfkthanhvien` FOREIGN KEY (`idthanhvien`) REFERENCES `thanhvien` (`id`);
 
 --
 -- Các ràng buộc cho bảng `nguyenlieu`
