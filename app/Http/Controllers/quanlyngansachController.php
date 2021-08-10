@@ -261,7 +261,6 @@ class quanlyngansachController extends Controller
 
         $luong = array();
         $i = 0;
-        $j = 0;
         $thanhvien2 = DB::table('thanhvien')
             ->where('thanhvien.idquan',$thanhvien->idquan)
             ->where('ngayvaolam','<=',$tungay)
@@ -309,8 +308,13 @@ class quanlyngansachController extends Controller
             
         }
 
+        $lichsuluong = DB::table('luong')
+            ->where('luong.idquan', $thanhvien->idquan)
+            ->join('thanhvien','luong.idthanhvien','=','thanhvien.id')
+            ->select('luong.*','thanhvien.hoten')
+            ->get();
 
-        return view('ngansach.quanlyngansach', compact('thanhvien','kho','hoadonluu','luong','tungay','denngay'));
+        return view('ngansach.quanlyngansach', compact('thanhvien','kho','hoadonluu','luong','tungay','denngay','lichsuluong'));
     }
 
     public function chitietluong(Request $request){

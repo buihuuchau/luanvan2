@@ -240,7 +240,6 @@
                                 <th></th>
                                 <th></th>
                                 <th></th>
-                                <th></th>
                             </tr>
                             </tbody>
                         </table>
@@ -392,8 +391,63 @@
                                         <form action="{{route('chitietluong')}}" method="get">
                                             {{csrf_field()}}
                                             <input type="hidden" name="id" value="{{$row['id']}}">
-                                            <button type="submit" class="btn btn-success">Xem chi tiết</button>
+                                            <button type="submit" class="btn btn-success">Chi tiết lịch làm việc</button>
                                         </form>
+
+                                        <button type="button" class="btn btn-info" data-toggle="modal"
+                                            data-target="#exampleModalCenter{{$row['id']}}">
+                                            Lịch sử lương
+                                        </button>
+                                        <div class="modal fade" id="exampleModalCenter{{$row['id']}}" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Lịch sử lương</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <table id="example4" class="table table-bordered table-striped dataTable dtr-inline"
+                                                                    role="grid" aria-describedby="example1_info">
+                                                                    <thead>
+                                                                        <tr role="row">
+                                                                            {{-- <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">No.</th> --}}
+                                                                            <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
+                                                                                colspan="1">HỌ TÊN</th>
+                                                                            <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
+                                                                                colspan="1">MỨC LƯƠNG</th>
+                                                                            <th class="sorting" tabindex="0" aria-controls="example4" rowspan="1"
+                                                                                colspan="1">NGÀY ÁP DỤNG</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach ($lichsuluong as $key2 => $row2)
+                                                                            @if($row2->idthanhvien == $row['id'])
+                                                                                <tr class="odd">
+                                                                                {{-- <td class="dtr-control sorting_1" tabindex="0">{{$key+1}}</td> --}}
+                                                                                <td>{{ $row2->hoten }}</td>
+                                                                                <td>{{ number_format("$row2->mucluong", 0, ',', '.') }}</td>
+                                                                                <td>{{ $row2->tu }}</td>
+                                                                                </tr>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </td>
                                 </tr>
                             @endforeach
