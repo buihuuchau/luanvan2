@@ -144,7 +144,7 @@
                                                 {{-- <td class="dtr-control sorting_1" tabindex="0">{{ $key + 1 }}</td> --}}
                                                 <td>{{ $row->hotenkh }}</td>
                                                 <td>{{ $row->sdt }}</td>
-                                                <td>{{ $row->diem }}</td>
+                                                <td>{{ number_format($row->diem, 0, ',', '.') }}</td>
                                                 <td>{{ $row->ngaydangky }}</td>
                                                 {{-- <td><a href="{{ route('editkhachhang', ['id' => $row->id]) }}">Sửa thông
                                                         tin</a></td> --}}
@@ -176,8 +176,8 @@
                                                                         <div class="form-group">
                                                                             <label>Tên khách hàng</label>
                                                                             <input type="text" class="form-control"
-                                                                                name="hotenkh" value="{{ $row->hotenkh }}"
-                                                                                required>
+                                                                                name="hotenkh"
+                                                                                value="{{ $row->hotenkh }}" required>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label>Số điện thoại</label>

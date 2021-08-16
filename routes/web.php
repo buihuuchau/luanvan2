@@ -623,6 +623,11 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlychebienController@quanlychebien',
         'middleware' => (['Login','XemNguyenlieu'])
     ]);
+    Route::get('/checkthuchien/{id}', [
+        'as' => 'checkthuchien',
+        'uses' => 'App\Http\Controllers\quanlychebienController@checkthuchien',
+        'middleware' => (['Login','XemNguyenlieu'])
+    ]);
     Route::get('/checkhoanthanh/{id}', [
         'as' => 'checkhoanthanh',
         'uses' => 'App\Http\Controllers\quanlychebienController@checkhoanthanh',

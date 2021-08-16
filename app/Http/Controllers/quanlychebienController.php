@@ -33,7 +33,7 @@ class quanlychebienController extends Controller
 
         return view('chebien.quanlychebien', compact('thanhvien','chitiet'));
     }
-    public function checkhoanthanh($id){
+    public function checkthuchien($id){
         $ssidthanhvien = Session::get('ssidthanhvien');
 
         $thanhvien = DB::table('thanhvien')
@@ -48,7 +48,7 @@ class quanlychebienController extends Controller
             ->update($chitiet);
         return back();
     }
-    public function baohuy($id){
+    public function checkhoanthanh($id){
         $ssidthanhvien = Session::get('ssidthanhvien');
 
         $thanhvien = DB::table('thanhvien')
@@ -58,6 +58,21 @@ class quanlychebienController extends Controller
                     ->first();
 
         $chitiet['trangthai'] = 2;
+        DB::table('chitiet')
+            ->where('id',$id)
+            ->update($chitiet);
+        return back();
+    }
+    public function baohuy($id){
+        $ssidthanhvien = Session::get('ssidthanhvien');
+
+        $thanhvien = DB::table('thanhvien')
+                    ->where('thanhvien.id',$ssidthanhvien)
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
+                    ->first();
+
+        $chitiet['trangthai'] = 3;
         $chitiet['ghichu'] = 'Hết nguyên liệu';
         DB::table('chitiet')
             ->where('id',$id)

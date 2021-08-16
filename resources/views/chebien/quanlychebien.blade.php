@@ -95,22 +95,36 @@
                                                 <td>{{ $row->soluong }}</td>
                                                 <td>{{ $row->ghichu }}</td>
 
-                                                @if ($row->trangthai == 1)
-                                                    <td bgcolor="green" style="color:white">Đã thực hiện xong</td>
-                                                @elseif($row->trangthai==0)
+                                                @if ($row->trangthai == 0)
                                                     <td>Đang chờ...</td>
+                                                @elseif($row->trangthai==1)
+                                                    <td bgcolor="yellow" style="color:black">Đang thực hiện...</td>
                                                 @elseif($row->trangthai==2)
+                                                    <td bgcolor="green" style="color:white">Đã thực hiện xong</td>
+                                                @elseif($row->trangthai==3)
                                                     <td bgcolor="red" style="color:white">Đã báo hủy</td>
                                                 @endif
 
                                                 <td class="row">
                                                     @if ($row->trangthai == 0)
+                                                        <button class="btn btn-primary"><a
+                                                                href="{{ route('checkthuchien', ['id' => $row->id]) }}"
+                                                                style="color: black"
+                                                                onclick="return confirm('Bạn có chắc chắn')">Thực hiện
+                                                            </a></button>
+                                                        <button class="btn btn-danger"><a
+                                                                href="{{ route('baohuy', ['id' => $row->id]) }}"
+                                                                style="color: black"
+                                                                onclick="return confirm('Bạn có chắc chắn')">Báo hủy
+                                                                !</a></button>
+                                                    @endif
+                                                    @if ($row->trangthai == 1)
                                                         <button class="btn btn-success"><a
                                                                 href="{{ route('checkhoanthanh', ['id' => $row->id]) }}"
                                                                 style="color: black"
                                                                 onclick="return confirm('Bạn có chắc chắn')">Hoàn
                                                                 Thành</a></button>
-                                                        <button class="btn btn-warning"><a
+                                                        <button class="btn btn-danger"><a
                                                                 href="{{ route('baohuy', ['id' => $row->id]) }}"
                                                                 style="color: black"
                                                                 onclick="return confirm('Bạn có chắc chắn')">Báo hủy
@@ -133,9 +147,15 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+    <html>
+
+    <body onload="JavaScript:AutoRefresh(60000);"></body>
+
+    </html>
 @endsection
-<html>
+{{-- <html>
 
 <body onload="JavaScript:AutoRefresh(60000);"></body>
 
-</html>
+</html> --}}

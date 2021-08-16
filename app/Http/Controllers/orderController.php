@@ -323,7 +323,7 @@ class orderController extends Controller
         DB::table('chitiet')
             ->where('id',$request->id)
             ->where('trangthai',0)
-            ->orWhere('trangthai',2)
+            ->orWhere('trangthai',3)
             ->delete();
         
         return redirect()->route('doimonhoadon',['id'=>$idban]);
@@ -386,7 +386,7 @@ class orderController extends Controller
 
         $chitiet = DB::table('chitiet')
             ->where('chitiet.idhoadon',$id)
-            ->where('chitiet.trangthai',1)
+            ->where('chitiet.trangthai',2)
             ->join('hoadon', 'chitiet.idhoadon','=','hoadon.id')
             ->join('thucdon', 'chitiet.idthucdon','thucdon.id')
             ->join('ban', 'hoadon.idban', '=','ban.id' )
@@ -428,7 +428,7 @@ class orderController extends Controller
 
         $chitiet = DB::table('chitiet')
             ->where('chitiet.idhoadon',$id)
-            ->where('chitiet.trangthai',1)
+            ->where('chitiet.trangthai',2)
             ->join('hoadon', 'chitiet.idhoadon','=','hoadon.id')
             ->join('thucdon', 'chitiet.idthucdon','thucdon.id')
             ->join('ban', 'hoadon.idban', '=','ban.id' )
