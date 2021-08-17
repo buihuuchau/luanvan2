@@ -97,7 +97,7 @@
                         <!-- popup -->
                         <div class="card">
                             <div class="card-body">
-                                <table id="example3" class="table table-bordered table-striped dataTable dtr-inline"
+                                <table id="example4" class="table table-bordered table-striped dataTable dtr-inline"
                                     role="grid" aria-describedby="example3_info">
 
                                     <thead>
@@ -186,14 +186,14 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <th><?php $giamgia = $diem * 1000; ?>{{ number_format("$giamgia", 0, ',', '.') }}đ</th>
+                                            <th><?php $giamgia = $diem * $diemtohoadon; ?>{{ number_format("$giamgia", 0, ',', '.') }}đ</th>
                                         </tr>
                                         <tr>
                                             <th>TỔNG:</th>
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <th><?php $tong = $tamtinh - $diem * 1000; ?>{{ number_format("$tong", 0, ',', '.') }}đ</th>
+                                            <th><?php $tong = $tamtinh - $diem * $diemtohoadon; ?>{{ number_format("$tong", 0, ',', '.') }}đ</th>
                                         </tr>
                                     </tbody>
                                 </table>

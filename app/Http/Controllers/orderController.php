@@ -397,8 +397,14 @@ class orderController extends Controller
         foreach($chitiet as $key => $row){
             $tamtinh = $tamtinh + $row->gia;
         }
+
+        $tilegiamgia = DB::table('giamgia')
+            ->where('giamgia.idquan', $thanhvien->idquan)
+            ->first();
+        $hoadontodiem = $tilegiamgia->hoadontodiem;
+        $diemtohoadon = $tilegiamgia->diemtohoadon;
        
-        return view('order.thanhtoanhoadon',compact('thanhvien','hoadon','chitiet','tamtinh','id','idban','thoigian','idkhachhang','diemkhachhang','diem'));
+        return view('order.thanhtoanhoadon',compact('thanhvien','hoadon','chitiet','tamtinh','id','idban','thoigian','idkhachhang','diemkhachhang','diem','diemtohoadon'));
     }
     public function giamgia(Request $request){
         $ssidthanhvien = Session::get('ssidthanhvien');
@@ -440,6 +446,12 @@ class orderController extends Controller
             $tamtinh = $tamtinh + $row->gia;
         }
 
+        $tilegiamgia = DB::table('giamgia')
+            ->where('giamgia.idquan', $thanhvien->idquan)
+            ->first();
+        $hoadontodiem = $tilegiamgia->hoadontodiem;
+        $diemtohoadon = $tilegiamgia->diemtohoadon;
+
         $check = DB::table('khachhang')
             ->where('sdt',$sdt)
             ->first();
@@ -456,17 +468,20 @@ class orderController extends Controller
         if($diem > 0 && $diem >= $check->diem){// dung so diem
             $diem = $check->diem;
         }
+
         if($diem == 0){//dung het so diem
             $diem = $check->diem;
         }
-        if($diem <= -1)// khong dung diem
-            $diem = 0;
 
-        if($diem*1000 > $tamtinh){
-            $diem = $tamtinh/1000;
+        if($diem <= -1){// khong dung diem
+            $diem = 0;
         }
 
-        return view('order.thanhtoanhoadon',compact('thanhvien','hoadon','chitiet','tamtinh','id','idban','thoigian','idkhachhang','diemkhachhang','diem'));
+        if($diem*$diemtohoadon > $tamtinh){
+            $diem = $tamtinh/$diemtohoadon;
+        }
+
+        return view('order.thanhtoanhoadon',compact('thanhvien','hoadon','chitiet','tamtinh','id','idban','thoigian','idkhachhang','diemkhachhang','diem','diemtohoadon'));
     }
     public function thanhtoanhoadon(Request $request){
         $ssidthanhvien = Session::get('ssidthanhvien');
@@ -501,15 +516,21 @@ class orderController extends Controller
         DB::table('hoadon')
             ->where('id',$id)
             ->update($hoadon);
+        
+        $tilegiamgia = DB::table('giamgia')
+            ->where('giamgia.idquan', $thanhvien->idquan)
+            ->first();
+        $hoadontodiem = $tilegiamgia->hoadontodiem;
+        $diemtohoadon = $tilegiamgia->diemtohoadon;
 
         if($diem != 0){
-            $khachhang['diem'] = $diemkhachhang - $diem + $thanhtien/1000;
+            $khachhang['diem'] = $diemkhachhang - $diem + $thanhtien/$hoadontodiem;
             DB::table('khachhang')
                 ->where('id',$idkhachhang)
                 ->update($khachhang);
         }
         else{
-            $khachhang['diem'] = $diemkhachhang + $thanhtien/1000;
+            $khachhang['diem'] = $diemkhachhang + $thanhtien/$hoadontodiem;
             DB::table('khachhang')
                 ->where('id',$idkhachhang)
                 ->update($khachhang);
@@ -554,7 +575,7 @@ class orderController extends Controller
 
         $chitiethoadon = DB::table('chitiet')
             ->where('chitiet.idhoadon',$id)
-            ->where('trangthai',1)//mon da duoc phuc vu
+            ->where('trangthai',2)//mon da duoc phuc vu
             ->join('thucdon', 'chitiet.idthucdon','=','thucdon.id')
             ->get();
         foreach($chitiethoadon as $key => $row){

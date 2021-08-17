@@ -97,7 +97,7 @@
                         <!-- popup -->
                         <div class="card">
                             <div class="card-body">
-                                <table id="example3" class="table table-bordered table-striped dataTable dtr-inline"
+                                <table id="example4" class="table table-bordered table-striped dataTable dtr-inline"
                                     role="grid" aria-describedby="example3_info">
 
                                     <thead>
