@@ -401,8 +401,14 @@ class orderController extends Controller
         $tilegiamgia = DB::table('giamgia')
             ->where('giamgia.idquan', $thanhvien->idquan)
             ->first();
-        $hoadontodiem = $tilegiamgia->hoadontodiem;
-        $diemtohoadon = $tilegiamgia->diemtohoadon;
+        if($tilegiamgia){
+            $hoadontodiem = $tilegiamgia->hoadontodiem;
+            $diemtohoadon = $tilegiamgia->diemtohoadon;
+        }
+        else{
+            $hoadontodiem = 0;
+            $diemtohoadon = 0;
+        }
        
         return view('order.thanhtoanhoadon',compact('thanhvien','hoadon','chitiet','tamtinh','id','idban','thoigian','idkhachhang','diemkhachhang','diem','diemtohoadon'));
     }
@@ -449,8 +455,14 @@ class orderController extends Controller
         $tilegiamgia = DB::table('giamgia')
             ->where('giamgia.idquan', $thanhvien->idquan)
             ->first();
-        $hoadontodiem = $tilegiamgia->hoadontodiem;
-        $diemtohoadon = $tilegiamgia->diemtohoadon;
+        if($tilegiamgia){
+            $hoadontodiem = $tilegiamgia->hoadontodiem;
+            $diemtohoadon = $tilegiamgia->diemtohoadon;
+        }
+        else{
+            $hoadontodiem = 0;
+            $diemtohoadon = 0;
+        }
 
         $check = DB::table('khachhang')
             ->where('sdt',$sdt)
@@ -520,8 +532,15 @@ class orderController extends Controller
         $tilegiamgia = DB::table('giamgia')
             ->where('giamgia.idquan', $thanhvien->idquan)
             ->first();
-        $hoadontodiem = $tilegiamgia->hoadontodiem;
-        $diemtohoadon = $tilegiamgia->diemtohoadon;
+        if($tilegiamgia){
+            $hoadontodiem = $tilegiamgia->hoadontodiem;
+            $diemtohoadon = $tilegiamgia->diemtohoadon;
+        }
+        else{
+            $hoadontodiem = 0;
+            $diemtohoadon = 0;
+        }
+        
 
         if($diem != 0){
             $khachhang['diem'] = $diemkhachhang - $diem + $thanhtien/$hoadontodiem;

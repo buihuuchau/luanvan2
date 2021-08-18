@@ -25,7 +25,19 @@ class quanlykhachhangController extends Controller
                     ->where('khachhang.idquan', $thanhvien->idquan)
                     ->get();
 
-        return view('khachhang.quanlykhachhang', compact('thanhvien','khachhang'));
+        $tilegiamgia = DB::table('giamgia')
+            ->where('giamgia.idquan', $thanhvien->idquan)
+            ->first();
+        if($tilegiamgia){
+            $hoadontodiem = $tilegiamgia->hoadontodiem;
+            $diemtohoadon = $tilegiamgia->diemtohoadon;
+        }
+        else{
+            $hoadontodiem = 0;
+            $diemtohoadon = 0;
+        }
+
+        return view('khachhang.quanlykhachhang', compact('thanhvien','khachhang','hoadontodiem','diemtohoadon'));
     }
 
     // public function addkhachhang(){
@@ -107,5 +119,34 @@ class quanlykhachhangController extends Controller
                 ->update($khachhang);
             return back();
         }
+    }
+
+    public function tilegiamgia(Request $request){
+        $ssidthanhvien = Session::get('ssidthanhvien');
+
+        $thanhvien = DB::table('thanhvien')
+                    ->where('thanhvien.id',$ssidthanhvien)
+                    ->join('users', 'thanhvien.idquan', '=', 'users.id')
+                    ->select('thanhvien.*','users.hinhquan','users.name')
+                    ->first();
+        
+        $tilegiamgia = DB::table('giamgia')
+            ->where('giamgia.idquan', $thanhvien->idquan)
+            ->first();
+        if($tilegiamgia){
+            $giamgia['hoadontodiem']= $request->hoadontodiem;
+            $giamgia['diemtohoadon']= $request->diemtohoadon;
+            DB::table('giamgia')
+                ->where('giamgia.idquan', $thanhvien->idquan)
+                ->update($giamgia);
+        }
+        else{
+            $giamgia['idquan']= $thanhvien->idquan;
+            $giamgia['hoadontodiem']= $request->hoadontodiem;
+            $giamgia['diemtohoadon']= $request->diemtohoadon;
+            DB::table('giamgia')->insert($giamgia);
+        }
+
+        return back();
     }
 }

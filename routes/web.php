@@ -192,6 +192,16 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlykhachhangController@doeditkhachhang',
         'middleware' => (['Login','SuaKhachhang'])
     ]);
+    Route::post('/doeditkhachhang', [
+        'as' => 'doeditkhachhang',
+        'uses' => 'App\Http\Controllers\quanlykhachhangController@doeditkhachhang',
+        'middleware' => (['Login','SuaKhachhang'])
+    ]);
+    Route::post('/tilegiamgia', [
+        'as' => 'tilegiamgia',
+        'uses' => 'App\Http\Controllers\quanlykhachhangController@tilegiamgia',
+        'middleware' => (['Login','Quanlyngansach'])
+    ]);
 });
 // QUAN LY KHACH HANG
 
