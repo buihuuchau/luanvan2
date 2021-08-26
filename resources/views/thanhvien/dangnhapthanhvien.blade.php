@@ -33,6 +33,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{route('login')}}">Bạn chưa có cơ sở ? Đăng ký ngay</a>
                 <x-button class="ml-3">
                     {{ __('Đăng nhập') }}
                 </x-button>
