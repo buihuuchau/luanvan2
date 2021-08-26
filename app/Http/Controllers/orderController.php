@@ -542,13 +542,13 @@ class orderController extends Controller
         }
         
 
-        if($diem != 0){
+        if($hoadontodiem != 0 && $diem != 0){
             $khachhang['diem'] = $diemkhachhang - $diem + $thanhtien/$hoadontodiem;
             DB::table('khachhang')
                 ->where('id',$idkhachhang)
                 ->update($khachhang);
         }
-        else{
+        else if($hoadontodiem != 0 && $diem == 0){
             $khachhang['diem'] = $diemkhachhang + $thanhtien/$hoadontodiem;
             DB::table('khachhang')
                 ->where('id',$idkhachhang)
