@@ -88,7 +88,7 @@
 
                     <div class="form-group">
 					<label>Lương/Buổi:</label>
-					<input required="true" type="number" class="form-control" name="luong" value="{{ old('luong') }}">
+					<input required="true" type="number" class="form-control" name="luong" value="{{ old('luong') }}" min="0">
 					</div>
 
                     <div class="form-group">
