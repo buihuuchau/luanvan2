@@ -91,12 +91,12 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Đơn giá</label>
-                                                    <input type="number" class="form-control" name="dongia"
+                                                    <input type="number" class="form-control" name="dongia" min="0"
                                                         placeholder="Tính tới hàng đơn vị" required><br>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Số lượng</label>
-                                                    <input type="number" class="form-control" name="soluong" required><br>
+                                                    <input type="number" class="form-control" name="soluong" min="0" required><br>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
