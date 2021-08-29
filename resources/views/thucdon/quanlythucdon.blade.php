@@ -226,7 +226,7 @@
                                                                         <div class="form-group">
                                                                             <label>Đơn giá</label>
                                                                             <input type="number" class="form-control"
-                                                                                name="dongia" value="{{ $row->dongia }}"
+                                                                                name="dongia" min="0" value="{{ $row->dongia }}"
                                                                                 required>
                                                                         </div>
                                                                         <div class="form-group">
