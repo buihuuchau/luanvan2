@@ -22,19 +22,22 @@ class quanlykhoController extends Controller
                     ->first();
 
         $nguyenlieu = DB::table('nguyenlieu')
+                    ->where('idquan',$thanhvien->idquan)
+                    ->get();
+        $nguyenlieu2 = DB::table('nguyenlieu')
                     ->orderBy('tennguyenlieu')
                     ->where('idquan',$thanhvien->idquan)
                     ->where('hidden',0)
                     ->get();
 
         $kho = DB::table('kho')
-                    ->orderBy('id','desc')
+                    ->orderBy('ngaynhap','desc')
                     ->where('kho.idquan', $thanhvien->idquan)
                     ->join('nguyenlieu','kho.idnguyenlieu','=','nguyenlieu.id')
                     ->select('kho.*','nguyenlieu.tennguyenlieu','nguyenlieu.xuatxu','nguyenlieu.donvitinh')
                     ->get();
 
-        return view('kho.quanlykho', compact('thanhvien','nguyenlieu','kho'));
+        return view('kho.quanlykho', compact('thanhvien','nguyenlieu','nguyenlieu2','kho'));
     }
 
     // public function addkho(){

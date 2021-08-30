@@ -82,7 +82,7 @@
                                                 <div class="form-group">
                                                     <label>Chọn nguyên liệu</label>
                                                     <select class="form-control" name="idnguyenlieu">
-                                                        @foreach ($nguyenlieu as $key => $row)
+                                                        @foreach ($nguyenlieu2 as $key => $row)
                                                             <option value="{{ $row->id }}">
                                                                 {{ $row->tennguyenlieu }}/{{ $row->donvitinh }}-{{ $row->xuatxu }}
                                                             </option>
@@ -121,7 +121,11 @@
                                     role="grid" aria-describedby="example1_info">
                                     <thead>
                                         <tr role="row">
-                                            {{-- <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">No.</th> --}}
+                                            <th class="none" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">No.</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                colspan="1">NGÀY NHẬP</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                colspan="1">NGÀY HẾT</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1">TÊN NGUYÊN LIỆU</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
@@ -133,10 +137,6 @@
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1">THÀNH TIỀN</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1">NGÀY NHẬP</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1">NGÀY HẾT</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1">TRẠNG THÁI</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1">THAO TÁC</th>
@@ -145,14 +145,14 @@
                                     <tbody>
                                         @foreach ($kho as $key => $row)
                                             <tr class="odd">
-                                                {{-- <td class="dtr-control sorting_1" tabindex="0">{{$key+1}}</td> --}}
+                                                <td class="none" tabindex="0">{{$key+1}}</td>
+                                                <td>{{ $row->ngaynhap }}</td>
+                                                <td>{{ $row->ngayhet }}</td>
                                                 <td>{{ $row->tennguyenlieu }}</td>
                                                 <td>{{ number_format("$row->dongia", 0, ',', '.') }}</td>
                                                 <td>{{ $row->donvitinh }}</td>
                                                 <td>{{ number_format("$row->soluong", 0, ',', '.') }}</td>
                                                 <td>{{ number_format("$row->thanhtien", 0, ',', '.') }}</td>
-                                                <td>{{ $row->ngaynhap }}</td>
-                                                <td>{{ $row->ngayhet }}</td>
                                                 @if ($row->trangthai == 1)
                                                     <td bgcolor="lightgreen">Còn hàng</td>
                                                 @elseif($row->trangthai== 2)
@@ -164,11 +164,13 @@
                                                     @if ($row->trangthai == 1)
                                                         <button class="btn btn-warning"><a
                                                                 href="{{ route('hethangkho', ['id' => $row->id]) }}"
-                                                                style="color: white">Hết hàng</a></button><br>
+                                                                onclick="return confirm('Xác nhận...')"
+                                                                style="color: white">Check empty</a></button><br>
                                                     @else
                                                         <button class="btn btn-dark"><a
                                                                 href="{{ route('conhangkho', ['id' => $row->id]) }}"
-                                                                style="color: white">Còn hàng</a></button><br>
+                                                                onclick="return confirm('Xác nhận...')"
+                                                                style="color: white">Check full</a></button><br>
                                                     @endif
                                                     <button class="btn btn-danger"><a
                                                             href="{{ route('deletekho', ['id' => $row->id]) }}"
