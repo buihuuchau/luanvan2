@@ -140,9 +140,9 @@
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1">ẨN / HIỆN</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1">LOẠI MÓN</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1">THAO TÁC</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                colspan="1">LOẠI MÓN</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -181,7 +181,7 @@
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title" id="exampleModalLongTitle">Sửa
-                                                                        bàn</h5>
+                                                                        thực đơn</h5>
                                                                     <button type="button" class="close" data-dismiss="modal"
                                                                         aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
