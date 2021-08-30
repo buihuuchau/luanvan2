@@ -95,7 +95,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Đơn giá</label>
-                                                    <input type="number" class="form-control" name="dongia" required>
+                                                    <input type="number" class="form-control" name="dongia" min="0" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Hình ảnh món:</label>
