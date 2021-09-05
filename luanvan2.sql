@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th8 09, 2021 lúc 03:28 AM
+-- Thời gian đã tạo: Th9 05, 2021 lúc 02:11 PM
 -- Phiên bản máy phục vụ: 5.7.24
 -- Phiên bản PHP: 7.3.2
 
@@ -48,7 +48,7 @@ INSERT INTO `ban` (`id`, `idquan`, `idkhuvuc`, `tenban`, `trangthai`, `hidden`) 
 (14, 1, 2, 'Bàn 2 Sân thượng', 0, 0),
 (15, 1, 2, 'Bàn 3 Sân thượng', 0, 0),
 (16, 1, 3, 'Bàn 4', 0, 0),
-(17, 1, 3, 'Bàn 5', 0, 1),
+(17, 1, 3, 'Bàn 5', 0, 0),
 (18, 1, 4, 'Bàn 1 Sân trước', 0, 0),
 (21, 1, 2, 'Bàn 4 Sân thượng', 0, 0);
 
@@ -92,6 +92,26 @@ CREATE TABLE `chitiet` (
   `ghichu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `trangthai` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `giamgia`
+--
+
+CREATE TABLE `giamgia` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `idquan` bigint(20) UNSIGNED NOT NULL,
+  `hoadontodiem` bigint(20) UNSIGNED NOT NULL,
+  `diemtohoadon` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `giamgia`
+--
+
+INSERT INTO `giamgia` (`id`, `idquan`, `hoadontodiem`, `diemtohoadon`) VALUES
+(1, 1, 10000, 1000);
 
 -- --------------------------------------------------------
 
@@ -160,7 +180,25 @@ INSERT INTO `hoadonluu` (`id`, `idquan`, `idhoadon`, `thoigian`, `tenkhuvuc`, `t
 (66, 1, 21, '2021-07-18 01:06:07', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL),
 (67, 1, 21, '2021-07-18 01:06:07', 'Phòng lạnh', 'Bàn 2', 'Bùi Hữu Châu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 36000),
 (68, 1, 2, '2021-08-08 22:08:41', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 5, 175000, NULL, NULL),
-(69, 1, 2, '2021-08-08 22:08:41', 'Phòng lạnh', 'Bàn 1', 'PHUCVUquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 100000, 75000);
+(69, 1, 2, '2021-08-08 22:08:41', 'Phòng lạnh', 'Bàn 1', 'PHUCVUquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 100000, 75000),
+(81, 1, 17, '2021-08-17 23:00:46', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL),
+(82, 1, 17, '2021-08-17 23:00:46', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 18000),
+(83, 1, 18, '2021-08-17 23:04:04', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
+(84, 1, 18, '2021-08-17 23:04:04', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 35000),
+(85, 1, 4, '2021-08-26 22:04:18', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
+(86, 1, 4, '2021-08-26 22:04:18', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 35000),
+(87, 1, 5, '2021-08-26 22:14:49', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
+(88, 1, 5, '2021-08-26 22:14:49', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 0, 35000),
+(89, 1, 6, '2021-08-26 22:15:27', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
+(90, 1, 6, '2021-08-26 22:15:27', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 35000, 0),
+(91, 1, 7, '2021-08-26 22:16:20', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 2, 70000, NULL, NULL),
+(92, 1, 7, '2021-08-26 22:16:20', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 19000, 51000),
+(93, 1, 10, '2021-08-29 13:33:22', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 2, 36000, NULL, NULL),
+(94, 1, 10, '2021-08-29 13:33:22', NULL, NULL, NULL, NULL, NULL, '2', 'SODA', 28000, 3, 84000, NULL, NULL),
+(95, 1, 10, '2021-08-29 13:33:22', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
+(96, 1, 10, '2021-08-29 13:33:22', 'Phòng lạnh', 'Bàn 3', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 155000),
+(97, 1, 8, '2021-08-26 22:17:23', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 4, 140000, NULL, NULL),
+(98, 1, 8, '2021-08-26 22:17:23', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 140000);
 
 -- --------------------------------------------------------
 
@@ -182,10 +220,8 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`id`, `idquan`, `hotenkh`, `sdt`, `ngaydangky`, `diem`) VALUES
-(1, 1, 'Bùi Hữu Chánh', 918624198, '2021-07-02', 782),
-(2, 1, 'Võ Thị Quý Mỹ', 899152095, '2021-07-01', 500),
-(3, 1, 'Bùi Thị Trà My', 763232505, '2021-07-11', 357),
-(4, 1, 'Bùi Hữu Châu', 898998271, '2021-08-02', 0);
+(5, 1, 'Bùi Hữu Chánh', 918624198, '2021-08-26', 100),
+(6, 1, 'Bùi Hữu Châu', 763232505, '2021-08-29', 0);
 
 -- --------------------------------------------------------
 
@@ -197,8 +233,8 @@ CREATE TABLE `kho` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `idquan` bigint(20) UNSIGNED NOT NULL,
   `idnguyenlieu` bigint(20) UNSIGNED NOT NULL,
-  `dongia` bigint(20) NOT NULL,
-  `soluong` bigint(20) NOT NULL,
+  `dongia` bigint(20) UNSIGNED NOT NULL,
+  `soluong` bigint(20) UNSIGNED NOT NULL,
   `thanhtien` bigint(20) NOT NULL,
   `ngaynhap` date NOT NULL,
   `ngayhet` date DEFAULT NULL,
@@ -210,16 +246,13 @@ CREATE TABLE `kho` (
 --
 
 INSERT INTO `kho` (`id`, `idquan`, `idnguyenlieu`, `dongia`, `soluong`, `thanhtien`, `ngaynhap`, `ngayhet`, `trangthai`) VALUES
-(12, 1, 2, 3000, 2000, 6000000, '2021-02-13', NULL, 2),
-(13, 1, 1, 18000, 250, 4500000, '2021-03-13', NULL, 1),
-(14, 1, 4, 50000, 110, 5500000, '2021-04-13', NULL, 1),
-(15, 1, 2, 5000, 1000, 5000000, '2021-05-13', NULL, 1),
-(16, 1, 1, 20000, 250, 5000000, '2021-06-13', NULL, 1),
+(12, 1, 2, 3000, 2000, 6000000, '2021-02-13', '2021-08-30', 0),
+(13, 1, 1, 18000, 250, 4500000, '2021-03-13', '2021-08-30', 0),
+(14, 1, 4, 50000, 110, 5500000, '2021-04-13', '2021-08-30', 0),
+(15, 1, 2, 5000, 1000, 5000000, '2021-05-13', '2021-08-30', 0),
+(16, 1, 1, 20000, 250, 5000000, '2021-06-13', NULL, 2),
 (17, 1, 4, 45000, 99, 4455000, '2021-07-13', NULL, 1),
-(18, 1, 2, 6000, 900, 5400000, '2021-08-13', '2021-07-18', 0),
-(19, 1, 1, 22000, 170, 3740000, '2021-09-13', '2021-07-18', 0),
-(20, 1, 4, 45000, 80, 3600000, '2021-10-13', '2021-08-02', 0),
-(21, 1, 2, 2000, 1500, 3000000, '2021-11-13', '2021-07-18', 0);
+(18, 1, 2, 6000, 900, 5400000, '2021-08-13', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -242,7 +275,8 @@ INSERT INTO `khuvuc` (`id`, `idquan`, `tenkhuvuc`, `hidden`) VALUES
 (1, 1, 'Vỉa hè', '0'),
 (2, 1, 'Sân thượng', '0'),
 (3, 1, 'Phòng lạnh', '0'),
-(4, 1, 'Sân trước', '1');
+(4, 1, 'Sân trước', '0'),
+(5, 1, 'Phòng VIP', '0');
 
 -- --------------------------------------------------------
 
@@ -304,7 +338,14 @@ INSERT INTO `lichlamviec` (`id`, `idquan`, `idcalam`, `idkhuvuc`, `idthanhvien`,
 (120, 1, 1, 1, 1, '2021-05-02', 1),
 (121, 1, 1, 1, 3, '2021-05-02', 1),
 (122, 1, 1, 1, 4, '2021-05-02', 1),
-(123, 1, 1, 1, 2, '2021-05-02', 1);
+(123, 1, 1, 1, 2, '2021-05-02', 1),
+(124, 1, 1, 1, 1, '2021-08-29', 1),
+(125, 1, 1, 1, 3, '2021-08-29', 1),
+(126, 1, 1, 1, 4, '2021-08-29', 0),
+(127, 1, 2, 1, 2, '2021-09-03', 0),
+(128, 1, 3, 2, 3, '2021-09-03', 0),
+(129, 1, 4, 5, 3, '2021-09-03', 0),
+(130, 1, 4, 5, 4, '2021-09-03', 0);
 
 -- --------------------------------------------------------
 
@@ -333,7 +374,8 @@ INSERT INTO `luong` (`id`, `idquan`, `idthanhvien`, `mucluong`, `tu`) VALUES
 (6, 1, 2, 400000, '2021-07-09'),
 (7, 1, 3, 300000, '2021-07-09'),
 (8, 1, 4, 200000, '2021-07-09'),
-(15, 1, 3, 300000, '2021-08-09');
+(15, 1, 3, 300000, '2021-08-09'),
+(17, 1, 6, 350000, '2021-08-29');
 
 -- --------------------------------------------------------
 
@@ -392,10 +434,11 @@ CREATE TABLE `nguyenlieu` (
 --
 
 INSERT INTO `nguyenlieu` (`id`, `idquan`, `tennguyenlieu`, `xuatxu`, `donvitinh`, `hidden`) VALUES
-(1, 1, 'Đường hạt to', 'Việt Nam', 'Kg', 0),
-(2, 1, 'Đá xay', 'Việt Nam', 'Kg', 0),
-(3, 1, 'Mía', 'Việt Nam', 'Cây', 1),
-(4, 1, 'Bánh pía', 'Sóc Trăng, Việt Nam', 'Cây', 0);
+(1, 1, 'Đường hạt to', 'Đường Tinh luyên Hòa Phát, Sài Gòn, 0733123456', 'Kg', 0),
+(2, 1, 'Đá xay', 'Bà 7 đầu ngõ', 'Kg', 0),
+(3, 1, 'Mía', 'CTy TNHH Mía đường', 'Cây', 1),
+(4, 1, 'Bánh pía', 'Tân Huê Viên, Sóc Trăng, Việt Nam', 'Cây', 0),
+(5, 1, 'Bánh pía', 'dsa', 'Kgg', 0);
 
 -- --------------------------------------------------------
 
@@ -494,10 +537,11 @@ CREATE TABLE `thanhvien` (
 --
 
 INSERT INTO `thanhvien` (`id`, `idquan`, `acc`, `pwd`, `hoten`, `hinhtv`, `namsinh`, `sex`, `diachi`, `sdt`, `ngayvaolam`, `luong`, `idvaitro`, `hidden`) VALUES
-(1, 1, 'quan1_chuquan', '68cdfa363160dfae3f255f470145a82a', 'CHUQUANquan1', 'storage/hinhanh/ZM11WMU9hU4qDKzzTJuWVTDlhBBTYmfZqi6BzHhM.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 500000, 1, 0),
-(2, 1, 'quan1_quanly', '68cdfa363160dfae3f255f470145a82a', 'QUANLYquan1', 'storage/hinhanh/52SQjvXPtMwof0axtZWMM63ZBGrGB1QwfkKuxN7n.jpg', '1999-04-22', '1', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 400000, 2, 0),
-(3, 1, 'quan1_phache', '68cdfa363160dfae3f255f470145a82a', 'PHACHEquan1', 'storage/hinhanh/U1wgX0kkdiESINzh5xJACyHxKSPx42Uugyc8lO9H.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 300000, 8, 0),
-(4, 1, 'quan1_phucvu', '68cdfa363160dfae3f255f470145a82a', 'PHUCVUquan1', 'storage/hinhanh/rVaLehVXNJEOef95tcm562Eg4lRD6PXykIe2q2SO.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 200000, 9, 0);
+(1, 1, 'quan1_chuquan', 'af764227394c645a864f77e7b103ded2', 'CHUQUANquan1', 'storage/hinhanh/ZM11WMU9hU4qDKzzTJuWVTDlhBBTYmfZqi6BzHhM.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 500000, 1, 0),
+(2, 1, 'quan1_quanly', 'af764227394c645a864f77e7b103ded2', 'QUANLYquan1', 'storage/hinhanh/52SQjvXPtMwof0axtZWMM63ZBGrGB1QwfkKuxN7n.jpg', '1999-04-22', '1', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 400000, 2, 0),
+(3, 1, 'quan1_phache', 'af764227394c645a864f77e7b103ded2', 'PHACHEquan1', 'storage/hinhanh/U1wgX0kkdiESINzh5xJACyHxKSPx42Uugyc8lO9H.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 300000, 8, 0),
+(4, 1, 'quan1_phucvu', 'af764227394c645a864f77e7b103ded2', 'PHUCVUquan1', 'storage/hinhanh/rVaLehVXNJEOef95tcm562Eg4lRD6PXykIe2q2SO.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 200000, 9, 0),
+(6, 1, 'quan1_chuquann', 'af764227394c645a864f77e7b103ded2', 'Tạo sai', 'storage/hinhanh/DgdWbD5KtywjpdshtQXO8CJh6Eo36FK7qwkqYzc7.jpg', '1999-04-21', '0', 'B1-6 KDC An Thoi', 763232505, '2021-08-29', 350000, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -510,7 +554,7 @@ CREATE TABLE `thucdon` (
   `idquan` bigint(20) UNSIGNED NOT NULL,
   `loaimon` bigint(20) NOT NULL COMMENT '1-món nước, 2-món ăn, 3-món phụ',
   `tenmon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dongia` bigint(20) NOT NULL,
+  `dongia` bigint(20) UNSIGNED NOT NULL,
   `hinhmon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mota` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `hidden` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Hiện - 1: Ẩn'
@@ -522,7 +566,7 @@ CREATE TABLE `thucdon` (
 
 INSERT INTO `thucdon` (`id`, `idquan`, `loaimon`, `tenmon`, `dongia`, `hinhmon`, `mota`, `hidden`) VALUES
 (2, 1, 2, 'Cơm sườn', 35000, 'storage/hinhanh/0pPRxnxneg8pNLaCU1EymJR1UD0geBdaRTqrf0i3.jpg', 'Cơm sườn', 0),
-(3, 1, 3, 'Cooktail', 25000, 'storage/hinhanh/mAndJcApaZA2QCbqpJ3RJY2Sju6RPBzZFbrPfeKy.jpg', 'Cooktail', 1),
+(3, 1, 3, 'Cooktail', 25000, 'storage/hinhanh/mAndJcApaZA2QCbqpJ3RJY2Sju6RPBzZFbrPfeKy.jpg', 'Cooktail', 0),
 (4, 1, 1, 'Nước chanh', 18000, 'storage/hinhanh/y3MoSPhpRCjxMVok7cCIyrsSPZb9Zc8nky6zRnZH.jpg', 'Nước chanh', 0),
 (6, 1, 2, 'SODA', 28000, 'storage/hinhanh/M89ripZFqdCTY4lkOUWbpE6PLACltbbZEpHr8xPc.jpg', 'SODA', 0);
 
@@ -553,8 +597,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `hinhquan`, `diachiquan`, `website`, `sdtquan`, `ngaythanhlap`, `created_at`, `updated_at`) VALUES
-(1, 'quan1', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$uihiGRnqdJTXrmXenGSwEOM3y5vdfWnlxXg6jnOdYTSzYdhCmIb4i', 'ELHg0Q94spIy1f6LbpBmARGnxITu2bWf2yG3pPCBkWgcxw2FY5Wiv97UYR2C', 'storage/hinhanh/uH0OjWdi9AwC1YdsvOmxtkexHHXD7b44DoGKh7o4.jpg', 'Sóc Trăng', 'http://quan1.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-08-02 14:39:32'),
-(2, 'quan2', 'chaub1706789@student.ctu.edu.vn', '2021-07-21 13:59:17', '$2y$10$1YJ/9HjxjAzOb8mONmZdEu0l9iVh.XrJMrlMWC4SlStWlABSvyhKG', NULL, 'storage/hinhanh/tuZVkVqCQuicinncTgWGpNhN166GSLF99lASLiKD.jpg', 'Sóc Trăng', 'http://quan1.com', 123456789, '2021-07-21', '2021-07-21 13:59:01', '2021-07-21 13:59:17');
+(1, 'quan1', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$h.vbPZuk.HBB.GBf3DN2XOq4iZX/JBFeGVx8.w17AOPw1JKhuCX.K', '7BXZn1Qi7KzKdC6UMQoqSFXVfterumi3kuacZPbjx4WYPJLjZwuwNBYBeXJ3', 'storage/hinhanh/uH0OjWdi9AwC1YdsvOmxtkexHHXD7b44DoGKh7o4.jpg', 'Sóc Trăng', 'http://quan1.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-09-05 13:52:12');
 
 -- --------------------------------------------------------
 
@@ -576,7 +619,8 @@ INSERT INTO `vaitro` (`id`, `idquan`, `tenvaitro`) VALUES
 (1, 1, 'Chủ quán'),
 (2, 1, 'Quản lý'),
 (8, 1, 'Pha chế'),
-(9, 1, 'Phục vụ');
+(9, 1, 'Phục vụ'),
+(11, 1, 'chủ tiệm');
 
 -- --------------------------------------------------------
 
@@ -604,7 +648,6 @@ INSERT INTO `vaitro_quyen` (`id`, `idvaitro`, `idquyen`) VALUES
 (7, 1, 7),
 (8, 1, 8),
 (9, 1, 9),
-(10, 1, 10),
 (11, 1, 11),
 (12, 1, 12),
 (13, 1, 13),
@@ -707,6 +750,13 @@ ALTER TABLE `chitiet`
   ADD PRIMARY KEY (`id`),
   ADD KEY `chitietfkhoadon` (`idhoadon`),
   ADD KEY `chitietfkmon` (`idthucdon`);
+
+--
+-- Chỉ mục cho bảng `giamgia`
+--
+ALTER TABLE `giamgia`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `giamgiafkquan` (`idquan`);
 
 --
 -- Chỉ mục cho bảng `hoadon`
@@ -850,6 +900,12 @@ ALTER TABLE `chitiet`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `giamgia`
+--
+ALTER TABLE `giamgia`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
@@ -859,37 +915,37 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `hoadonluu`
 --
 ALTER TABLE `hoadonluu`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `kho`
 --
 ALTER TABLE `kho`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `khuvuc`
 --
 ALTER TABLE `khuvuc`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `lichlamviec`
 --
 ALTER TABLE `lichlamviec`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT cho bảng `luong`
 --
 ALTER TABLE `luong`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -901,7 +957,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `nguyenlieu`
 --
 ALTER TABLE `nguyenlieu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `quyen`
@@ -913,7 +969,7 @@ ALTER TABLE `quyen`
 -- AUTO_INCREMENT cho bảng `thanhvien`
 --
 ALTER TABLE `thanhvien`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `thucdon`
@@ -925,19 +981,19 @@ ALTER TABLE `thucdon`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `vaitro`
 --
 ALTER TABLE `vaitro`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `vaitro_quyen`
 --
 ALTER TABLE `vaitro_quyen`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -962,6 +1018,12 @@ ALTER TABLE `calam`
 ALTER TABLE `chitiet`
   ADD CONSTRAINT `chitietfkhoadon` FOREIGN KEY (`idhoadon`) REFERENCES `hoadon` (`id`),
   ADD CONSTRAINT `chitietfkthucdon` FOREIGN KEY (`idthucdon`) REFERENCES `thucdon` (`id`);
+
+--
+-- Các ràng buộc cho bảng `giamgia`
+--
+ALTER TABLE `giamgia`
+  ADD CONSTRAINT `giamgiafkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
 -- Các ràng buộc cho bảng `hoadon`
