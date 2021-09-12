@@ -187,7 +187,7 @@
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
-                                                                <form action="{{ route('doeditban') }}" method="post"
+                                                                <form action="{{ route('doeditthucdon') }}" method="post"
                                                                     enctype="multipart/form-data">
                                                                     <input type="hidden" name="id"
                                                                         value="{{ $row->id }}">
