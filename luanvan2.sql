@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th9 12, 2021 lúc 04:47 AM
+-- Thời gian đã tạo: Th9 23, 2021 lúc 07:34 PM
 -- Phiên bản máy phục vụ: 5.7.24
 -- Phiên bản PHP: 7.3.2
 
@@ -162,26 +162,14 @@ CREATE TABLE `hoadonluu` (
 --
 
 INSERT INTO `hoadonluu` (`id`, `idquan`, `idhoadon`, `thoigian`, `tenkhuvuc`, `tenban`, `tenthanhvien`, `tenkhachhang`, `sdtkh`, `loaimon`, `tenmon`, `dongia`, `soluong`, `gia`, `giamgia`, `thanhtien`) VALUES
-(99, 1, 14, '2021-09-12 11:27:39', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 4, 100000, NULL, NULL),
-(100, 1, 14, '2021-09-12 11:27:39', 'Sân trước', 'Bàn 1 Sân trước', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 10000, 90000),
-(101, 1, 10, '2021-09-12 11:27:05', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 2, 50000, NULL, NULL),
-(102, 1, 10, '2021-09-12 11:27:05', 'Sân thượng', 'Bàn 1 Sân thượng', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 50000),
-(103, 1, 11, '2021-09-12 11:27:11', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 2, 70000, NULL, NULL),
-(104, 1, 11, '2021-09-12 11:27:11', 'Sân thượng', 'Bàn 2 Sân thượng', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 70000),
-(105, 1, 12, '2021-09-12 11:27:17', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 2, 36000, NULL, NULL),
-(106, 1, 12, '2021-09-12 11:27:17', 'Sân thượng', 'Bàn 3 Sân thượng', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 25000, 11000),
-(107, 1, 13, '2021-09-12 11:27:24', NULL, NULL, NULL, NULL, NULL, '2', 'SODA', 28000, 2, 56000, NULL, NULL),
-(108, 1, 13, '2021-09-12 11:27:24', 'Sân thượng', 'Bàn 4 Sân thượng', 'CHUQUANquan1', 'Bùi Hữu Châu', 763232505, NULL, NULL, NULL, NULL, NULL, 0, 56000),
-(109, 1, 5, '2021-09-12 11:26:10', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL),
-(110, 1, 5, '2021-09-12 11:26:10', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Châu', 763232505, NULL, NULL, NULL, NULL, NULL, 5000, 20000),
-(111, 1, 6, '2021-09-12 11:26:21', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
-(112, 1, 6, '2021-09-12 11:26:21', 'Phòng lạnh', 'Bàn 2', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 35000),
-(113, 1, 7, '2021-09-12 11:26:29', NULL, NULL, NULL, NULL, NULL, '2', 'SODA', 28000, 1, 28000, NULL, NULL),
-(114, 1, 7, '2021-09-12 11:26:29', 'Phòng lạnh', 'Bàn 3', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 28000),
-(115, 1, 8, '2021-09-12 11:26:37', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL),
-(116, 1, 8, '2021-09-12 11:26:37', 'Phòng lạnh', 'Bàn 4', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 9000, 9000),
-(117, 1, 9, '2021-09-12 11:26:43', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL),
-(118, 1, 9, '2021-09-12 11:26:43', 'Phòng lạnh', 'Bàn 5', 'CHUQUANquan1', 'Bùi Hữu Châu', 763232505, NULL, NULL, NULL, NULL, NULL, 0, 25000);
+(139, 1, 6, '2021-09-24 02:20:49', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 16000, 70000),
+(140, 1, 139, '2021-09-24 02:20:49', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 2, 50000, NULL, NULL),
+(141, 1, 139, '2021-09-24 02:20:49', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 2, 36000, NULL, NULL),
+(142, 1, 7, '2021-09-24 02:31:35', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 106000),
+(143, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL),
+(144, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
+(145, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL),
+(146, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '2', 'SODA', 28000, 1, 28000, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -203,9 +191,9 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`id`, `idquan`, `hotenkh`, `sdt`, `ngaydangky`, `diem`) VALUES
-(5, 1, 'Bùi Hữu Chánh', 918624198, '2021-08-26', 67),
-(6, 1, 'Bùi Hữu Châu', 763232505, '2021-08-29', 6),
-(7, 1, 'Võ Thị Quý Mỹ', 899152095, '2021-09-12', 0);
+(8, 1, 'Bùi Hữu Chánh', 918624198, '2021-09-22', 91),
+(9, 1, 'Bùi Hữu Châu', 763232505, '2021-09-22', 0),
+(10, 1, 'Võ Thị Quý Mỹ', 899152095, '2021-09-22', 0);
 
 -- --------------------------------------------------------
 
@@ -582,7 +570,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `hinhquan`, `diachiquan`, `website`, `sdtquan`, `ngaythanhlap`, `created_at`, `updated_at`) VALUES
-(1, 'quan1', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$h.vbPZuk.HBB.GBf3DN2XOq4iZX/JBFeGVx8.w17AOPw1JKhuCX.K', 'TighJuItWuN5D0mRDTpQHdYAfpqyqi1QgebYzyjzD1MutQT3zZ5w6gxxJWT2', 'storage/hinhanh/uH0OjWdi9AwC1YdsvOmxtkexHHXD7b44DoGKh7o4.jpg', 'Sóc Trăng', 'http://quan1.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-09-05 13:52:12');
+(1, 'quan1', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$h.vbPZuk.HBB.GBf3DN2XOq4iZX/JBFeGVx8.w17AOPw1JKhuCX.K', 'DsG3eTykcMkqePKeGzSl9kE7Pa0GLaf2v7RMpFA9JMxLq73Q3yL9Xqw3ftr2', 'storage/hinhanh/uH0OjWdi9AwC1YdsvOmxtkexHHXD7b44DoGKh7o4.jpg', 'Sóc Trăng', 'http://quan1.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-09-05 13:52:12');
 
 -- --------------------------------------------------------
 
@@ -871,19 +859,19 @@ ALTER TABLE `vaitro_quyen`
 -- AUTO_INCREMENT cho bảng `ban`
 --
 ALTER TABLE `ban`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `calam`
 --
 ALTER TABLE `calam`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `chitiet`
 --
 ALTER TABLE `chitiet`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `giamgia`
@@ -895,37 +883,37 @@ ALTER TABLE `giamgia`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadonluu`
 --
 ALTER TABLE `hoadonluu`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
 --
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `kho`
 --
 ALTER TABLE `kho`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `khuvuc`
 --
 ALTER TABLE `khuvuc`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `lichlamviec`
 --
 ALTER TABLE `lichlamviec`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT cho bảng `luong`
@@ -961,7 +949,7 @@ ALTER TABLE `thanhvien`
 -- AUTO_INCREMENT cho bảng `thucdon`
 --
 ALTER TABLE `thucdon`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
