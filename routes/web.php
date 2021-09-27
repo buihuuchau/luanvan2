@@ -626,6 +626,93 @@ Route::prefix('/')->group(function () {
 });
 // DAT BAN / DAT MON
 
+// DAT BAN / DAT MON PHONE
+Route::prefix('/')->group(function () {
+    Route::get('/hoadonphone', [
+        'as' => 'hoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@hoadonphone',
+        'middleware' => (['Login', 'XemHoadon'])
+    ]);
+    Route::get('/xembanphone', [
+        'as' => 'xembanphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@xembanphone',
+        'middleware' => (['Login', 'XemHoadon'])
+    ]);
+
+
+
+    Route::get('/taohoadonphone', [
+        'as' => 'taohoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@taohoadonphone',
+        'middleware' => (['Login', 'ThemHoadon'])
+    ]);
+    Route::get('/deletehoadonphone/{id}', [
+        'as' => 'deletehoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@deletehoadonphone',
+        'middleware' => (['Login', 'XoaHoadon'])
+    ]);
+
+
+
+    Route::get('/doibanhoadonphone/{id}', [ //idban
+        'as' => 'doibanhoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@doibanhoadonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+    Route::get('/doikhuvuchoadonphone', [
+        'as' => 'doikhuvuchoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@doikhuvuchoadonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+    Route::get('/dodoibanhoadonphone', [
+        'as' => 'dodoibanhoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@dodoibanhoadonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+
+
+
+    Route::get('/doimonhoadonphone/{id}', [ //idban
+        'as' => 'doimonhoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@doimonhoadonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+    Route::get('/datmonphone', [
+        'as' => 'datmonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@datmonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+    Route::get('/xoamonhoadonphone', [ //idchitiet
+        'as' => 'xoamonhoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@xoamonhoadonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+    Route::get('/doisoluongmonhoadonphone', [
+        'as' => 'doisoluongmonhoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@doisoluongmonhoadonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+
+
+
+    Route::get('/tamtinhhoadonphone/{id}', [ //idban
+        'as' => 'tamtinhhoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@tamtinhhoadonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+    Route::get('/giamgiaphone', [
+        'as' => 'giamgiaphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@giamgiaphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+    Route::post('/thanhtoanhoadonphone', [
+        'as' => 'thanhtoanhoadonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@thanhtoanhoadonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+});
+// DAT BAN / DAT MON PHONE
+
 // QUAN LY CHE BIEN
 Route::prefix('/')->group(function () {
     Route::get('/quanlychebien', [
