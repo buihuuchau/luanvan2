@@ -256,11 +256,12 @@ class orderphoneController extends Controller
         $id = $hoadon->id; //idhoadon
 
         $thucdon = DB::table('thucdon')
-            ->orderBy('loaimon')
+            // ->orderBy('loaimon')
             ->orderBy('tenmon')
             ->where('idquan', $thanhvien->idquan)
             ->where('hidden', 0)
-            ->get();
+            // ->get();
+            ->simplepaginate(20);
         $chitiet = DB::table('chitiet')
             ->orderBy('trangthai', 'desc')
             ->where('idhoadon', $id)
@@ -280,7 +281,7 @@ class orderphoneController extends Controller
             ->first();
 
         $thucdon = DB::table('thucdon')
-            ->orderBy('loaimon')
+            // ->orderBy('loaimon')
             ->orderBy('tenmon')
             ->where('idquan', $thanhvien->idquan)
             ->where('hidden', 0)
@@ -309,9 +310,9 @@ class orderphoneController extends Controller
             ->select('chitiet.*', 'thucdon.tenmon', 'thucdon.dongia', 'thucdon.loaimon')
             ->get();
 
-        return view('orderphone.datmonphone', compact('thanhvien', 'id', 'thucdon', 'chitiet'));
+        return back();
     }
-    public function xoamonhoadon(Request $request)
+    public function xoamonhoadonphone(Request $request)
     {
         $ssidthanhvien = Session::get('ssidthanhvien');
 
@@ -335,7 +336,7 @@ class orderphoneController extends Controller
             ->orWhere('trangthai', 3)
             ->delete();
 
-        return redirect()->route('doimonhoadonphone', ['id' => $idban]);
+        return back();
     }
     public function doisoluongmonhoadonphone(Request $request)
     {
@@ -362,7 +363,7 @@ class orderphoneController extends Controller
             ->first();
         $idban = $hoadon->idban;
 
-        return redirect()->route('doimonhoadonphone', ['id' => $idban]);
+        return back();
     }
 
 

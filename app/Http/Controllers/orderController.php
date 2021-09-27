@@ -309,7 +309,7 @@ class orderController extends Controller
             ->select('chitiet.*', 'thucdon.tenmon', 'thucdon.dongia', 'thucdon.loaimon')
             ->get();
 
-        return view('order.datmon', compact('thanhvien', 'id', 'thucdon', 'chitiet'));
+        return back();
     }
     public function xoamonhoadon(Request $request)
     {
@@ -335,7 +335,7 @@ class orderController extends Controller
             ->orWhere('trangthai', 3)
             ->delete();
 
-        return redirect()->route('doimonhoadon', ['id' => $idban]);
+        return back();
     }
     public function doisoluongmonhoadon(Request $request)
     {
@@ -362,7 +362,7 @@ class orderController extends Controller
             ->first();
         $idban = $hoadon->idban;
 
-        return redirect()->route('doimonhoadon', ['id' => $idban]);
+        return back();
     }
 
 
