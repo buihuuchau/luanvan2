@@ -58,6 +58,9 @@
             <div class="info">
                 <a href="{{ route('dangxuatthanhvien') }}" class="d-block">Đăng xuất</a>
             </div>
+            <div class="info">
+                <a href="{{ route('hoadonphone') }}" class="d-block">Order</a>
+            </div>
         </div>
 
         <!-- Content Wrapper. Contains page content -->
