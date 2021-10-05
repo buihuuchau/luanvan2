@@ -249,11 +249,16 @@ class orderController extends Controller
             ->first();
 
         $hoadon = DB::table('hoadon')
-            ->where('idquan', $thanhvien->idquan)
-            ->where('idban', $id)
-            ->where('trangthai', 0)
+            ->where('hoadon.idquan', $thanhvien->idquan)
+            ->where('hoadon.idban', $id)
+            ->where('hoadon.trangthai', 0)
+            ->join('ban', 'ban.id', '=', 'hoadon.idban')
+            ->join('khuvuc', 'khuvuc.id', '=', 'hoadon.idkhuvuc')
+            ->select('hoadon.*', 'ban.tenban', 'khuvuc.tenkhuvuc')
             ->first();
         $id = $hoadon->id; //idhoadon
+        $tenban = $hoadon->tenban;
+        $tenkhuvuc = $hoadon->tenkhuvuc;
 
         $thucdon = DB::table('thucdon')
             ->orderBy('loaimon')
@@ -267,7 +272,7 @@ class orderController extends Controller
             ->join('thucdon', 'chitiet.idthucdon', '=', 'thucdon.id')
             ->select('chitiet.*', 'thucdon.tenmon', 'thucdon.dongia', 'thucdon.loaimon')
             ->get();
-        return view('order.datmon', compact('thanhvien', 'id', 'thucdon', 'chitiet'));
+        return view('order.datmon', compact('thanhvien', 'id', 'tenban', 'tenkhuvuc', 'thucdon', 'chitiet'));
     }
     public function datmon(Request $request)
     {
@@ -334,6 +339,23 @@ class orderController extends Controller
             ->where('trangthai', 0)
             ->orWhere('trangthai', 3)
             ->delete();
+
+        return back();
+    }
+    public function phucvumon(Request $request)
+    {
+        $ssidthanhvien = Session::get('ssidthanhvien');
+
+        $thanhvien = DB::table('thanhvien')
+            ->where('thanhvien.id', $ssidthanhvien)
+            ->join('users', 'thanhvien.idquan', '=', 'users.id')
+            ->select('thanhvien.*', 'users.hinhquan', 'users.name')
+            ->first();
+
+        $chitiet['phucvu'] = 1;
+        DB::table('chitiet')
+            ->where('id', $request->id)
+            ->update($chitiet);
 
         return back();
     }
@@ -649,5 +671,29 @@ class orderController extends Controller
 
 
         return redirect()->route('hoadon');
+    }
+
+    public function xemmon()
+    {
+        $ssidthanhvien = Session::get('ssidthanhvien');
+
+        $thanhvien = DB::table('thanhvien')
+            ->where('thanhvien.id', $ssidthanhvien)
+            ->join('users', 'thanhvien.idquan', '=', 'users.id')
+            ->select('thanhvien.*', 'users.hinhquan', 'users.name')
+            ->first();
+
+        $chitiet = DB::table('chitiet')
+            ->orderBy('phucvu')
+            ->orderBy('idhoadon')
+            ->join('hoadon', 'chitiet.idhoadon', '=', 'hoadon.id')
+            ->join('thucdon', 'chitiet.idthucdon', '=', 'thucdon.id')
+            ->join('ban', 'hoadon.idban', '=', 'ban.id')
+            ->join('khuvuc', 'hoadon.idkhuvuc', '=', 'khuvuc.id')
+            ->where('hoadon.trangthai', 0)
+            ->where('hoadon.idthanhvien', $thanhvien->id)
+            ->select('chitiet.*', 'thucdon.tenmon', 'ban.tenban', 'khuvuc.tenkhuvuc', 'hoadon.thoigian')
+            ->get();
+        return view('order.xemmon', compact('thanhvien', 'chitiet'));
     }
 }

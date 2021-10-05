@@ -84,32 +84,33 @@
 			</div>
 		</li> -->
 
-		<li class="nav-item dropdown">
+		{{--<li class="nav-item dropdown">
 			<a class="nav-link" data-toggle="dropdown" href="#">
 				<i class="far fa-bell"></i>
-				<span class="badge badge-warning navbar-badge">15</span>
+				<span class="badge badge-warning navbar-badge"><?php echo $demdangcho + $demdangthuchien + $demdahoanthanh + $dembaohuy ?></span>
 			</a>
 			<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-				<span class="dropdown-header">15 Notifications</span>
+				<span class="dropdown-header"><?php echo $demdangcho + $demdangthuchien + $demdahoanthanh + $dembaohuy ?> Notifications</span>
 				<div class="dropdown-divider"></div>
 				<a href="#" class="dropdown-item">
-					<i class="fas fa-envelope mr-2"></i> 4 new messages
-					<span class="float-right text-muted text-sm">3 mins</span>
-				</a>
-				<div class="dropdown-divider"></div>
-				<a href="#" class="dropdown-item">
-					<i class="fas fa-users mr-2"></i> 8 friend requests
-					<span class="float-right text-muted text-sm">12 hours</span>
-				</a>
-				<div class="dropdown-divider"></div>
-				<a href="#" class="dropdown-item">
-					<i class="fas fa-file mr-2"></i> 3 new reports
-					<span class="float-right text-muted text-sm">2 days</span>
-				</a>
-				<div class="dropdown-divider"></div>
-				<a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-			</div>
-		</li>
+					<i class="fas fa-envelope mr-2"></i> {{$demdangcho}} Món đang chờ
+		</a>
+		<div class="dropdown-divider"></div>
+		<a href="#" class="dropdown-item">
+			<i class="fas fa-envelope mr-2"></i> {{$demdangthuchien}} Món đang thực hiện
+		</a>
+		<div class="dropdown-divider"></div>
+		<a href="#" class="dropdown-item">
+			<i class="fas fa-envelope mr-2"></i> {{$demdahoanthanh}} Món đã hoàn thành
+		</a>
+		<div class="dropdown-divider"></div>
+		<div class="dropdown-divider"></div>
+		<a href="#" class="dropdown-item">
+			<i class="fas fa-envelope mr-2"></i> {{$dembaohuy}} Món báo hủy
+		</a>
+		<div class="dropdown-divider"></div>
+		</div>
+		</li>--}}
 
 		<li class="nav-item">
 			<a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -124,5 +125,10 @@
 		</li> -->
 		@yield('dangxuat')
 	</ul>
+	<!-- <script language="javascript">
+		setInterval(function() {
+			window.location.reload(1);
+		}, 180000);
+	</script> -->
 </nav>
 <!-- /.navbar -->

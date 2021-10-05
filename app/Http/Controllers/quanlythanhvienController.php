@@ -263,6 +263,58 @@ class quanlythanhvienController extends Controller
             ->join('vaitro', 'thanhvien.idvaitro', '=', 'vaitro.id')
             ->select('thanhvien.*', 'users.hinhquan', 'users.name', 'vaitro.tenvaitro')
             ->first();
+
+        // $hoadon = DB::table('hoadon')
+        //     ->where('hoadon.idquan', $thanhvien->idquan)
+        //     ->where('hoadon.idthanhvien', $thanhvien->id)
+        //     ->get();
+
+        // $demdangcho = 0;
+        // $demdangthuchien = 0;
+        // $demdahoanthanh = 0;
+        // $dembaohuy = 0;
+        // if (count($hoadon) != 0) {
+        //     foreach ($hoadon as $key => $rowhoadon) {
+        //         $dangcho[$key] = DB::table('chitiet')
+        //             ->where('idhoadon', $rowhoadon->id)
+        //             ->where('trangthai', 0)
+        //             ->get();
+        //         $dangthuchien[$key] = DB::table('chitiet')
+        //             ->where('idhoadon', $rowhoadon->id)
+        //             ->where('trangthai', 1)
+        //             ->get();
+        //         $dahoanthanh[$key] = DB::table('chitiet')
+        //             ->where('idhoadon', $rowhoadon->id)
+        //             ->where('trangthai', 2)
+        //             ->get();
+        //         $baohuy[$key] = DB::table('chitiet')
+        //             ->where('idhoadon', $rowhoadon->id)
+        //             ->where('trangthai', 3)
+        //             ->get();
+        //     }
+        //     foreach ($dangcho as $rowdangcho) {
+        //         foreach ($rowdangcho as $rowrowdangcho) {
+        //             $demdangcho = $demdangcho + 1;
+        //         }
+        //     }
+        //     foreach ($dangthuchien as $rowdangthuchien) {
+        //         foreach ($rowdangthuchien as $rowrowdangthuchien) {
+        //             $demdangthuchien = $demdangthuchien + 1;
+        //         }
+        //     }
+        //     foreach ($dahoanthanh as $rowdahoanthanh) {
+        //         foreach ($rowdahoanthanh as $rowrowdahoanthanh) {
+        //             $demdahoanthanh = $demdahoanthanh + 1;
+        //         }
+        //     }
+        //     foreach ($baohuy as $rowbaohuy) {
+        //         foreach ($rowbaohuy as $rowrowbaohuy) {
+        //             $dembaohuy = $dembaohuy + 1;
+        //         }
+        //     }
+        // }
+
+        // return view('thanhvien.thongtinthanhvien', compact('thanhvien', 'demdangcho', 'demdangthuchien', 'demdahoanthanh', 'dembaohuy'));
         return view('thanhvien.thongtinthanhvien', compact('thanhvien'));
     }
     public function dangxuatthanhvien()

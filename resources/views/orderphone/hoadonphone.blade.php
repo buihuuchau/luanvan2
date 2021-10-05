@@ -78,7 +78,9 @@
 
 
 
-
+                        <div class="col-md-12 mb-4 text-right">
+                            <a href="{{route('xemmon')}}"><button type="button" class="btn btn-primary">Xem món </button></a>
+                        </div>
                         <div class="col-sm-12">
                             <form action="{{ route('xembanphone') }}" method="get">
                                 {{ csrf_field() }}

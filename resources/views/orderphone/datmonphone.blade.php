@@ -94,6 +94,7 @@
                         <div class="col-sm-12">
                             <div class="page-wrapper">
                                 <div class="blog-title-area text-center">
+                                    <h3>{{$tenkhuvuc}}---{{$tenban}}</h3>
                                     <h3>THỰC ĐƠN</h3>
                                 </div><!-- end title -->
                                 <div class="blog-grid-system">
@@ -249,8 +250,17 @@
                                                     @if ($row->trangthai == 1)
                                                     <h5 style="color:orange">Đang thực hiện</h5>
                                                     @endif
-                                                    @if ($row->trangthai == 2)
+                                                    @if ($row->trangthai == 2 && $row->phucvu == 0)
                                                     <h5 style="color:green">Đã xong</h5>
+                                                    <form action="{{ route('phucvumonphone') }}" method="get">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" name="id" value="{{ $row->id }}">
+                                                        <button type="submit" class="btn btn-success">Phục vụ
+                                                            món</button>
+                                                    </form>
+                                                    @endif
+                                                    @if ($row->trangthai == 2 && $row->phucvu == 1)
+                                                    <h5 style="color:green">Đã phục vụ</h5>
                                                     @endif
                                                     @if ($row->trangthai == 0 || $row->trangthai == 3)
                                                     <form action="{{ route('xoamonhoadonphone') }}" method="get">

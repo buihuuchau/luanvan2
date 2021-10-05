@@ -551,7 +551,11 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\orderController@xemban',
         'middleware' => (['Login','XemHoadon'])
     ]);
-
+    Route::get('/xemmon', [
+        'as' => 'xemmon',
+        'uses' => 'App\Http\Controllers\orderController@xemmon',
+        'middleware' => (['Login', 'XemHoadon'])
+    ]);
 
 
     Route::get('/taohoadon', [
@@ -599,6 +603,11 @@ Route::prefix('/')->group(function () {
         'as' => 'xoamonhoadon',
         'uses' => 'App\Http\Controllers\orderController@xoamonhoadon',
         'middleware' => (['Login','SuaHoadon'])
+    ]);
+    Route::get('/phucvumon', [ //idchitiet
+        'as' => 'phucvumon',
+        'uses' => 'App\Http\Controllers\orderController@phucvumon',
+        'middleware' => (['Login', 'SuaHoadon'])
     ]);
     Route::get('/doisoluongmonhoadon', [
         'as' => 'doisoluongmonhoadon',
@@ -685,6 +694,11 @@ Route::prefix('/')->group(function () {
     Route::get('/xoamonhoadonphone', [ //idchitiet
         'as' => 'xoamonhoadonphone',
         'uses' => 'App\Http\Controllers\orderphoneController@xoamonhoadonphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
+    Route::get('/phucvumonphone', [ //idchitiet
+        'as' => 'phucvumonphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@phucvumonphone',
         'middleware' => (['Login', 'SuaHoadon'])
     ]);
     Route::get('/doisoluongmonhoadonphone', [
