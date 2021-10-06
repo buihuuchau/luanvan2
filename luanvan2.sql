@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th10 05, 2021 lúc 12:59 PM
+-- Thời gian đã tạo: Th10 06, 2021 lúc 11:55 AM
 -- Phiên bản máy phục vụ: 5.7.24
 -- Phiên bản PHP: 7.3.2
 
@@ -41,7 +41,7 @@ CREATE TABLE `ban` (
 --
 
 INSERT INTO `ban` (`id`, `idquan`, `idkhuvuc`, `tenban`, `trangthai`, `hidden`) VALUES
-(10, 1, 3, 'Bàn 1', 1, 0),
+(10, 1, 3, 'Bàn 1', 0, 0),
 (11, 1, 3, 'Bàn 2', 0, 0),
 (12, 1, 3, 'Bàn 3', 0, 0),
 (13, 1, 2, 'Bàn 1 Sân thượng', 0, 0),
@@ -95,13 +95,6 @@ CREATE TABLE `chitiet` (
   `phucvu` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `chitiet`
---
-
-INSERT INTO `chitiet` (`id`, `idhoadon`, `idthucdon`, `soluong`, `gia`, `ghichu`, `trangthai`, `phucvu`) VALUES
-(23, 10, 9, 1, 15000, NULL, 2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -140,13 +133,6 @@ CREATE TABLE `hoadon` (
   `thanhtien` bigint(20) NOT NULL DEFAULT '0',
   `trangthai` bigint(20) NOT NULL DEFAULT '0' COMMENT '0: Chưa xong - 1: Đã thanh toán'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `hoadon`
---
-
-INSERT INTO `hoadon` (`id`, `idquan`, `idkhuvuc`, `idban`, `idthanhvien`, `idkhachhang`, `thoigian`, `giamgia`, `thanhtien`, `trangthai`) VALUES
-(10, 1, 3, 10, 1, NULL, '2021-10-05 19:45:29', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -208,7 +194,22 @@ INSERT INTO `hoadonluu` (`id`, `idquan`, `idhoadon`, `thoigian`, `tenkhuvuc`, `t
 (166, 1, 6, '2021-10-05 19:01:33', 'Phòng lạnh', 'Bàn 5', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 12000),
 (167, 1, 166, '2021-10-05 19:01:33', NULL, NULL, NULL, NULL, NULL, '3', 'Sữa chua', 12000, 1, 12000, NULL, NULL),
 (168, 1, 9, '2021-10-05 19:40:03', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 200000),
-(169, 1, 168, '2021-10-05 19:40:03', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL);
+(169, 1, 168, '2021-10-05 19:40:03', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL),
+(170, 1, 10, '2021-10-05 19:45:29', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 15000),
+(171, 1, 170, '2021-10-05 19:45:29', NULL, NULL, NULL, NULL, NULL, '3', 'Khoai tây chiên', 15000, 1, 15000, NULL, NULL),
+(172, 1, 13, '2021-10-05 20:00:58', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Châu', 763232505, NULL, NULL, NULL, NULL, NULL, 0, 220000),
+(173, 1, 172, '2021-10-05 20:00:58', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL),
+(174, 1, 172, '2021-10-05 20:00:58', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm trắng', 10000, 2, 20000, NULL, NULL),
+(175, 1, 1, '2021-10-06 18:04:08', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 375000),
+(176, 1, 175, '2021-10-06 18:04:08', NULL, NULL, NULL, NULL, NULL, '2', 'Bê tái chanh Bê tái chanh Bê tái chanh Bê tái chanh', 150000, 1, 150000, NULL, NULL),
+(177, 1, 175, '2021-10-06 18:04:08', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL),
+(178, 1, 175, '2021-10-06 18:04:08', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL),
+(179, 1, 2, '2021-10-06 18:11:20', 'Phòng lạnh', 'Bàn 3', 'CHUQUANquan1', 'Võ Thị Quý Mỹ', 899152095, NULL, NULL, NULL, NULL, NULL, 5000, 40000),
+(180, 1, 179, '2021-10-06 18:11:20', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
+(181, 1, 179, '2021-10-06 18:11:20', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm trắng', 10000, 1, 10000, NULL, NULL),
+(182, 1, 3, '2021-10-06 18:46:31', 'Phòng lạnh', 'Bàn 5', 'CHUQUANquan1', 'Bùi Hữu Châu', 763232505, NULL, NULL, NULL, NULL, NULL, 22000, 26000),
+(183, 1, 182, '2021-10-06 18:46:31', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL),
+(184, 1, 182, '2021-10-06 18:46:31', NULL, NULL, NULL, NULL, NULL, '3', 'Rau muống xào tỏi', 30000, 1, 30000, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -231,8 +232,8 @@ CREATE TABLE `khachhang` (
 
 INSERT INTO `khachhang` (`id`, `idquan`, `hotenkh`, `sdt`, `ngaydangky`, `diem`) VALUES
 (8, 1, 'Bùi Hữu Chánh', 918624198, '2021-09-22', 94),
-(9, 1, 'Bùi Hữu Châu', 763232505, '2021-09-22', 0),
-(10, 1, 'Võ Thị Quý Mỹ', 899152095, '2021-09-22', 92);
+(9, 1, 'Bùi Hữu Châu', 763232505, '2021-09-22', 3),
+(10, 1, 'Võ Thị Quý Mỹ', 899152095, '2021-09-22', 91);
 
 -- --------------------------------------------------------
 
@@ -928,7 +929,7 @@ ALTER TABLE `calam`
 -- AUTO_INCREMENT cho bảng `chitiet`
 --
 ALTER TABLE `chitiet`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `giamgia`
@@ -940,13 +941,13 @@ ALTER TABLE `giamgia`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadonluu`
 --
 ALTER TABLE `hoadonluu`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- AUTO_INCREMENT cho bảng `khachhang`

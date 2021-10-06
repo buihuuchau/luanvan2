@@ -683,6 +683,7 @@ class orderController extends Controller
             ->select('thanhvien.*', 'users.hinhquan', 'users.name')
             ->first();
 
+        $ngay = Carbon::now()->toDateString();
         $chitiet = DB::table('chitiet')
             ->orderBy('phucvu')
             ->orderBy('idhoadon')
@@ -692,8 +693,10 @@ class orderController extends Controller
             ->join('khuvuc', 'hoadon.idkhuvuc', '=', 'khuvuc.id')
             ->where('hoadon.trangthai', 0)
             ->where('hoadon.idthanhvien', $thanhvien->id)
-            ->select('chitiet.*', 'thucdon.tenmon', 'ban.tenban', 'khuvuc.tenkhuvuc', 'hoadon.thoigian')
+            ->where('hoadon.thoigian', 'like', $ngay . ' ' . '%%:%%:%%')
+            ->select('chitiet.*', 'thucdon.tenmon', 'ban.tenban', 'khuvuc.tenkhuvuc')
             ->get();
+
         return view('order.xemmon', compact('thanhvien', 'chitiet'));
     }
 }
