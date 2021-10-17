@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th10 06, 2021 lúc 11:55 AM
+-- Thời gian đã tạo: Th10 17, 2021 lúc 11:43 AM
 -- Phiên bản máy phục vụ: 5.7.24
 -- Phiên bản PHP: 7.3.2
 
@@ -156,60 +156,78 @@ CREATE TABLE `hoadonluu` (
   `soluong` bigint(20) DEFAULT NULL,
   `gia` bigint(20) DEFAULT NULL,
   `giamgia` bigint(20) DEFAULT NULL,
-  `thanhtien` bigint(20) DEFAULT NULL
+  `thanhtien` bigint(20) DEFAULT NULL,
+  `ghichu` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `hoadonluu`
 --
 
-INSERT INTO `hoadonluu` (`id`, `idquan`, `idhoadon`, `thoigian`, `tenkhuvuc`, `tenban`, `tenthanhvien`, `tenkhachhang`, `sdtkh`, `loaimon`, `tenmon`, `dongia`, `soluong`, `gia`, `giamgia`, `thanhtien`) VALUES
-(139, 1, 6, '2021-09-24 02:20:49', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 16000, 70000),
-(140, 1, 139, '2021-09-24 02:20:49', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 2, 50000, NULL, NULL),
-(141, 1, 139, '2021-09-24 02:20:49', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 2, 36000, NULL, NULL),
-(142, 1, 7, '2021-09-24 02:31:35', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 106000),
-(143, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL),
-(144, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
-(145, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL),
-(146, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '2', 'SODA', 28000, 1, 28000, NULL, NULL),
-(147, 1, 1, '2021-09-26 10:02:59', 'Phòng lạnh', 'Bàn 2', 'PHUCVUquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 5000, 90000),
-(148, 1, 147, '2021-09-26 10:02:59', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 2, 70000, NULL, NULL),
-(149, 1, 147, '2021-09-26 10:02:59', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL),
-(150, 1, 1, '2021-09-27 10:13:14', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 10000, 85000),
-(151, 1, 150, '2021-09-27 10:13:14', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL),
-(152, 1, 150, '2021-09-27 10:13:14', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 2, 70000, NULL, NULL),
-(153, 1, 4, '2021-09-27 10:48:11', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Võ Thị Quý Mỹ', 899152095, NULL, NULL, NULL, NULL, NULL, 0, 924000),
-(154, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 2, 70000, NULL, NULL),
-(155, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '3', 'Rau muống xào tỏi', 30000, 1, 30000, NULL, NULL),
-(156, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '2', 'Gà hấp hành', 200000, 2, 400000, NULL, NULL),
-(157, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 2, 400000, NULL, NULL),
-(158, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '3', 'Sữa chua', 12000, 2, 24000, NULL, NULL),
-(159, 1, 4, '2021-10-05 18:53:55', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 375000),
-(160, 1, 159, '2021-10-05 18:53:55', NULL, NULL, NULL, NULL, NULL, '2', 'Bê tái chanh Bê tái chanh Bê tái chanh Bê tái chanh', 150000, 1, 150000, NULL, NULL),
-(161, 1, 159, '2021-10-05 18:53:55', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL),
-(162, 1, 159, '2021-10-05 18:53:55', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL),
-(163, 1, 5, '2021-10-05 18:54:57', 'Phòng lạnh', 'Bàn 3', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 45000),
-(164, 1, 163, '2021-10-05 18:54:57', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
-(165, 1, 163, '2021-10-05 18:54:57', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm trắng', 10000, 1, 10000, NULL, NULL),
-(166, 1, 6, '2021-10-05 19:01:33', 'Phòng lạnh', 'Bàn 5', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 12000),
-(167, 1, 166, '2021-10-05 19:01:33', NULL, NULL, NULL, NULL, NULL, '3', 'Sữa chua', 12000, 1, 12000, NULL, NULL),
-(168, 1, 9, '2021-10-05 19:40:03', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 200000),
-(169, 1, 168, '2021-10-05 19:40:03', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL),
-(170, 1, 10, '2021-10-05 19:45:29', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 15000),
-(171, 1, 170, '2021-10-05 19:45:29', NULL, NULL, NULL, NULL, NULL, '3', 'Khoai tây chiên', 15000, 1, 15000, NULL, NULL),
-(172, 1, 13, '2021-10-05 20:00:58', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Châu', 763232505, NULL, NULL, NULL, NULL, NULL, 0, 220000),
-(173, 1, 172, '2021-10-05 20:00:58', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL),
-(174, 1, 172, '2021-10-05 20:00:58', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm trắng', 10000, 2, 20000, NULL, NULL),
-(175, 1, 1, '2021-10-06 18:04:08', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 375000),
-(176, 1, 175, '2021-10-06 18:04:08', NULL, NULL, NULL, NULL, NULL, '2', 'Bê tái chanh Bê tái chanh Bê tái chanh Bê tái chanh', 150000, 1, 150000, NULL, NULL),
-(177, 1, 175, '2021-10-06 18:04:08', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL),
-(178, 1, 175, '2021-10-06 18:04:08', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL),
-(179, 1, 2, '2021-10-06 18:11:20', 'Phòng lạnh', 'Bàn 3', 'CHUQUANquan1', 'Võ Thị Quý Mỹ', 899152095, NULL, NULL, NULL, NULL, NULL, 5000, 40000),
-(180, 1, 179, '2021-10-06 18:11:20', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL),
-(181, 1, 179, '2021-10-06 18:11:20', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm trắng', 10000, 1, 10000, NULL, NULL),
-(182, 1, 3, '2021-10-06 18:46:31', 'Phòng lạnh', 'Bàn 5', 'CHUQUANquan1', 'Bùi Hữu Châu', 763232505, NULL, NULL, NULL, NULL, NULL, 22000, 26000),
-(183, 1, 182, '2021-10-06 18:46:31', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL),
-(184, 1, 182, '2021-10-06 18:46:31', NULL, NULL, NULL, NULL, NULL, '3', 'Rau muống xào tỏi', 30000, 1, 30000, NULL, NULL);
+INSERT INTO `hoadonluu` (`id`, `idquan`, `idhoadon`, `thoigian`, `tenkhuvuc`, `tenban`, `tenthanhvien`, `tenkhachhang`, `sdtkh`, `loaimon`, `tenmon`, `dongia`, `soluong`, `gia`, `giamgia`, `thanhtien`, `ghichu`) VALUES
+(139, 1, 6, '2021-09-24 02:20:49', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 16000, 70000, NULL),
+(140, 1, 139, '2021-09-24 02:20:49', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 2, 50000, NULL, NULL, NULL),
+(141, 1, 139, '2021-09-24 02:20:49', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 2, 36000, NULL, NULL, NULL),
+(142, 1, 7, '2021-09-24 02:31:35', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 106000, NULL),
+(143, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL, NULL),
+(144, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL, NULL),
+(145, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL, NULL),
+(146, 1, 142, '2021-09-24 02:31:35', NULL, NULL, NULL, NULL, NULL, '2', 'SODA', 28000, 1, 28000, NULL, NULL, NULL),
+(147, 1, 1, '2021-09-26 10:02:59', 'Phòng lạnh', 'Bàn 2', 'PHUCVUquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 5000, 90000, NULL),
+(148, 1, 147, '2021-09-26 10:02:59', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 2, 70000, NULL, NULL, NULL),
+(149, 1, 147, '2021-09-26 10:02:59', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL, NULL),
+(150, 1, 1, '2021-09-27 10:13:14', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 10000, 85000, NULL),
+(151, 1, 150, '2021-09-27 10:13:14', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL, NULL),
+(152, 1, 150, '2021-09-27 10:13:14', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 2, 70000, NULL, NULL, NULL),
+(153, 1, 4, '2021-09-27 10:48:11', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Võ Thị Quý Mỹ', 899152095, NULL, NULL, NULL, NULL, NULL, 0, 924000, NULL),
+(154, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 2, 70000, NULL, NULL, NULL),
+(155, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '3', 'Rau muống xào tỏi', 30000, 1, 30000, NULL, NULL, NULL),
+(156, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '2', 'Gà hấp hành', 200000, 2, 400000, NULL, NULL, NULL),
+(157, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 2, 400000, NULL, NULL, NULL),
+(158, 1, 153, '2021-09-27 10:48:11', NULL, NULL, NULL, NULL, NULL, '3', 'Sữa chua', 12000, 2, 24000, NULL, NULL, NULL),
+(159, 1, 4, '2021-10-05 18:53:55', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 375000, NULL),
+(160, 1, 159, '2021-10-05 18:53:55', NULL, NULL, NULL, NULL, NULL, '2', 'Bê tái chanh Bê tái chanh Bê tái chanh Bê tái chanh', 150000, 1, 150000, NULL, NULL, NULL),
+(161, 1, 159, '2021-10-05 18:53:55', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL, NULL),
+(162, 1, 159, '2021-10-05 18:53:55', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL, NULL),
+(163, 1, 5, '2021-10-05 18:54:57', 'Phòng lạnh', 'Bàn 3', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 45000, NULL),
+(164, 1, 163, '2021-10-05 18:54:57', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL, NULL),
+(165, 1, 163, '2021-10-05 18:54:57', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm trắng', 10000, 1, 10000, NULL, NULL, NULL),
+(166, 1, 6, '2021-10-05 19:01:33', 'Phòng lạnh', 'Bàn 5', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 12000, NULL),
+(167, 1, 166, '2021-10-05 19:01:33', NULL, NULL, NULL, NULL, NULL, '3', 'Sữa chua', 12000, 1, 12000, NULL, NULL, NULL),
+(168, 1, 9, '2021-10-05 19:40:03', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 200000, NULL),
+(169, 1, 168, '2021-10-05 19:40:03', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL, NULL),
+(170, 1, 10, '2021-10-05 19:45:29', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 15000, NULL),
+(171, 1, 170, '2021-10-05 19:45:29', NULL, NULL, NULL, NULL, NULL, '3', 'Khoai tây chiên', 15000, 1, 15000, NULL, NULL, NULL),
+(172, 1, 13, '2021-10-05 20:00:58', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', 'Bùi Hữu Châu', 763232505, NULL, NULL, NULL, NULL, NULL, 0, 220000, NULL),
+(173, 1, 172, '2021-10-05 20:00:58', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL, NULL),
+(174, 1, 172, '2021-10-05 20:00:58', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm trắng', 10000, 2, 20000, NULL, NULL, NULL),
+(175, 1, 1, '2021-10-06 18:04:08', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 375000, 'khách khó tính'),
+(176, 1, 175, '2021-10-06 18:04:08', NULL, NULL, NULL, NULL, NULL, '2', 'Bê tái chanh Bê tái chanh Bê tái chanh Bê tái chanh', 150000, 1, 150000, NULL, NULL, NULL),
+(177, 1, 175, '2021-10-06 18:04:08', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL, NULL),
+(178, 1, 175, '2021-10-06 18:04:08', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL, NULL),
+(179, 1, 2, '2021-10-06 18:11:20', 'Phòng lạnh', 'Bàn 3', 'CHUQUANquan1', 'Võ Thị Quý Mỹ', 899152095, NULL, NULL, NULL, NULL, NULL, 5000, 40000, NULL),
+(180, 1, 179, '2021-10-06 18:11:20', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL, NULL),
+(181, 1, 179, '2021-10-06 18:11:20', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm trắng', 10000, 1, 10000, NULL, NULL, NULL),
+(182, 1, 3, '2021-10-06 18:46:31', 'Phòng lạnh', 'Bàn 5', 'CHUQUANquan1', 'Bùi Hữu Châu', 763232505, NULL, NULL, NULL, NULL, NULL, 22000, 26000, 'bạn của chủ quán'),
+(183, 1, 182, '2021-10-06 18:46:31', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 1, 18000, NULL, NULL, NULL),
+(184, 1, 182, '2021-10-06 18:46:31', NULL, NULL, NULL, NULL, NULL, '3', 'Rau muống xào tỏi', 30000, 1, 30000, NULL, NULL, NULL),
+(185, 1, 1, '2021-10-17 08:27:00', 'Phòng lạnh', 'Bàn 1', 'PHUCVUquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 4000, 768000, NULL),
+(186, 1, 185, '2021-10-17 08:27:00', NULL, NULL, NULL, NULL, NULL, '2', 'Bê tái chanh Bê tái chanh Bê tái chanh Bê tái chanh', 150000, 2, 300000, NULL, NULL, NULL),
+(187, 1, 185, '2021-10-17 08:27:00', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 2, 400000, NULL, NULL, NULL),
+(188, 1, 185, '2021-10-17 08:27:00', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 4, 72000, NULL, NULL, NULL),
+(189, 1, 2, '2021-10-17 08:53:56', 'Phòng lạnh', 'Bàn 1', 'PHUCVUquan1', 'Bùi Hữu Chánh', 918624198, NULL, NULL, NULL, NULL, NULL, 17000, 273000, 'khách quen'),
+(190, 1, 189, '2021-10-17 08:53:56', NULL, NULL, NULL, NULL, NULL, '1', 'Nước chanh', 18000, 5, 90000, NULL, NULL, NULL),
+(191, 1, 189, '2021-10-17 08:53:56', NULL, NULL, NULL, NULL, NULL, '2', 'Thịt kho tàu', 100000, 2, 200000, NULL, NULL, NULL),
+(192, 1, 3, '2021-10-17 17:53:20', 'Sân thượng', 'Bàn 1 Sân thượng', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 350000, NULL),
+(193, 1, 192, '2021-10-17 17:53:20', NULL, NULL, NULL, NULL, NULL, '2', 'Bê tái chanh Bê tái chanh Bê tái chanh Bê tái chanh', 150000, 1, 150000, NULL, NULL, NULL),
+(194, 1, 192, '2021-10-17 17:53:20', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL, NULL),
+(195, 1, 4, '2021-10-17 18:04:53', 'Sân thượng', 'Bàn 2 Sân thượng', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 200000, NULL),
+(196, 1, 195, '2021-10-17 18:04:53', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL, NULL),
+(197, 1, 6, '2021-10-17 18:14:41', 'Phòng lạnh', 'Bàn 1', 'CHUQUANquan1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 410000, NULL),
+(198, 1, 197, '2021-10-17 18:14:41', NULL, NULL, NULL, NULL, NULL, '2', 'Bê tái chanh Bê tái chanh Bê tái chanh Bê tái chanh', 150000, 1, 150000, NULL, NULL, NULL),
+(199, 1, 197, '2021-10-17 18:14:41', NULL, NULL, NULL, NULL, NULL, '2', 'Bò trứng', 200000, 1, 200000, NULL, NULL, NULL),
+(200, 1, 197, '2021-10-17 18:14:41', NULL, NULL, NULL, NULL, NULL, '3', 'Cooktail', 25000, 1, 25000, NULL, NULL, NULL),
+(201, 1, 197, '2021-10-17 18:14:41', NULL, NULL, NULL, NULL, NULL, '2', 'Cơm sườn', 35000, 1, 35000, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -231,7 +249,7 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`id`, `idquan`, `hotenkh`, `sdt`, `ngaydangky`, `diem`) VALUES
-(8, 1, 'Bùi Hữu Chánh', 918624198, '2021-09-22', 94),
+(8, 1, 'Bùi Hữu Chánh', 918624198, '2021-09-22', 177),
 (9, 1, 'Bùi Hữu Châu', 763232505, '2021-09-22', 3),
 (10, 1, 'Võ Thị Quý Mỹ', 899152095, '2021-09-22', 91);
 
@@ -367,7 +385,9 @@ INSERT INTO `lichlamviec` (`id`, `idquan`, `idcalam`, `idkhuvuc`, `idthanhvien`,
 (134, 1, 1, 1, 2, '2021-09-26', 0),
 (135, 1, 2, 2, 3, '2021-09-26', 0),
 (147, 1, 2, 3, 4, '2021-09-26', 0),
-(148, 1, 2, 3, 2, '2021-09-26', 0);
+(148, 1, 2, 3, 2, '2021-09-26', 0),
+(151, 1, 1, 1, 3, '2021-10-17', 0),
+(152, 1, 1, 1, 4, '2021-10-17', 0);
 
 -- --------------------------------------------------------
 
@@ -629,7 +649,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `hinhquan`, `diachiquan`, `website`, `sdtquan`, `ngaythanhlap`, `created_at`, `updated_at`) VALUES
-(1, 'quan1', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$h.vbPZuk.HBB.GBf3DN2XOq4iZX/JBFeGVx8.w17AOPw1JKhuCX.K', 'QYAW3wfmCtnTKnxuXfwG5OqL1MdsoKXKLNzQHkLnfB8rPkZK1JipKh96Cl0q', 'storage/hinhanh/uH0OjWdi9AwC1YdsvOmxtkexHHXD7b44DoGKh7o4.jpg', 'Sóc Trăng', 'http://huuchaurestaurant.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-09-05 13:52:12');
+(1, 'quan1', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$h.vbPZuk.HBB.GBf3DN2XOq4iZX/JBFeGVx8.w17AOPw1JKhuCX.K', '6MoDXuUXvtrk6toh9H3M2vVqRmAuOV4WF1v9LczGUsw7cogmC8P6c9Jpj7Sc', 'storage/hinhanh/uH0OjWdi9AwC1YdsvOmxtkexHHXD7b44DoGKh7o4.jpg', 'Sóc Trăng', 'http://huuchaurestaurant.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-09-05 13:52:12');
 
 -- --------------------------------------------------------
 
@@ -941,13 +961,13 @@ ALTER TABLE `giamgia`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadonluu`
 --
 ALTER TABLE `hoadonluu`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT cho bảng `khachhang`
@@ -971,7 +991,7 @@ ALTER TABLE `khuvuc`
 -- AUTO_INCREMENT cho bảng `lichlamviec`
 --
 ALTER TABLE `lichlamviec`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT cho bảng `luong`

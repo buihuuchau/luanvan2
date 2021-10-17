@@ -58,6 +58,11 @@
         <div class="container-fluid">
             <div class="row">
 
+                <div class="col-md-12 mb-4 text-right">
+                    <a type="button" class="btn btn-primary" href="{{route('trangthaihoadon')}}">
+                        Trạng thái các hóa đơn hiện hành
+                    </a>
+                </div>
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body">
@@ -65,7 +70,7 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">No.</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">STT HD</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">IDHD</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">THỜI GIAN</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">TÊN KV</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">TÊN BÀN</th>
@@ -74,6 +79,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">SĐT KH</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">GIẢM GIÁ</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">THÀNH TIỀN</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">GHI CHÚ</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">THAO TÁC</th>
                                     </tr>
                                 </thead>
@@ -82,7 +88,7 @@
                                     @if ($row->tenkhuvuc != null)
                                     <tr class="odd">
                                         <td class="dtr-control sorting_1" tabindex="0">{{ $key + 1 }}</td>
-                                        <td>{{ $row->idhoadon }}</td>
+                                        <td>{{ $row->id }}</td>
                                         <td>{{ $row->thoigian }}</td>
                                         <td>{{ $row->tenkhuvuc }}</td>
                                         <td>{{ $row->tenban }}</td>
@@ -91,6 +97,14 @@
                                         <td>{{ $row->sdtkh }}</td>
                                         <td>{{ number_format($row->giamgia, 0, ',', '.') }}</td>
                                         <td>{{ number_format($row->thanhtien, 0, ',', '.') }}</td>
+                                        <td>
+                                            <form action="{{route('ghichuhoadon')}}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$row->id}}">
+                                                <input type="text" name="ghichu" value="{{$row->ghichu}}">
+                                                <input type="submit" class="btn btn-warning" value="Cập nhật">
+                                            </form>
+                                        </td>
                                         <td>
                                             <a href="{{ route('xemhoadon', ['id' => $row->id]) }}">XEM HÓA
                                                 ĐƠN</a><br>

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-<title>Quản lý chế biến</title>
+<title>Quản lý hóa đơn</title>
 @endsection
 @section('home')
 <li class="nav-item d-none d-sm-inline-block">
@@ -40,13 +40,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Xem món chế biến</h1>
+                    <h1 class="m-0">Trạng thái hóa đơn</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('thongtinthanhvien') }}">Thông tin thành
-                                viên</a>
-                        </li>
+                        <li class="breadcrumb-item"><a href="{{ route('thongtinthanhvien') }}">Thông tin thành viên</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('quanlyhoadon') }}">Quản lý hóa đơn</a></li>
+                        <li class="breadcrumb-item"><a href="">Trạng thái hóa đơn</a></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -65,37 +65,30 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">No.</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">STT HD</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">THỜI GIAN</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">TÊN KV</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">TÊN BÀN</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">TÊN TV</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">TRẠNG THÁI</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">K.VỰC</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">BÀN</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">MÓN</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">S.LƯỢNG</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($chitiet as $key => $row)
+                                    @foreach ($hoadon as $key => $row)
+                                    @if ($row->tenkhuvuc != null)
                                     <tr class="odd">
                                         <td class="dtr-control sorting_1" tabindex="0">{{ $key + 1 }}</td>
-                                        <td>{{ $row->idhoadon }}</td>
-                                        @if ($row->trangthai == 0)
-                                        <td>Đang chờ...</td>
-                                        @elseif($row->trangthai==1)
-                                        <td bgcolor="yellow" style="color:black">Đang thực hiện...</td>
-                                        @elseif($row->trangthai==2 && $row->phucvu ==0)
-                                        <td bgcolor="green" style="color:white">Đã thực hiện xong</td>
-                                        @elseif($row->trangthai==2 && $row->phucvu ==1)
-                                        <td bgcolor="gray" style="color:white">Đã phục vụ</td>
-                                        @elseif($row->trangthai==3)
-                                        <td bgcolor="red" style="color:white">Đã báo hủy</td>
-                                        @endif
+                                        <td>{{ $row->thoigian }}</td>
                                         <td>{{ $row->tenkhuvuc }}</td>
                                         <td>{{ $row->tenban }}</td>
-                                        <td>{{ $row->tenmon }}</td>
-                                        <td>{{ $row->soluong }}</td>
+                                        <td>{{ $row->hoten }}</td>
+                                        @if($row->trangthai == 0)
+                                        <td>Chưa thanh toán</td>
+                                        @else
+                                        <td>Đã thanh toán</td>
+                                        @endif
                                     </tr>
+                                    @endif
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div>
@@ -109,23 +102,4 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-@foreach ($chitiet as $key => $row)
-@if($row->trangthai==2 && $row->phucvu ==0)
-<script>
-    alert("Có món mới cần phục vụ");
-</script>
-@endif
-@endforeach
-
-<html>
-
-<body onload="JavaScript:AutoRefresh(30000);"></body>
-
-</html>
 @endsection
-{{-- <html>
-
-<body onload="JavaScript:AutoRefresh(30000);"></body>
-
-</html> --}}
