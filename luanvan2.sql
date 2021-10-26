@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th10 17, 2021 lúc 11:43 AM
+-- Thời gian đã tạo: Th10 26, 2021 lúc 03:43 PM
 -- Phiên bản máy phục vụ: 5.7.24
 -- Phiên bản PHP: 7.3.2
 
@@ -44,14 +44,27 @@ INSERT INTO `ban` (`id`, `idquan`, `idkhuvuc`, `tenban`, `trangthai`, `hidden`) 
 (10, 1, 3, 'Bàn 1', 0, 0),
 (11, 1, 3, 'Bàn 2', 0, 0),
 (12, 1, 3, 'Bàn 3', 0, 0),
-(13, 1, 2, 'Bàn 1 Sân thượng', 0, 0),
-(14, 1, 2, 'Bàn 2 Sân thượng', 0, 0),
-(15, 1, 2, 'Bàn 3 Sân thượng', 0, 0),
+(13, 1, 2, 'Bàn 1', 0, 0),
+(14, 1, 2, 'Bàn 2', 0, 0),
+(15, 1, 2, 'Bàn 3', 0, 0),
 (16, 1, 3, 'Bàn 4', 0, 0),
 (17, 1, 3, 'Bàn 5', 0, 0),
-(18, 1, 4, 'Bàn 1 Sân trước', 0, 0),
-(21, 1, 2, 'Bàn 4 Sân thượng', 0, 0),
-(22, 1, 3, 'Bàn 6', 0, 0);
+(21, 1, 2, 'Bàn 4', 0, 0),
+(22, 1, 3, 'Bàn 6', 0, 0),
+(23, 1, 5, 'Bàn 1', 0, 0),
+(24, 1, 5, 'Bàn 2', 0, 0),
+(25, 1, 5, 'Bàn 3', 0, 0),
+(26, 1, 5, 'Bàn 4', 0, 0),
+(27, 1, 4, 'Bàn 1', 0, 0),
+(28, 1, 4, 'Bàn 2', 0, 0),
+(29, 1, 4, 'Bàn 3', 0, 0),
+(30, 1, 4, 'Bàn 4', 0, 0),
+(31, 1, 1, 'Bàn 1', 0, 0),
+(32, 1, 1, 'Bàn 2', 0, 0),
+(33, 1, 1, 'Bàn 3', 0, 0),
+(34, 1, 1, 'Bàn 4', 0, 0),
+(35, 1, 1, 'Bàn 5', 0, 0),
+(36, 1, 1, 'Bàn 6', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -308,8 +321,7 @@ INSERT INTO `khuvuc` (`id`, `idquan`, `tenkhuvuc`, `hidden`) VALUES
 (2, 1, 'Sân thượng', '0'),
 (3, 1, 'Phòng lạnh', '0'),
 (4, 1, 'Sân trước', '0'),
-(5, 1, 'Phòng VIP', '0'),
-(6, 1, 'Phòng kháchhhh', '1');
+(5, 1, 'Phòng VIP', '0');
 
 -- --------------------------------------------------------
 
@@ -417,9 +429,11 @@ INSERT INTO `luong` (`id`, `idquan`, `idthanhvien`, `mucluong`, `tu`) VALUES
 (7, 1, 3, 300000, '2021-07-09'),
 (8, 1, 4, 200000, '2021-07-09'),
 (15, 1, 3, 300000, '2021-08-09'),
-(17, 1, 6, 350000, '2021-08-29'),
 (18, 1, 1, 500000, '2021-09-12'),
-(21, 1, 6, 350000, '2021-10-05');
+(19, 1, 4, 200000, '2021-10-26'),
+(20, 1, 1, 500000, '2021-10-26'),
+(21, 1, 2, 400000, '2021-10-26'),
+(22, 1, 3, 300000, '2021-10-26');
 
 -- --------------------------------------------------------
 
@@ -479,10 +493,12 @@ CREATE TABLE `nguyenlieu` (
 
 INSERT INTO `nguyenlieu` (`id`, `idquan`, `tennguyenlieu`, `xuatxu`, `donvitinh`, `hidden`) VALUES
 (1, 1, 'Đường hạt to', 'Đường Tinh luyên Hòa Phát, Sài Gòn, 0733123456', 'Kg', 0),
-(2, 1, 'Đá xay', 'Bà 7 đầu ngõ', 'Kg', 0),
-(3, 1, 'Mía', 'CTy TNHH Mía đường', 'Cây', 1),
+(2, 1, 'Đá xay', 'Cty Nước Đá', 'Thùng', 0),
+(3, 1, 'Mía', 'CTy TNHH Mía đường', 'Cây', 0),
 (4, 1, 'Bánh pía', 'Tân Huê Viên, Sóc Trăng, Việt Nam', 'Cây', 0),
-(6, 1, 'Bánh pía', 'Việt Namm', 'Kg', 0);
+(7, 1, 'Sữa đặc', 'Vinamilk Cần Thơ', 'Hộp 1L', 0),
+(8, 1, 'Hạt Cafe', 'Buôn Mê Thuộc', 'Kg', 0),
+(9, 1, 'Siro', 'Việt Nam', 'lít', 0);
 
 -- --------------------------------------------------------
 
@@ -581,11 +597,10 @@ CREATE TABLE `thanhvien` (
 --
 
 INSERT INTO `thanhvien` (`id`, `idquan`, `acc`, `pwd`, `hoten`, `hinhtv`, `namsinh`, `sex`, `diachi`, `sdt`, `ngayvaolam`, `luong`, `idvaitro`, `hidden`) VALUES
-(1, 1, 'quan1_chuquan', 'af764227394c645a864f77e7b103ded2', 'CHUQUANquan1', 'storage/hinhanh/JA9hwSSY6QJRTVhYK1XWxWW2OLc5B8g7oTNH1FMx.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 500000, 1, 0),
-(2, 1, 'quan1_quanly', 'af764227394c645a864f77e7b103ded2', 'QUANLYquan1', 'storage/hinhanh/52SQjvXPtMwof0axtZWMM63ZBGrGB1QwfkKuxN7n.jpg', '1999-04-22', '1', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 400000, 2, 0),
-(3, 1, 'quan1_phache', 'af764227394c645a864f77e7b103ded2', 'PHACHEquan1', 'storage/hinhanh/U1wgX0kkdiESINzh5xJACyHxKSPx42Uugyc8lO9H.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 300000, 8, 0),
-(4, 1, 'quan1_phucvu', 'af764227394c645a864f77e7b103ded2', 'PHUCVUquan1', 'storage/hinhanh/rVaLehVXNJEOef95tcm562Eg4lRD6PXykIe2q2SO.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 200000, 9, 0),
-(6, 1, 'quan1_chuquann', 'af764227394c645a864f77e7b103ded2', 'Tạo sai', 'storage/hinhanh/DgdWbD5KtywjpdshtQXO8CJh6Eo36FK7qwkqYzc7.jpg', '1999-04-21', '0', 'B1-6 KDC An Thoi', 763232505, '2021-08-29', 350000, 8, 1);
+(1, 1, 'quan1_chuquan', 'af764227394c645a864f77e7b103ded2', 'CHUQUANquan1', 'storage/hinhanh/WPDQ1TrHuepRYdWPtX16zyAGRekdaLNGtXx6p3Dq.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 500000, 1, 0),
+(2, 1, 'quan1_quanly', 'af764227394c645a864f77e7b103ded2', 'QUANLYquan1', 'storage/hinhanh/tCc7BIksPdI5GzkZcIXShW4YmgEXpNItARt0xAD5.jpg', '1999-04-22', '1', 'B1-6 KDC An Thới P Bui huu nghia', 763232505, '2021-05-01', 400000, 2, 0),
+(3, 1, 'quan1_phache', 'af764227394c645a864f77e7b103ded2', 'PHACHEquan1', 'storage/hinhanh/TKTYIkVuLOTIHmayZ1W3w6JK8XoWEbMMG4JNvmFC.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 300000, 8, 0),
+(4, 1, 'quan1_phucvu', 'af764227394c645a864f77e7b103ded2', 'PHUCVUquan1', 'storage/hinhanh/cWhZTrNw4xGo5q5V0SRLGK2BXQwjf6PGsdYYkI9c.jpg', '1999-04-21', '0', 'B1-6 KDC An Thới', 763232505, '2021-05-01', 200000, 9, 0);
 
 -- --------------------------------------------------------
 
@@ -609,18 +624,36 @@ CREATE TABLE `thucdon` (
 --
 
 INSERT INTO `thucdon` (`id`, `idquan`, `loaimon`, `tenmon`, `dongia`, `hinhmon`, `mota`, `hidden`) VALUES
-(2, 1, 2, 'Cơm sườn', 35000, 'storage/hinhanh/0pPRxnxneg8pNLaCU1EymJR1UD0geBdaRTqrf0i3.jpg', 'Cơm sườn', 0),
-(3, 1, 3, 'Cooktail', 25000, 'storage/hinhanh/mAndJcApaZA2QCbqpJ3RJY2Sju6RPBzZFbrPfeKy.jpg', 'Cooktail', 0),
-(4, 1, 1, 'Nước chanh', 18000, 'storage/hinhanh/y3MoSPhpRCjxMVok7cCIyrsSPZb9Zc8nky6zRnZH.jpg', 'Nước chanh', 0),
-(6, 1, 2, 'SODA', 28000, 'storage/hinhanh/M89ripZFqdCTY4lkOUWbpE6PLACltbbZEpHr8xPc.jpg', 'SODA', 0),
-(7, 1, 2, 'Gà hấp hành', 200000, 'storage/hinhanh/t4pc7Vy6oOzSHcnqcB8zh5u2jFzQgswlzvkas0gT.jpg', 's', 0),
-(8, 1, 2, 'Thịt kho tàu', 100000, 'storage/hinhanh/Q3LbeOeP7tHFsgoaGGhjDOirsOlUuQxdbZekZmZC.jpg', '321', 0),
-(9, 1, 3, 'Khoai tây chiên', 15000, 'storage/hinhanh/G30lTHDMYAPRmsmQZGyQCrEzachSBpQwKAz4ZnNw.jpg', '321', 0),
-(10, 1, 3, 'Rau muống xào tỏi', 30000, 'storage/hinhanh/KYD1MQuEIuXWqrXJuwc52OFr1YFBxy2YvaxJf7Ei.jpg', '321', 0),
-(11, 1, 2, 'Cơm trắng', 10000, 'storage/hinhanh/kPRa5DNBQwuXNQNMUQymjhuklwMsk74InbJvm99C.jpg', '321', 0),
-(12, 1, 3, 'Sữa chua', 12000, 'storage/hinhanh/3xOFp1dn204KwrFZOVLeGMitXrQcmQJgr00Zf03P.jpg', 'mota', 0),
-(13, 1, 2, 'Bò trứng', 200000, 'storage/hinhanh/IYhdjT5AvXHQio6utQuS2VYVaUQfuBbrYKxdS1Iy.jpg', 'mota', 0),
-(14, 1, 2, 'Bê tái chanh Bê tái chanh Bê tái chanh Bê tái chanh', 150000, 'storage/hinhanh/H47aRw306Og8EWi0fzz3NBMUNw6xywQe3PwAm4BQ.jpg', 'mota', 0);
+(15, 1, 1, 'Cafe đá', 15000, 'storage/hinhanh/xLd0stf4W5qfoUlmx3xWhzt2FllLe27pB74ZOJVg.jpg', 'Không', 0),
+(16, 1, 1, 'Cafe sữa', 18000, 'storage/hinhanh/nPGMN6OZfXoHpL3fvIvA1OZqKbIu0j9tg70AsU5q.jpg', 'Không', 0),
+(17, 1, 1, 'Espresso', 18000, 'storage/hinhanh/VwTQL3w5BNvl8TmxcJz4W4dmuCjVfRMEfW4COaI4.jpg', 'Không', 0),
+(18, 1, 1, 'Capuchino', 25000, 'storage/hinhanh/jQWUWobnEUKSnLLVc7RI6sCgo4ToqWY85h4sUp8w.jpg', 'Không', 0),
+(19, 1, 1, 'Sinh tố cà chua', 12000, 'storage/hinhanh/VmIXLjoXuz97bF0mfJ4RYIFvpibn9bmpYXTwoMhX.jpg', 'Không', 0),
+(20, 1, 1, 'Sinh tố cà rốt', 12000, 'storage/hinhanh/zBRIFHWsqYV34lBB8Hs8dSRJhJlD2ry7yu8nTM67.jpg', 'Không', 0),
+(21, 1, 1, 'Sinh tố mãng cầu', 12000, 'storage/hinhanh/nzN153vw9HnnLaeRzkCyy6bI9Sdpr1NSTab5uVL8.jpg', 'Không', 0),
+(22, 1, 1, 'Sinh tố bơ', 12000, 'storage/hinhanh/g5AFHajYccMhaCJsT5s1EWynv5SqPdT6Wkd1UWCW.jpg', 'Không', 0),
+(23, 1, 1, 'Nước suối', 8000, 'storage/hinhanh/8r3yJUFSdPcMEeKzgRitV8S8JPICzZUyEI9Vkxi3.jpg', 'Không', 0),
+(24, 1, 1, 'Nước dừa', 25000, 'storage/hinhanh/qG81j9i3y6HEwygTpSI3BFx9flwxfmScA8L1kC8D.jpg', 'Không', 0),
+(25, 1, 2, 'Bò tái chanh', 150000, 'storage/hinhanh/5KfVNjgg7W1GuHR5ERwSMEdtqPQ7v6IGNQOboHEV.jpg', 'Không', 0),
+(26, 1, 2, 'Bò xào thập cẩm', 150000, 'storage/hinhanh/cVntLRTt8vPoZboc958Tdg4ryfldOkMMBJcOSkSC.jpg', 'Không', 0),
+(27, 1, 2, 'Bò cuốn cải', 180000, 'storage/hinhanh/gdkJfMIoFi6PCYSsDn3OS7LOHjw32HSNHpGL6tIl.jpg', 'Không', 0),
+(28, 1, 2, 'Bò tơ nướng lá lốt + banh tráng', 100000, 'storage/hinhanh/VbHsTWma59YaK3TOVPLdd6BuXJhvQpc44WAv6gQF.jpg', 'Không', 0),
+(29, 1, 2, 'Bò tơ hấp lá tía tô', 120000, 'storage/hinhanh/jrCjfj9ggkM5pifB82OMnWkTDCYy5GoaUjm8R3BW.jpg', 'Không', 0),
+(30, 1, 2, 'Dê tái chanh', 90000, 'storage/hinhanh/lTeuU7WZfZnwYlkMdhfdV0nWV0A3oeDzq9UhopaY.jpg', 'Không', 0),
+(31, 1, 2, 'Bao tử dê hầm tiêu', 90000, 'storage/hinhanh/CQRdVlQJK9zmPiMSmraG8NNBrwgIBcN7j5IJpMEi.jpg', 'Không', 0),
+(32, 1, 2, 'Dê bóp thấu', 110000, 'storage/hinhanh/mi6wVOCxIOwnhwORxLzkR4A7MwCgXKDFkyybgkdJ.jpg', 'Không', 0),
+(33, 1, 2, 'Dê xào sả ớt', 110000, 'storage/hinhanh/qqkvBBQkJy7agEJglOtPbo2r1LoNPvqH83DHieu2.jpg', 'Không', 0),
+(34, 1, 2, 'Lẩu dê', 180000, 'storage/hinhanh/mZxcbtzQqnEPEbQuS5DHfo0ZiK6UnFSBxNqipP60.jpg', 'Không', 0),
+(35, 1, 2, 'Cầy quay', 150000, 'storage/hinhanh/DbzCj7BmQ0fztHimX28DNRxKuoNd5SBp1gFNsDJ4.jpg', 'Không', 0),
+(36, 1, 2, 'Cầy hấp', 100000, 'storage/hinhanh/O1HdqbM8qSGSLTuqiB8vb0W357jDTCA5oD7vmDPP.jpg', 'Không', 0),
+(37, 1, 2, 'Cầy xào lăn', 100000, 'storage/hinhanh/8wo3MC1LvnSeeHxZRN9Dw4kPVDSoPv9VBW8da667.jpg', 'Không', 0),
+(38, 1, 2, 'Cầy xào rau má', 120000, 'storage/hinhanh/ySWkVMVPAStnV5EVZrg3T9W55uj4X9r5JNxTjxAg.jpg', 'Không', 0),
+(39, 1, 2, 'Dồi cầy', 100000, 'storage/hinhanh/jVmEZs4fnIKET3DsxxCDmKKD5CRMEho8yzkwV8P6.jpg', 'Không', 0),
+(40, 1, 3, 'Cá viên chiên', 15000, 'storage/hinhanh/6Ace7rNU2BC7LFpkrZExsEaKmv24jnGL9F6qZ2jW.jpg', 'Không', 0),
+(41, 1, 3, 'Tàu hũ chiên', 15000, 'storage/hinhanh/y9V6MdkGwImn2hXFa1mIVw59M0gJ3xgVqr3gEvkN.jpg', 'Không', 0),
+(42, 1, 3, 'Kem', 15000, 'storage/hinhanh/DatZeiCwqQDNQ3tztFfKB9m9wMzCaosWi2TmeEBU.jpg', 'Không', 0),
+(43, 1, 3, 'Rau câu', 10000, 'storage/hinhanh/wPwEfJOZ1aPxW7HUeXabGbwgycg099rXfuMzbswR.jpg', 'Không', 0),
+(44, 1, 3, 'Khoai tây chiên', 12000, 'storage/hinhanh/yyYs4ol0pdSdttu7YnzVqn5RicXPGF3YI10KtZC8.jpg', 'Không', 0);
 
 -- --------------------------------------------------------
 
@@ -649,7 +682,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `hinhquan`, `diachiquan`, `website`, `sdtquan`, `ngaythanhlap`, `created_at`, `updated_at`) VALUES
-(1, 'quan1', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$h.vbPZuk.HBB.GBf3DN2XOq4iZX/JBFeGVx8.w17AOPw1JKhuCX.K', '6MoDXuUXvtrk6toh9H3M2vVqRmAuOV4WF1v9LczGUsw7cogmC8P6c9Jpj7Sc', 'storage/hinhanh/uH0OjWdi9AwC1YdsvOmxtkexHHXD7b44DoGKh7o4.jpg', 'Sóc Trăng', 'http://huuchaurestaurant.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-09-05 13:52:12');
+(1, 'quan1', 'buihuuchau99@gmail.com', '2021-07-20 12:40:15', '$2y$10$h.vbPZuk.HBB.GBf3DN2XOq4iZX/JBFeGVx8.w17AOPw1JKhuCX.K', 'uOHdDZsfHJe2baPVLbWfcnRfPheL2er5rwJ8Wo8edegLLJ5hh19GA7tB429u', 'storage/hinhanh/IXRAdtukfhs9jij5OLUOppUfXhX7iTiIWPkSD4f9.jpg', 'Sóc Trăng', 'http://huuchaurestaurant.com', 123456789, '2021-07-20', '2021-07-20 09:52:14', '2021-09-05 13:52:12');
 
 -- --------------------------------------------------------
 
@@ -937,7 +970,7 @@ ALTER TABLE `vaitro_quyen`
 -- AUTO_INCREMENT cho bảng `ban`
 --
 ALTER TABLE `ban`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `calam`
@@ -949,7 +982,7 @@ ALTER TABLE `calam`
 -- AUTO_INCREMENT cho bảng `chitiet`
 --
 ALTER TABLE `chitiet`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `giamgia`
@@ -961,7 +994,7 @@ ALTER TABLE `giamgia`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadonluu`
@@ -997,7 +1030,7 @@ ALTER TABLE `lichlamviec`
 -- AUTO_INCREMENT cho bảng `luong`
 --
 ALTER TABLE `luong`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -1009,7 +1042,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `nguyenlieu`
 --
 ALTER TABLE `nguyenlieu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `quyen`
@@ -1021,13 +1054,13 @@ ALTER TABLE `quyen`
 -- AUTO_INCREMENT cho bảng `thanhvien`
 --
 ALTER TABLE `thanhvien`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `thucdon`
 --
 ALTER TABLE `thucdon`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
