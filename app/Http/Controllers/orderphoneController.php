@@ -365,18 +365,22 @@ class orderphoneController extends Controller
         $ssidthanhvien = Session::get('ssidthanhvien');
 
         $thanhvien = DB::table('thanhvien')
-        ->where('thanhvien.id', $ssidthanhvien)
+            ->where('thanhvien.id', $ssidthanhvien)
             ->join('users', 'thanhvien.idquan', '=', 'users.id')
             ->select('thanhvien.*', 'users.hinhquan', 'users.name')
             ->first();
 
         $check = DB::table('chitiet')
-        ->where('id', $request->id)
+            ->where('id', $request->id)
+            ->first();
+        $check2 = DB::table('thucdon')
+            ->where('id', $check->idthucdon)
             ->first();
         $chitiet['soluong'] = $check->thuchien;
+        $chitiet['gia'] = $check2->dongia * $check->thuchien;
         $chitiet['trangthai'] = 2;
         DB::table('chitiet')
-        ->where('id', $request->id)
+            ->where('id', $request->id)
             ->update($chitiet);
         return back();
     }
@@ -570,6 +574,16 @@ class orderphoneController extends Controller
         if ($thanhtien < 0) {
             return back()->withErrors('Hóa đơn lỗi, xem lại điểm giảm giá');
         }
+
+        $check = DB::table('chitiet')
+            ->where('idhoadon', $id)
+            ->get();
+        foreach ($check as $rowcheck) {
+            if ($rowcheck->soluong != $rowcheck->thuchien) {
+                return back()->withErrors('Có món chưa hoàn thành, cần kiểm tra lại');
+            }
+        }
+
         $ban['trangthai'] = 0;
         DB::table('ban')
             ->where('id', $idban)

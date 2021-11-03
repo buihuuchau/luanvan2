@@ -372,7 +372,11 @@ class orderController extends Controller
         $check = DB::table('chitiet')
             ->where('id', $request->id)
             ->first();
+        $check2 = DB::table('thucdon')
+            ->where('id', $check->idthucdon)
+            ->first();
         $chitiet['soluong'] = $check->thuchien;
+        $chitiet['gia'] = $check2->dongia * $check->thuchien;
         $chitiet['trangthai'] = 2;
         DB::table('chitiet')
             ->where('id', $request->id)
@@ -569,6 +573,16 @@ class orderController extends Controller
         if ($thanhtien < 0) {
             return back()->withErrors('Hóa đơn lỗi, xem lại điểm giảm giá');
         }
+
+        $check = DB::table('chitiet')
+            ->where('idhoadon', $id)
+            ->get();
+        foreach ($check as $rowcheck) {
+            if ($rowcheck->soluong != $rowcheck->thuchien) {
+                return back()->withErrors('Có món chưa hoàn thành, cần kiểm tra lại');
+            }
+        }
+
         $ban['trangthai'] = 0;
         DB::table('ban')
             ->where('id', $idban)
