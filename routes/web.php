@@ -609,6 +609,11 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\orderController@phucvumon',
         'middleware' => (['Login', 'SuaHoadon'])
     ]);
+    Route::get('/dungphucvu', [ //idchitiet
+        'as' => 'dungphucvu',
+        'uses' => 'App\Http\Controllers\orderController@dungphucvu',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
     Route::get('/doisoluongmonhoadon', [
         'as' => 'doisoluongmonhoadon',
         'uses' => 'App\Http\Controllers\orderController@doisoluongmonhoadon',
@@ -701,6 +706,11 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\orderphoneController@phucvumonphone',
         'middleware' => (['Login', 'SuaHoadon'])
     ]);
+    Route::get('/dungphucvuphone', [ //idchitiet
+        'as' => 'dungphucvuphone',
+        'uses' => 'App\Http\Controllers\orderphoneController@dungphucvuphone',
+        'middleware' => (['Login', 'SuaHoadon'])
+    ]);
     Route::get('/doisoluongmonhoadonphone', [
         'as' => 'doisoluongmonhoadonphone',
         'uses' => 'App\Http\Controllers\orderphoneController@doisoluongmonhoadonphone',
@@ -739,7 +749,7 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlychebienController@checkthuchien',
         'middleware' => (['Login', 'XemNguyenlieu'])
     ]);
-    Route::get('/checkhoanthanh/{id}', [
+    Route::post('/checkhoanthanh', [
         'as' => 'checkhoanthanh',
         'uses' => 'App\Http\Controllers\quanlychebienController@checkhoanthanh',
         'middleware' => (['Login', 'XemNguyenlieu'])

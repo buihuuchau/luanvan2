@@ -196,7 +196,7 @@
                             </div>
                         </div> -->
                         @if ($chitiet != null)
-                        <div class="col-sm-12">
+                        <div class="col-md-12">
                             <h1 style="text-align:center">Các món đã order</h1>
                         </div>
                         <div class="col-sm-12">
@@ -208,6 +208,7 @@
                                                 {{-- <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">No.</th> --}}
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">TÊN MÓN</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">SỐ LƯỢNG</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">THỰC HIỆN</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">GHI CHÚ</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">TRẠNG THÁI</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">LOẠI MÓN</th>
@@ -221,6 +222,7 @@
                                                 {{-- <td class="dtr-control sorting_1" tabindex="0">{{$key+1}}</td> --}}
                                                 <td>{{ $row->tenmon }}</td>
                                                 <td>{{ $row->soluong }}</td>
+                                                <td>{{ $row->thuchien }}</td>
                                                 @if ($row->trangthai == 0)
                                                 <td>{{ $row->ghichu }}</td>
                                                 @elseif($row->trangthai==1)<td bgcolor="yellow" style="color:black">
@@ -241,26 +243,13 @@
                                                         <input type="hidden" name="id" value="{{ $row->id }}">
                                                         <input type="hidden" name="dongia" value="{{ $row->dongia }}">
                                                         <div class="buttons_added">
-                                                            <input aria-label="quantity" class="input-qty2" max="100" min="1" name="soluong" type="number" value="{{ $row->soluong }}">
+                                                            <input class="minus is-form" type="button" value="-">
+                                                            <input aria-label="quantity" class="input-qty" max="100" min="1" name="soluong" type="number" value="{{ $row->soluong }}">
+                                                            <input class="plus is-form" type="button" value="+">
                                                             <button type="submit" class="btn btn-warning">Đổi số
                                                                 lượng</button>
                                                         </div>
                                                     </form>
-                                                    @endif
-                                                    @if ($row->trangthai == 1)
-                                                    <h5 style="color:orange">Đang thực hiện</h5>
-                                                    @endif
-                                                    @if ($row->trangthai == 2 && $row->phucvu == 0)
-                                                    <h5 style="color:green">Đã xong</h5>
-                                                    <form action="{{ route('phucvumonphone') }}" method="get">
-                                                        {{ csrf_field() }}
-                                                        <input type="hidden" name="id" value="{{ $row->id }}">
-                                                        <button type="submit" class="btn btn-success">Phục vụ
-                                                            món</button>
-                                                    </form>
-                                                    @endif
-                                                    @if ($row->trangthai == 2 && $row->phucvu == 1)
-                                                    <h5 style="color:green">Đã phục vụ</h5>
                                                     @endif
                                                     @if ($row->trangthai == 0 || $row->trangthai == 3)
                                                     <form action="{{ route('xoamonhoadonphone') }}" method="get">
@@ -270,6 +259,28 @@
                                                             món</button>
                                                     </form>
                                                     @endif
+
+                                                    @if ($row->trangthai == 1)
+                                                    <h5 style="color:orange">Đang thực hiện</h5>
+                                                    @endif
+                                                    @if ($row->trangthai == 1 && $row->thuchien != 0)
+                                                    <form action="{{ route('dungphucvuphone') }}" method="get">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" name="id" value="{{ $row->id }}">
+                                                        <button type="submit" class="btn btn-danger">Dừng phục vụ</button>
+                                                    </form> @endif
+                                                    @if ($row->phucvu == 1)
+                                                    <form action="{{ route('phucvumonphone') }}" method="get">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" name="id" value="{{ $row->id }}">
+                                                        <button type="submit" class="btn btn-success">Phục vụ
+                                                            món</button>
+                                                    </form>
+                                                    @endif
+                                                    @if ($row->trangthai == 2 && $row->phucvu == 0)
+                                                    <h5 style="color:green">Đã phục vụ</h5>
+                                                    @endif
+
                                                 </td>
                                                 @if ($row->loaimon == 1)
                                                 <td>Món Nước</td>

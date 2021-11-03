@@ -353,11 +353,31 @@ class orderphoneController extends Controller
             ->select('thanhvien.*', 'users.hinhquan', 'users.name')
             ->first();
 
-        $chitiet['phucvu'] = 1;
+        $chitiet['phucvu'] = 0;
         DB::table('chitiet')
             ->where('id', $request->id)
             ->update($chitiet);
 
+        return back();
+    }
+    public function dungphucvuphone(Request $request)
+    {
+        $ssidthanhvien = Session::get('ssidthanhvien');
+
+        $thanhvien = DB::table('thanhvien')
+        ->where('thanhvien.id', $ssidthanhvien)
+            ->join('users', 'thanhvien.idquan', '=', 'users.id')
+            ->select('thanhvien.*', 'users.hinhquan', 'users.name')
+            ->first();
+
+        $check = DB::table('chitiet')
+        ->where('id', $request->id)
+            ->first();
+        $chitiet['soluong'] = $check->thuchien;
+        $chitiet['trangthai'] = 2;
+        DB::table('chitiet')
+        ->where('id', $request->id)
+            ->update($chitiet);
         return back();
     }
     public function doisoluongmonhoadonphone(Request $request)

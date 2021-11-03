@@ -71,6 +71,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">BÀN</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">MÓN</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">S.LƯỢNG</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">THỰC HIỆN</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -80,12 +81,14 @@
                                         <td>{{ $row->idhoadon }}</td>
                                         @if ($row->trangthai == 0)
                                         <td>Đang chờ...</td>
-                                        @elseif($row->trangthai==1)
+                                        @elseif($row->trangthai==1 && $row->phucvu==0)
                                         <td bgcolor="yellow" style="color:black">Đang thực hiện...</td>
+                                        @elseif($row->trangthai==1 && $row->phucvu==1)
+                                        <td bgcolor="orange" style="color:black">Đang thực hiện.../ Dọn ra bàn</td>
                                         @elseif($row->trangthai==2 && $row->phucvu ==0)
-                                        <td bgcolor="green" style="color:white">Đã thực hiện xong</td>
+                                        <td bgcolor="gray" style="color:white">Đã thực hiện xong</td>
                                         @elseif($row->trangthai==2 && $row->phucvu ==1)
-                                        <td bgcolor="gray" style="color:white">Đã phục vụ</td>
+                                        <td bgcolor="green" style="color:white">Đã thực hiện xong / Dọn ra bàn</td>
                                         @elseif($row->trangthai==3)
                                         <td bgcolor="red" style="color:white">Đã báo hủy</td>
                                         @endif
@@ -93,6 +96,7 @@
                                         <td>{{ $row->tenban }}</td>
                                         <td>{{ $row->tenmon }}</td>
                                         <td>{{ $row->soluong }}</td>
+                                        <td>{{ $row->thuchien }}</td>
                                     </tr>
                                     @endforeach
 
@@ -111,7 +115,7 @@
 <!-- /.content-wrapper -->
 
 @foreach ($chitiet as $key => $row)
-@if($row->trangthai==2 && $row->phucvu ==0)
+@if($row->phucvu == 1)
 <script>
     alert("Có món mới cần phục vụ");
 </script>
