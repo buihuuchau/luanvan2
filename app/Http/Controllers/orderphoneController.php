@@ -674,29 +674,29 @@ class orderphoneController extends Controller
         return redirect()->route('hoadonphone');
     }
 
-    public function xemmonphone()
-    {
-        $ssidthanhvien = Session::get('ssidthanhvien');
+    // public function xemmonphone()
+    // {
+    //     $ssidthanhvien = Session::get('ssidthanhvien');
 
-        $thanhvien = DB::table('thanhvien')
-            ->where('thanhvien.id', $ssidthanhvien)
-            ->join('users', 'thanhvien.idquan', '=', 'users.id')
-            ->select('thanhvien.*', 'users.hinhquan', 'users.name')
-            ->first();
+    //     $thanhvien = DB::table('thanhvien')
+    //         ->where('thanhvien.id', $ssidthanhvien)
+    //         ->join('users', 'thanhvien.idquan', '=', 'users.id')
+    //         ->select('thanhvien.*', 'users.hinhquan', 'users.name')
+    //         ->first();
 
-        $ngay = Carbon::now()->toDateString();
-        $chitiet = DB::table('chitiet')
-            ->orderBy('phucvu')
-            ->orderBy('idhoadon')
-            ->join('hoadon', 'chitiet.idhoadon', '=', 'hoadon.id')
-            ->join('thucdon', 'chitiet.idthucdon', '=', 'thucdon.id')
-            ->join('ban', 'hoadon.idban', '=', 'ban.id')
-            ->join('khuvuc', 'hoadon.idkhuvuc', '=', 'khuvuc.id')
-            ->where('hoadon.trangthai', 0)
-            ->where('hoadon.idthanhvien', $thanhvien->id)
-            ->where('hoadon.thoigian', 'like', $ngay . ' ' . '%%:%%:%%')
-            ->select('chitiet.*', 'thucdon.tenmon', 'ban.tenban', 'khuvuc.tenkhuvuc')
-            ->get();
-        return view('order.xemmon', compact('thanhvien', 'chitiet'));
-    }
+    //     $ngay = Carbon::now()->toDateString();
+    //     $chitiet = DB::table('chitiet')
+    //         ->orderBy('phucvu')
+    //         ->orderBy('idhoadon')
+    //         ->join('hoadon', 'chitiet.idhoadon', '=', 'hoadon.id')
+    //         ->join('thucdon', 'chitiet.idthucdon', '=', 'thucdon.id')
+    //         ->join('ban', 'hoadon.idban', '=', 'ban.id')
+    //         ->join('khuvuc', 'hoadon.idkhuvuc', '=', 'khuvuc.id')
+    //         ->where('hoadon.trangthai', 0)
+    //         ->where('hoadon.idthanhvien', $thanhvien->id)
+    //         ->where('hoadon.thoigian', 'like', $ngay . ' ' . '%%:%%:%%')
+    //         ->select('chitiet.*', 'thucdon.tenmon', 'ban.tenban', 'khuvuc.tenkhuvuc')
+    //         ->get();
+    //     return view('order.xemmon', compact('thanhvien', 'chitiet'));
+    // }
 }
