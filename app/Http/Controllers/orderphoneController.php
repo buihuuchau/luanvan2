@@ -581,7 +581,7 @@ class orderphoneController extends Controller
             ->where('idhoadon', $id)
             ->get();
         foreach ($check as $rowcheck) {
-            if ($rowcheck->soluong != $rowcheck->thuchien) {
+            if ($rowcheck->thuchien != 0 && $rowcheck->soluong != $rowcheck->thuchien) {
                 return back()->withErrors('Có món chưa hoàn thành, cần kiểm tra lại');
             }
         }

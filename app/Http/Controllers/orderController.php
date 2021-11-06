@@ -399,7 +399,7 @@ class orderController extends Controller
         $chitiet['gia'] = $request->dongia * $request->soluong;
         DB::table('chitiet')
             ->where('id', $id)
-            ->where('trangthai',0)
+            ->where('trangthai', 0)
             ->update($chitiet);
 
         $chitiet2 = DB::table('chitiet')
@@ -580,7 +580,7 @@ class orderController extends Controller
             ->where('idhoadon', $id)
             ->get();
         foreach ($check as $rowcheck) {
-            if ($rowcheck->soluong != $rowcheck->thuchien) {
+            if ($rowcheck->thuchien != 0 && $rowcheck->soluong != $rowcheck->thuchien) {
                 return back()->withErrors('Có món chưa hoàn thành, cần kiểm tra lại');
             }
         }
