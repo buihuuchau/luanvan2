@@ -63,6 +63,11 @@
                         <a style="width:100px" class="btn btn-danger" href="{{ route('baohetnguyenlieu') }}">Báo hết
                             nguyên liệu</a>
                     </div>
+
+                    @if ($errors->any())
+                    <h3>{{ $errors->first() }}</h3>
+                    @endif
+
                     <div class="card">
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
@@ -104,8 +109,12 @@
 
                                         <td class="row">
                                             @if ($row->trangthai == 0)
-                                            <button class="btn btn-primary"><a href="{{ route('checkthuchien', ['id' => $row->id]) }}" style="color: black" onclick="return confirm('Bạn có chắc chắn')">Thực hiện
-                                                </a></button>
+                                            <form action="{{route('checkthuchien')}}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$row->id}}">
+                                                <input type="hidden" name="soluong" value="{{$row->soluong}}">
+                                                <button style="color: black" type="submit" class="btn btn-primary" onclick="return confirm('Bạn có chắc chắn')">Thực hiện</button>
+                                            </form>
                                             <button class="btn btn-danger"><a href="{{ route('baohuy', ['id' => $row->id]) }}" style="color: black" onclick="return confirm('Bạn có chắc chắn')">Báo hủy
                                                     !</a></button>
                                             @endif

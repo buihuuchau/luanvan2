@@ -37,7 +37,7 @@ class quanlychebienController extends Controller
 
         return view('chebien.quanlychebien', compact('thanhvien', 'chitiet'));
     }
-    public function checkthuchien($id)
+    public function checkthuchien(Request $request)
     {
         $ssidthanhvien = Session::get('ssidthanhvien');
 
@@ -47,9 +47,16 @@ class quanlychebienController extends Controller
             ->select('thanhvien.*', 'users.hinhquan', 'users.name')
             ->first();
 
+        $check = DB::table('chitiet')
+            ->where('id', $request->id)
+            ->first();
+        if ($check->soluong != $request->soluong) {
+            return back()->withErrors(['Có thay đổi về số lượng']);
+        }
+
         $chitiet['trangthai'] = 1;
         DB::table('chitiet')
-            ->where('id', $id)
+            ->where('id', $request->id)
             ->update($chitiet);
         return back();
     }
@@ -72,6 +79,7 @@ class quanlychebienController extends Controller
             $chitiet['phucvu'] = 1;
             DB::table('chitiet')
                 ->where('id', $request->id)
+                ->where('trangthai', 1)
                 ->update($chitiet);
             return back();
         } else {
@@ -81,6 +89,7 @@ class quanlychebienController extends Controller
                 $chitiet['phucvu'] = 1;
                 DB::table('chitiet')
                     ->where('id', $request->id)
+                    ->where('trangthai', 1)
                     ->update($chitiet);
                 return back();
             } else {
@@ -88,6 +97,7 @@ class quanlychebienController extends Controller
                 $chitiet['phucvu'] = 1;
                 DB::table('chitiet')
                     ->where('id', $request->id)
+                    ->where('trangthai', 1)
                     ->update($chitiet);
                 return back();
             }

@@ -381,6 +381,7 @@ class orderphoneController extends Controller
         $chitiet['trangthai'] = 2;
         DB::table('chitiet')
             ->where('id', $request->id)
+            ->where('trangthai', 1)
             ->update($chitiet);
         return back();
     }
@@ -399,6 +400,7 @@ class orderphoneController extends Controller
         $chitiet['gia'] = $request->dongia * $request->soluong;
         DB::table('chitiet')
             ->where('id', $id)
+            ->where('trangthai', 0)
             ->update($chitiet);
 
         $chitiet2 = DB::table('chitiet')

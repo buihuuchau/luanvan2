@@ -744,7 +744,7 @@ Route::prefix('/')->group(function () {
         'uses' => 'App\Http\Controllers\quanlychebienController@quanlychebien',
         'middleware' => (['Login', 'XemNguyenlieu'])
     ]);
-    Route::get('/checkthuchien/{id}', [
+    Route::post('/checkthuchien', [
         'as' => 'checkthuchien',
         'uses' => 'App\Http\Controllers\quanlychebienController@checkthuchien',
         'middleware' => (['Login', 'XemNguyenlieu'])
