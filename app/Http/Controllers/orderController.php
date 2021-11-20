@@ -31,6 +31,7 @@ class orderController extends Controller
         $khuvuc2 = DB::table('khuvuc')
             ->orderBy('tenkhuvuc')
             ->where('idquan', $thanhvien->idquan)
+            ->where('hidden', 0)
             ->first();
         $ban = DB::table('ban')
             ->orderBy('tenban')
