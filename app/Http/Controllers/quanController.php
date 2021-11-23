@@ -74,6 +74,16 @@ class quanController extends Controller
     public function suathongtinquan(Request $request){
         $ssidquan = auth()->user()->id;
         $quan['name'] = $request->name;
+        $hinhquan = $request->hinhquan;
+        request()->validate(
+            [
+                'hinhquan' => 'image|mimes:jpeg,png,jpg|max:4096',
+            ],
+            [
+                'hinhquan.image' => 'Hình ảnh phải có dạng jpg,jpeg,png',
+                'hinhquan.max' => 'Hình ảnh phải có độ phân giải dưới 4 mb',
+            ]
+        );
         if($request->file('hinhquan')!= null){
             $hinhquan = $request->file('hinhquan')->store('public/hinhanh');
             $linkhinhquan = 'storage'.substr($hinhquan, 6);

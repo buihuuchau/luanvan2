@@ -86,6 +86,9 @@
 						<div class="panel-heading">
 							<h2 class="text-center">Thông tin chi tiết</h2>
 						</div>
+						@if($errors->any())
+						<h3 style="color:red">{{$errors->first()}}</h3>
+						@endif
 						<div class="panel-body">
 							<form action="{{ route('suathongtinquan')}}" method="post" enctype="multipart/form-data">
 								{{csrf_field()}}
