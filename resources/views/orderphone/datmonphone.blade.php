@@ -428,7 +428,7 @@
     </script>
     <!-- my script -->
 
-    <body onload="JavaScript:AutoRefresh(180000);"></body>
+    <body onload="JavaScript:AutoRefresh(45000);"></body>
 
 </body>
 

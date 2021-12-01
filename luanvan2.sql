@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th10 03, 2021 lúc 10:31 AM
--- Phiên bản máy phục vụ: 5.7.24
--- Phiên bản PHP: 7.3.2
+-- Host: localhost:3306
+-- Generation Time: Dec 01, 2021 at 10:13 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,32 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `luanvan2`
+-- Database: `luanvan2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `ban`
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` bigint(20) NOT NULL,
+  `acc` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `acc`, `pass`) VALUES
+(1, 'admin', 'af764227394c645a864f77e7b103ded2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ban`
 --
 
 CREATE TABLE `ban` (
@@ -37,7 +56,7 @@ CREATE TABLE `ban` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `ban`
+-- Dumping data for table `ban`
 --
 
 INSERT INTO `ban` (`id`, `idquan`, `idkhuvuc`, `tenban`, `trangthai`, `hidden`) VALUES
@@ -69,7 +88,7 @@ INSERT INTO `ban` (`id`, `idquan`, `idkhuvuc`, `tenban`, `trangthai`, `hidden`) 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `calam`
+-- Table structure for table `calam`
 --
 
 CREATE TABLE `calam` (
@@ -82,7 +101,7 @@ CREATE TABLE `calam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `calam`
+-- Dumping data for table `calam`
 --
 
 INSERT INTO `calam` (`id`, `idquan`, `tencalam`, `tu`, `den`, `hidden`) VALUES
@@ -94,7 +113,7 @@ INSERT INTO `calam` (`id`, `idquan`, `tencalam`, `tu`, `den`, `hidden`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chitiet`
+-- Table structure for table `chitiet`
 --
 
 CREATE TABLE `chitiet` (
@@ -112,7 +131,7 @@ CREATE TABLE `chitiet` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `giamgia`
+-- Table structure for table `giamgia`
 --
 
 CREATE TABLE `giamgia` (
@@ -123,7 +142,7 @@ CREATE TABLE `giamgia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `giamgia`
+-- Dumping data for table `giamgia`
 --
 
 INSERT INTO `giamgia` (`id`, `idquan`, `hoadontodiem`, `diemtohoadon`) VALUES
@@ -132,7 +151,7 @@ INSERT INTO `giamgia` (`id`, `idquan`, `hoadontodiem`, `diemtohoadon`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hoadon`
+-- Table structure for table `hoadon`
 --
 
 CREATE TABLE `hoadon` (
@@ -151,7 +170,7 @@ CREATE TABLE `hoadon` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hoadonluu`
+-- Table structure for table `hoadonluu`
 --
 
 CREATE TABLE `hoadonluu` (
@@ -175,7 +194,7 @@ CREATE TABLE `hoadonluu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `hoadonluu`
+-- Dumping data for table `hoadonluu`
 --
 
 INSERT INTO `hoadonluu` (`id`, `idquan`, `idhoadon`, `thoigian`, `tenkhuvuc`, `tenban`, `tenthanhvien`, `tenkhachhang`, `sdtkh`, `loaimon`, `tenmon`, `dongia`, `soluong`, `gia`, `giamgia`, `thanhtien`, `ghichu`) VALUES
@@ -267,7 +286,7 @@ INSERT INTO `hoadonluu` (`id`, `idquan`, `idhoadon`, `thoigian`, `tenkhuvuc`, `t
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `khachhang`
+-- Table structure for table `khachhang`
 --
 
 CREATE TABLE `khachhang` (
@@ -280,7 +299,7 @@ CREATE TABLE `khachhang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `khachhang`
+-- Dumping data for table `khachhang`
 --
 
 INSERT INTO `khachhang` (`id`, `idquan`, `hotenkh`, `sdt`, `ngaydangky`, `diem`) VALUES
@@ -291,7 +310,7 @@ INSERT INTO `khachhang` (`id`, `idquan`, `hotenkh`, `sdt`, `ngaydangky`, `diem`)
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `kho`
+-- Table structure for table `kho`
 --
 
 CREATE TABLE `kho` (
@@ -307,7 +326,7 @@ CREATE TABLE `kho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `kho`
+-- Dumping data for table `kho`
 --
 
 INSERT INTO `kho` (`id`, `idquan`, `idnguyenlieu`, `dongia`, `soluong`, `thanhtien`, `ngaynhap`, `ngayhet`, `trangthai`) VALUES
@@ -324,7 +343,7 @@ INSERT INTO `kho` (`id`, `idquan`, `idnguyenlieu`, `dongia`, `soluong`, `thanhti
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `khuvuc`
+-- Table structure for table `khuvuc`
 --
 
 CREATE TABLE `khuvuc` (
@@ -335,7 +354,7 @@ CREATE TABLE `khuvuc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `khuvuc`
+-- Dumping data for table `khuvuc`
 --
 
 INSERT INTO `khuvuc` (`id`, `idquan`, `tenkhuvuc`, `hidden`) VALUES
@@ -348,7 +367,7 @@ INSERT INTO `khuvuc` (`id`, `idquan`, `tenkhuvuc`, `hidden`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `lichlamviec`
+-- Table structure for table `lichlamviec`
 --
 
 CREATE TABLE `lichlamviec` (
@@ -362,7 +381,7 @@ CREATE TABLE `lichlamviec` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `lichlamviec`
+-- Dumping data for table `lichlamviec`
 --
 
 INSERT INTO `lichlamviec` (`id`, `idquan`, `idcalam`, `idkhuvuc`, `idthanhvien`, `thoigian`, `diemdanh`) VALUES
@@ -426,7 +445,7 @@ INSERT INTO `lichlamviec` (`id`, `idquan`, `idcalam`, `idkhuvuc`, `idthanhvien`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `luong`
+-- Table structure for table `luong`
 --
 
 CREATE TABLE `luong` (
@@ -438,7 +457,7 @@ CREATE TABLE `luong` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `luong`
+-- Dumping data for table `luong`
 --
 
 INSERT INTO `luong` (`id`, `idquan`, `idthanhvien`, `mucluong`, `tu`) VALUES
@@ -460,7 +479,7 @@ INSERT INTO `luong` (`id`, `idquan`, `idthanhvien`, `mucluong`, `tu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -470,7 +489,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -497,7 +516,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `nguyenlieu`
+-- Table structure for table `nguyenlieu`
 --
 
 CREATE TABLE `nguyenlieu` (
@@ -510,7 +529,7 @@ CREATE TABLE `nguyenlieu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `nguyenlieu`
+-- Dumping data for table `nguyenlieu`
 --
 
 INSERT INTO `nguyenlieu` (`id`, `idquan`, `tennguyenlieu`, `xuatxu`, `donvitinh`, `hidden`) VALUES
@@ -525,7 +544,7 @@ INSERT INTO `nguyenlieu` (`id`, `idquan`, `tennguyenlieu`, `xuatxu`, `donvitinh`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -537,7 +556,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `quyen`
+-- Table structure for table `quyen`
 --
 
 CREATE TABLE `quyen` (
@@ -546,7 +565,7 @@ CREATE TABLE `quyen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `quyen`
+-- Dumping data for table `quyen`
 --
 
 INSERT INTO `quyen` (`id`, `tenquyen`) VALUES
@@ -594,7 +613,7 @@ INSERT INTO `quyen` (`id`, `tenquyen`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `thanhvien`
+-- Table structure for table `thanhvien`
 --
 
 CREATE TABLE `thanhvien` (
@@ -615,7 +634,7 @@ CREATE TABLE `thanhvien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `thanhvien`
+-- Dumping data for table `thanhvien`
 --
 
 INSERT INTO `thanhvien` (`id`, `idquan`, `acc`, `pwd`, `hoten`, `hinhtv`, `namsinh`, `sex`, `diachi`, `sdt`, `ngayvaolam`, `luong`, `idvaitro`, `hidden`) VALUES
@@ -627,7 +646,7 @@ INSERT INTO `thanhvien` (`id`, `idquan`, `acc`, `pwd`, `hoten`, `hinhtv`, `namsi
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `thucdon`
+-- Table structure for table `thucdon`
 --
 
 CREATE TABLE `thucdon` (
@@ -642,7 +661,7 @@ CREATE TABLE `thucdon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `thucdon`
+-- Dumping data for table `thucdon`
 --
 
 INSERT INTO `thucdon` (`id`, `idquan`, `loaimon`, `tenmon`, `dongia`, `hinhmon`, `mota`, `hidden`) VALUES
@@ -680,7 +699,7 @@ INSERT INTO `thucdon` (`id`, `idquan`, `loaimon`, `tenmon`, `dongia`, `hinhmon`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -700,7 +719,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `hinhquan`, `diachiquan`, `website`, `sdtquan`, `ngaythanhlap`, `created_at`, `updated_at`) VALUES
@@ -709,7 +728,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `vaitro`
+-- Table structure for table `vaitro`
 --
 
 CREATE TABLE `vaitro` (
@@ -719,7 +738,7 @@ CREATE TABLE `vaitro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `vaitro`
+-- Dumping data for table `vaitro`
 --
 
 INSERT INTO `vaitro` (`id`, `idquan`, `tenvaitro`) VALUES
@@ -731,7 +750,7 @@ INSERT INTO `vaitro` (`id`, `idquan`, `tenvaitro`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `vaitro_quyen`
+-- Table structure for table `vaitro_quyen`
 --
 
 CREATE TABLE `vaitro_quyen` (
@@ -741,7 +760,7 @@ CREATE TABLE `vaitro_quyen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `vaitro_quyen`
+-- Dumping data for table `vaitro_quyen`
 --
 
 INSERT INTO `vaitro_quyen` (`id`, `idvaitro`, `idquyen`) VALUES
@@ -832,11 +851,17 @@ INSERT INTO `vaitro_quyen` (`id`, `idvaitro`, `idquyen`) VALUES
 (125, 1, 40);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `ban`
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ban`
 --
 ALTER TABLE `ban`
   ADD PRIMARY KEY (`id`),
@@ -844,14 +869,14 @@ ALTER TABLE `ban`
   ADD KEY `banfkkhuvuc` (`idkhuvuc`);
 
 --
--- Chỉ mục cho bảng `calam`
+-- Indexes for table `calam`
 --
 ALTER TABLE `calam`
   ADD PRIMARY KEY (`id`),
   ADD KEY `calamfkquan` (`idquan`);
 
 --
--- Chỉ mục cho bảng `chitiet`
+-- Indexes for table `chitiet`
 --
 ALTER TABLE `chitiet`
   ADD PRIMARY KEY (`id`),
@@ -859,14 +884,14 @@ ALTER TABLE `chitiet`
   ADD KEY `chitietfkmon` (`idthucdon`);
 
 --
--- Chỉ mục cho bảng `giamgia`
+-- Indexes for table `giamgia`
 --
 ALTER TABLE `giamgia`
   ADD PRIMARY KEY (`id`),
   ADD KEY `giamgiafkquan` (`idquan`);
 
 --
--- Chỉ mục cho bảng `hoadon`
+-- Indexes for table `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`id`),
@@ -877,20 +902,20 @@ ALTER TABLE `hoadon`
   ADD KEY `hoadonfkkhachhang` (`idkhachhang`);
 
 --
--- Chỉ mục cho bảng `hoadonluu`
+-- Indexes for table `hoadonluu`
 --
 ALTER TABLE `hoadonluu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `khachhang`
+-- Indexes for table `khachhang`
 --
 ALTER TABLE `khachhang`
   ADD PRIMARY KEY (`id`),
   ADD KEY `khachhangfkquan` (`idquan`);
 
 --
--- Chỉ mục cho bảng `kho`
+-- Indexes for table `kho`
 --
 ALTER TABLE `kho`
   ADD PRIMARY KEY (`id`),
@@ -898,14 +923,14 @@ ALTER TABLE `kho`
   ADD KEY `khofknguyenlieu` (`idnguyenlieu`);
 
 --
--- Chỉ mục cho bảng `khuvuc`
+-- Indexes for table `khuvuc`
 --
 ALTER TABLE `khuvuc`
   ADD PRIMARY KEY (`id`),
   ADD KEY `khuvucfkquan` (`idquan`);
 
 --
--- Chỉ mục cho bảng `lichlamviec`
+-- Indexes for table `lichlamviec`
 --
 ALTER TABLE `lichlamviec`
   ADD PRIMARY KEY (`id`),
@@ -915,7 +940,7 @@ ALTER TABLE `lichlamviec`
   ADD KEY `lichlamviecfkthanhvien` (`idthanhvien`);
 
 --
--- Chỉ mục cho bảng `luong`
+-- Indexes for table `luong`
 --
 ALTER TABLE `luong`
   ADD PRIMARY KEY (`id`),
@@ -923,32 +948,32 @@ ALTER TABLE `luong`
   ADD KEY `luongfkquan` (`idquan`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `nguyenlieu`
+-- Indexes for table `nguyenlieu`
 --
 ALTER TABLE `nguyenlieu`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nguyenlieufkquan` (`idquan`);
 
 --
--- Chỉ mục cho bảng `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Chỉ mục cho bảng `quyen`
+-- Indexes for table `quyen`
 --
 ALTER TABLE `quyen`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `thanhvien`
+-- Indexes for table `thanhvien`
 --
 ALTER TABLE `thanhvien`
   ADD PRIMARY KEY (`id`),
@@ -956,28 +981,28 @@ ALTER TABLE `thanhvien`
   ADD KEY `thanhvienfkvaitro` (`idvaitro`);
 
 --
--- Chỉ mục cho bảng `thucdon`
+-- Indexes for table `thucdon`
 --
 ALTER TABLE `thucdon`
   ADD PRIMARY KEY (`id`),
   ADD KEY `thucdonfkquan` (`idquan`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Chỉ mục cho bảng `vaitro`
+-- Indexes for table `vaitro`
 --
 ALTER TABLE `vaitro`
   ADD PRIMARY KEY (`id`),
   ADD KEY `va` (`idquan`);
 
 --
--- Chỉ mục cho bảng `vaitro_quyen`
+-- Indexes for table `vaitro_quyen`
 --
 ALTER TABLE `vaitro_quyen`
   ADD PRIMARY KEY (`id`),
@@ -985,155 +1010,161 @@ ALTER TABLE `vaitro_quyen`
   ADD KEY `fkquyen` (`idquyen`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `ban`
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ban`
 --
 ALTER TABLE `ban`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT cho bảng `calam`
+-- AUTO_INCREMENT for table `calam`
 --
 ALTER TABLE `calam`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `chitiet`
+-- AUTO_INCREMENT for table `chitiet`
 --
 ALTER TABLE `chitiet`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT cho bảng `giamgia`
+-- AUTO_INCREMENT for table `giamgia`
 --
 ALTER TABLE `giamgia`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `hoadon`
+-- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT cho bảng `hoadonluu`
+-- AUTO_INCREMENT for table `hoadonluu`
 --
 ALTER TABLE `hoadonluu`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
 
 --
--- AUTO_INCREMENT cho bảng `khachhang`
+-- AUTO_INCREMENT for table `khachhang`
 --
 ALTER TABLE `khachhang`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT cho bảng `kho`
+-- AUTO_INCREMENT for table `kho`
 --
 ALTER TABLE `kho`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT cho bảng `khuvuc`
+-- AUTO_INCREMENT for table `khuvuc`
 --
 ALTER TABLE `khuvuc`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `lichlamviec`
+-- AUTO_INCREMENT for table `lichlamviec`
 --
 ALTER TABLE `lichlamviec`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
--- AUTO_INCREMENT cho bảng `luong`
+-- AUTO_INCREMENT for table `luong`
 --
 ALTER TABLE `luong`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT cho bảng `nguyenlieu`
+-- AUTO_INCREMENT for table `nguyenlieu`
 --
 ALTER TABLE `nguyenlieu`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT cho bảng `quyen`
+-- AUTO_INCREMENT for table `quyen`
 --
 ALTER TABLE `quyen`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT cho bảng `thanhvien`
+-- AUTO_INCREMENT for table `thanhvien`
 --
 ALTER TABLE `thanhvien`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `thucdon`
+-- AUTO_INCREMENT for table `thucdon`
 --
 ALTER TABLE `thucdon`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `vaitro`
+-- AUTO_INCREMENT for table `vaitro`
 --
 ALTER TABLE `vaitro`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT cho bảng `vaitro_quyen`
+-- AUTO_INCREMENT for table `vaitro_quyen`
 --
 ALTER TABLE `vaitro_quyen`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `ban`
+-- Constraints for table `ban`
 --
 ALTER TABLE `ban`
   ADD CONSTRAINT `banfkkhuvuc` FOREIGN KEY (`idkhuvuc`) REFERENCES `khuvuc` (`id`),
   ADD CONSTRAINT `banfkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `calam`
+-- Constraints for table `calam`
 --
 ALTER TABLE `calam`
   ADD CONSTRAINT `calamfkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `chitiet`
+-- Constraints for table `chitiet`
 --
 ALTER TABLE `chitiet`
   ADD CONSTRAINT `chitietfkhoadon` FOREIGN KEY (`idhoadon`) REFERENCES `hoadon` (`id`),
   ADD CONSTRAINT `chitietfkthucdon` FOREIGN KEY (`idthucdon`) REFERENCES `thucdon` (`id`);
 
 --
--- Các ràng buộc cho bảng `giamgia`
+-- Constraints for table `giamgia`
 --
 ALTER TABLE `giamgia`
   ADD CONSTRAINT `giamgiafkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `hoadon`
+-- Constraints for table `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD CONSTRAINT `hoadonfkban` FOREIGN KEY (`idban`) REFERENCES `ban` (`id`),
@@ -1143,26 +1174,26 @@ ALTER TABLE `hoadon`
   ADD CONSTRAINT `hoadonfkthanhvien` FOREIGN KEY (`idthanhvien`) REFERENCES `thanhvien` (`id`);
 
 --
--- Các ràng buộc cho bảng `khachhang`
+-- Constraints for table `khachhang`
 --
 ALTER TABLE `khachhang`
   ADD CONSTRAINT `khachhangfkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `kho`
+-- Constraints for table `kho`
 --
 ALTER TABLE `kho`
   ADD CONSTRAINT `khofknguyenlieu` FOREIGN KEY (`idnguyenlieu`) REFERENCES `nguyenlieu` (`id`) ON UPDATE NO ACTION,
   ADD CONSTRAINT `khofkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `khuvuc`
+-- Constraints for table `khuvuc`
 --
 ALTER TABLE `khuvuc`
   ADD CONSTRAINT `khuvucfkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `lichlamviec`
+-- Constraints for table `lichlamviec`
 --
 ALTER TABLE `lichlamviec`
   ADD CONSTRAINT `lichlamviecfkcalam` FOREIGN KEY (`idcalam`) REFERENCES `calam` (`id`),
@@ -1171,39 +1202,39 @@ ALTER TABLE `lichlamviec`
   ADD CONSTRAINT `lichlamviecfkthanhvien` FOREIGN KEY (`idthanhvien`) REFERENCES `thanhvien` (`id`);
 
 --
--- Các ràng buộc cho bảng `luong`
+-- Constraints for table `luong`
 --
 ALTER TABLE `luong`
   ADD CONSTRAINT `luongfkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `luongfkthanhvien` FOREIGN KEY (`idthanhvien`) REFERENCES `thanhvien` (`id`);
 
 --
--- Các ràng buộc cho bảng `nguyenlieu`
+-- Constraints for table `nguyenlieu`
 --
 ALTER TABLE `nguyenlieu`
   ADD CONSTRAINT `nguyenlieufkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `thanhvien`
+-- Constraints for table `thanhvien`
 --
 ALTER TABLE `thanhvien`
   ADD CONSTRAINT `thanhvienfkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `thanhvienfkvaitro` FOREIGN KEY (`idvaitro`) REFERENCES `vaitro` (`id`);
 
 --
--- Các ràng buộc cho bảng `thucdon`
+-- Constraints for table `thucdon`
 --
 ALTER TABLE `thucdon`
   ADD CONSTRAINT `thucdonfkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `vaitro`
+-- Constraints for table `vaitro`
 --
 ALTER TABLE `vaitro`
   ADD CONSTRAINT `vaitrofkquan` FOREIGN KEY (`idquan`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `vaitro_quyen`
+-- Constraints for table `vaitro_quyen`
 --
 ALTER TABLE `vaitro_quyen`
   ADD CONSTRAINT `fkquyen` FOREIGN KEY (`idquyen`) REFERENCES `quyen` (`id`),

@@ -223,12 +223,12 @@
 <!-- /.content-wrapper -->
 <html>
 
-<body onload="JavaScript:AutoRefresh(180000);"></body>
+<body onload="JavaScript:AutoRefresh(45000);"></body>
 
 </html>
 @endsection
 {{-- <html>
 
-<body onload="JavaScript:AutoRefresh(180000);"></body>
+<body onload="JavaScript:AutoRefresh(45000);"></body>
 
 </html> --}}

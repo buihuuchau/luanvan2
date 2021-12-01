@@ -43,6 +43,39 @@ require __DIR__ . '/auth.php';
 // })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 // XAC THUC EMAIL
 
+// ADMIN
+Route::prefix('/')->group(function () {
+    Route::get('/adminlogin', [
+        'as' => 'adminlogin',
+        'uses' => 'App\Http\Controllers\adminController@adminlogin'
+    ]);
+    Route::post('/admindologin', [
+        'as' => 'admindologin',
+        'uses' => 'App\Http\Controllers\adminController@admindologin'
+    ]);
+    Route::get('/admindangxuat', [
+        'as' => 'admindangxuat',
+        'uses' => 'App\Http\Controllers\adminController@admindangxuat'
+    ]);
+    Route::get('/adminview', [
+        'as' => 'adminview',
+        'uses' => 'App\Http\Controllers\adminController@adminview'
+    ]);
+    Route::post('/adminkichhoat', [
+        'as' => 'adminkichhoat',
+        'uses' => 'App\Http\Controllers\adminController@adminkichhoat'
+    ]);
+    Route::post('/adminvohieuhoa', [
+        'as' => 'adminvohieuhoa',
+        'uses' => 'App\Http\Controllers\adminController@adminvohieuhoa'
+    ]);
+    Route::post('/admindelete', [
+        'as' => 'admindelete',
+        'uses' => 'App\Http\Controllers\adminController@admindelete'
+    ]);
+});
+// ADMIN
+
 // QUAN LY QUAN
 Route::prefix('/')->group(function () {
     Route::get('/dangnhapquan', function () {

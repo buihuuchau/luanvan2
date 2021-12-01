@@ -124,12 +124,12 @@
 
 <html>
 
-<body onload="JavaScript:AutoRefresh(30000);"></body>
+<body onload="JavaScript:AutoRefresh(150000);"></body>
 
 </html>
 @endsection
 {{-- <html>
 
-<body onload="JavaScript:AutoRefresh(30000);"></body>
+<body onload="JavaScript:AutoRefresh(150000);"></body>
 
 </html> --}}

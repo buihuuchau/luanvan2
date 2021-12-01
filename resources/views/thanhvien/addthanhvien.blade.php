@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Thêm thành viên</title>
 	<!-- Latest compiled and minified CSS -->
@@ -14,6 +15,7 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 	<div class="container">
 		<div class="panel panel-primary">
@@ -24,84 +26,91 @@
 				<form action="{{ route('doaddthanhvien')}}" method="post" enctype="multipart/form-data">
 					{{csrf_field()}}
 					@if($errors->any())
-						<h3>{{$errors->first()}}</h3>
+					<h3>{{$errors->first()}}</h3>
 					@endif
 					<div class="form-group">
-					<label>Tài khoản thành viên:</label>
-					<input required="true" type="text" class="form-control" name="acc" value="{{ old('acc') }}">
+						<label>Tài khoản thành viên:</label>
+						<input required="true" type="text" class="form-control" name="acc" value="{{ old('acc') }}">
 					</div>
 
 					<div class="form-group">
-					<label>Mật khẩu thành viên:</label>
-					<input type="password" class="form-control" placeholder="mật khẩu phải chứa 8 ký tự trở lên có ít nhất một số và một chữ hoa và chữ thường"
-						id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="pwd" required >
+						<label>Mật khẩu thành viên:</label>
+						<input type="password" class="form-control" placeholder="mật khẩu phải chứa 8 ký tự trở lên có ít nhất một số và một chữ hoa và chữ thường" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="pwd" required>
 					</div>
 
 					<div class="form-group">
-					<label>Nhập lại mật khẩu thành viên:</label>
-					<input type="password" class="form-control" id="confirm_password" name="rpwd" required >
+						<label>Nhập lại mật khẩu thành viên:</label>
+						<input type="password" class="form-control" id="confirm_password" name="rpwd" required>
 					</div>
 
 					<div class="form-group">
-					<label>Họ tên thành viên:</label>
-					<input required="true" type="text" class="form-control" name="hoten" value="{{ old('hoten') }}">
+						<label>Họ tên thành viên:</label>
+						<input required="true" type="text" class="form-control" name="hoten" value="{{ old('hoten') }}">
 					</div>
 
 					<div class="form-group">
-					<label>Hình ảnh thành viên:</label>
-					<input required="true" type="file" class="form-control" name="hinhtv" value="{{ old('hinhtv') }}">
-					</div>
-
-                    <div class="form-group">
-                    <label>Năm sinh:</label>
-                    <input required="true" type="date" class="form-control" name="namsinh" value="{{ old('namsinh') }}">
-                    </div>
-
-                    <div class="form-group">
-                    <label>Giới tính:</label>
-                    <div class="form-check">
-                    <input class="form-check-input" type="radio" name="sex" id="nam" value="0" checked>
-                    <label class="form-check-label" for="nam">
-                        Nam
-                    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="form-check-input" type="radio" name="sex" id="nu" value="1">
-                    <label class="form-check-label" for="nu">
-                        Nữ
-                    </label>
-                    </div>
-                    </div>
-
-					<div class="form-group">
-					<label>Địa chỉ thành viên:</label>
-					<input required="true" type="text" class="form-control" name="diachi" value="{{ old('diachi') }}">
+						<label>Hình ảnh thành viên:</label>
+						<input required="true" type="file" class="form-control" name="hinhtv" value="{{ old('hinhtv') }}">
 					</div>
 
 					<div class="form-group">
-					<label>Số điện thoại:</label>
-					<input required="true" type="tel" class="form-control" name="sdt" placeholder="0123456789" pattern="[0-9]{10}" value="{{ old('sdt') }}">
+						<label>Năm sinh:</label>
+						<input required="true" type="date" class="form-control" name="namsinh" value="{{ old('namsinh') }}">
 					</div>
 
 					<div class="form-group">
-					<label>Ngày vào làm:</label>
-					<input required="true" type="date" class="form-control" name="ngayvaolam" value="{{ old('ngayvaolam') }}">
+						<label>Giới tính:</label>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="sex" id="nam" value="0" checked>
+							<label class="form-check-label" for="nam">
+								Nam
+							</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="form-check-input" type="radio" name="sex" id="nu" value="1">
+							<label class="form-check-label" for="nu">
+								Nữ
+							</label>
+						</div>
 					</div>
 
-                    <div class="form-group">
-					<label>Lương/Buổi:</label>
-					<input required="true" type="number" class="form-control" name="luong" value="{{ old('luong') }}" min="0">
+					<div class="form-group">
+						<label>Địa chỉ thành viên:</label>
+						<input required="true" type="text" class="form-control" name="diachi" value="{{ old('diachi') }}">
 					</div>
 
-                    <div class="form-group">
-                    <label>Chọn vai trò:</label><br>
-                    <select class="form-control"  name="idvaitro" id="idvaitro">
-                    @foreach ($vaitro as $key => $row)
-                        <option value="{{$row->id}}" checked>{{$row->tenvaitro}}</option>
-                    @endforeach
-                    </select>
-                    </div>
+					<div class="form-group">
+						<label>Số điện thoại:</label>
+						<input required="true" type="tel" class="form-control" name="sdt" placeholder="0123456789" pattern="[0-9]{10}" value="{{ old('sdt') }}">
+					</div>
+
+					<div class="form-group">
+						<label>Ngày vào làm:</label>
+						<input required="true" type="date" class="form-control" name="ngayvaolam" value="{{ old('ngayvaolam') }}">
+					</div>
+
+					<div class="form-group">
+						<label>Lương/Buổi:</label>
+						<!-- <input required="true" type="number" class="form-control" name="luong" value="{{ old('luong') }}" min="0"> -->
+						<input required="true" type="number" class="form-control" name="luong" value="{{ old('luong') }}" min="0" list="luong" />
+						<datalist id="luong">
+							<option class="form-control" value="100000">100.000</option>
+							<option class="form-control" value="150000">150.000</option>
+							<option class="form-control" value="200000">200.000</option>
+							<option class="form-control" value="250000">250.000</option>
+							<option class="form-control" value="300000">300.000</option>
+						</datalist>
+					</div>
+
+					<div class="form-group">
+						<label>Chọn vai trò:</label><br>
+						<select class="form-control" name="idvaitro" id="idvaitro">
+							@foreach ($vaitro as $key => $row)
+							<option value="{{$row->id}}" checked>{{$row->tenvaitro}}</option>
+							@endforeach
+						</select>
+					</div>
 
 					<div class="col text-center">
-					<button class="btn btn-danger">Đăng ký thành viên</button>
+						<button class="btn btn-danger">Đăng ký thành viên</button>
 					</div>
 				</form>
 			</div>
@@ -111,13 +120,12 @@
 
 <script>
 	var password = document.getElementById("password"),
-	confirm_password = document.getElementById("confirm_password");
+		confirm_password = document.getElementById("confirm_password");
 
-	function validatePassword(){
-		if(password.value != confirm_password.value) {
+	function validatePassword() {
+		if (password.value != confirm_password.value) {
 			confirm_password.setCustomValidity("2 mật khẩu khâc nhau");
-		}
-		else {
+		} else {
 			confirm_password.setCustomValidity('');
 		}
 	}
