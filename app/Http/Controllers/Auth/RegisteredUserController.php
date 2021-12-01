@@ -62,10 +62,12 @@ class RegisteredUserController extends Controller
             'ngaythanhlap' => $request->ngaythanhlap,
         ]);
 
-        event(new Registered($user));
+        // event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        // return redirect(RouteServiceProvider::HOME);
+
+        return redirect('login');
     }
 }
