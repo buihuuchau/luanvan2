@@ -50,6 +50,9 @@ class quanlychebienController extends Controller
         $check = DB::table('chitiet')
             ->where('id', $request->id)
             ->first();
+        if (!$check) {
+            return back()->withErrors(['Khách hàng đã hủy món này']);
+        }
         if ($check->soluong != $request->soluong) {
             return back()->withErrors(['Có thay đổi về số lượng']);
         }
