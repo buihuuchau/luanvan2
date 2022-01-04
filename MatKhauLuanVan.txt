@@ -1,0 +1,12 @@
+http://luanvan2.test/public/adminlogin
+	admin
+	@LUANVANchau2021
+http://luanvan2.test/public/login
+	buihuuchau99@gmail.com
+	@LUANVANchau2021
+http://luanvan2.test/public/
+	quan1_chuquan
+	quan1_quanly
+	quan1_phucvu
+	quan1_phache
+	@LUANVANchau2021
